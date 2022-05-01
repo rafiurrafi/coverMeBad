@@ -4,7 +4,7 @@ import Auth from "./routes/auth/auth.component";
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={Auth} />
+      <Route path="/" element={<Auth />} />
     </Routes>
   );
 };
