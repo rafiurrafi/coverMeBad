@@ -1,8 +1,13 @@
+import Header from "../../components/header/header.component";
+import Navbar from "../../components/navbar/navbar.component";
+import Player from "../../components/player/player.component";
 import "./home.style.scss";
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Header />
+      <Navbar />
+      <Player />
     </div>
   );
 };
