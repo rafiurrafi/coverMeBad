@@ -2,17 +2,39 @@
   position: fixed;
   z-index: 3;
   width: 40%;
-  background-color: #333;
+  background-color: rgb(24, 22, 22);
   height: 100vh;
+  h1 {
+    color: white;
+    margin-left: 2rem;
+    margin-top: 2rem;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: rgb(186, 186, 186);
+    padding-left: 2rem;
+    transition: 0.3s;
+    &:hover {
+      color: white;
+      font-weight: 400;
+    }
+  }
   &-menu {
     a {
-      display: block;
-      text-decoration: none;
-      color: rgb(186, 186, 186);
-      transition: 0.3s;
-      &:hover {
-        color: white;
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 0.7rem;
+        font-size: 2rem;
+      }
+
+      &:last-child {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #636161;
       }
     }
+  }
+  &-playlist {
   }
 }
