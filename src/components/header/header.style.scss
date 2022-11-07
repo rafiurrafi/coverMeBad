@@ -1,9 +1,15 @@
+@import "../../variables";
 .header {
   position: fixed;
-  width: 100%;
   z-index: 2;
-  background-color: orangered;
-  h1 {
-    margin-left: 25%;
+  margin-left: $left-margin;
+  width: calc(100% - $left-margin);
+  background-color: rgb(24, 22, 22);
+  text-align: right;
+  padding: 1rem 0;
+  .btn {
+    &:first-of-type {
+      margin-right: 2rem;
+    }
   }
 }

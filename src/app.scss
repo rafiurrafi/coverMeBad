@@ -12,6 +12,8 @@ body {
   font-weight: 400;
   text-rendering: optimizeLegibility;
 }
+$color-primary: #f40009;
+$color-secondary: "#";
 .mb-s {
   margin-bottom: 1rem;
 }
@@ -24,4 +26,23 @@ body {
 
 .mb-xl {
   margin-bottom: 4rem;
+}
+.btn {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border: 1px solid transparent;
+  display: inline-block;
+  border-radius: 2rem;
+  &--ghost {
+    border: 1px solid;
+  }
+  &--full {
+    background-color: white;
+    // background-color: $color-primary;
+    // border: 1px solid $color-primary;
+    border: 1px solid white;
+    color: black;
+  }
 }
