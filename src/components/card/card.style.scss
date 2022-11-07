@@ -1,0 +1,22 @@
+.card {
+  background-color: #181818;
+  padding: 1.6rem;
+  border-radius: 1.5rem;
+  color: white;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #242424;
+  }
+  img {
+    height: 16rem;
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+  h3 {
+    margin: 1rem 0;
+  }
+  p {
+    font-size: 90%;
+  }
+}
