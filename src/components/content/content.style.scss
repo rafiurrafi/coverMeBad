@@ -1,0 +1,11 @@
+@import "../../variables";
+.content {
+  min-height: 100vh;
+  margin-left: $left-margin;
+  width: calc(100% - $left-margin);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(#1e1e1e, 1),
+    rgba(#121212, 1)
+  );
+}
