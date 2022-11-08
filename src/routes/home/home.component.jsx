@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Cards from "../../components/card/cards/cards.component";
+import Cards from "../../components/cards/cards.component";
 import Content from "../../components/content/content.component";
 import Header from "../../components/header/header.component";
 import HomeFooter from "../../components/home-footer/home-footer.component";

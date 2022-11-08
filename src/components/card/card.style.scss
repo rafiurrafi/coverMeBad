@@ -1,4 +1,6 @@
+@import "../../variables";
 .card {
+  position: relative;
   background-color: #181818;
   padding: 1.6rem;
   border-radius: 1.5rem;
@@ -6,6 +8,11 @@
   transition: background-color 0.3s;
   &:hover {
     background-color: #242424;
+  }
+  &:hover &-btn {
+    // animation-name: moveInTop;
+    // animation-duration: 0.4s;
+    opacity: 1;
   }
   img {
     height: 16rem;
@@ -19,4 +26,35 @@
   p {
     font-size: 90%;
   }
+  &-btn {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    background-color: $color-primary;
+    border: none;
+    height: 4.5rem;
+    width: 4.5rem;
+    font-size: 3.5rem;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -0.5rem;
+    transition: 0.5s;
+    opacity: 0;
+    svg {
+      margin-right: -0.35rem;
+    }
+  }
 }
+
+// @keyframes moveInTop {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }

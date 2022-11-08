@@ -1,4 +1,4 @@
-import Card from "../card.component";
+import Card from "../card/card.component";
 import "./cards.style.scss";
 const Cards = ({ albums }) => {
   return (
