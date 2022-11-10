@@ -2,29 +2,30 @@ import "./navbar.style.scss";
 import { FaHome, FaSearch } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import { BsSuitHeartFill, BsFillPlusCircleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar">
       <h1 className="mb-xl">Logo</h1>
       <div className="navbar-menu">
-        <a href="" className="mb-m">
+        <Link to="/" className="mb-m">
           <FaHome /> Home
-        </a>
-        <a href="" className="mb-m">
+        </Link>
+        <Link to="/search" className="mb-m">
           <FaSearch /> Search
-        </a>
-        <a href="" className="mb-xl">
+        </Link>
+        <Link to="/" className="mb-xl">
           <BiLibrary /> Your Library
-        </a>
-        <a href="" className="mb-m">
+        </Link>
+        <Link to="/" className="mb-m">
           <BsFillPlusCircleFill /> Create Playlist
-        </a>
-        <a href="" className="mb-m">
+        </Link>
+        <Link to="/" className="mb-m">
           <BsSuitHeartFill /> Liked songs
-        </a>
+        </Link>
       </div>
       <div className="navbar-playlist">
-        <a href="">Playlist #1</a>
+        <Link to="/">Playlist #1</Link>
       </div>
     </div>
   );
