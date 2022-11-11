@@ -1,6 +1,18 @@
 const ArtistServer = [
   {
-    id: "artist_1",
+    id: "artist-1",
+    name: "Atif Aslam",
+    avatar: "",
+    songsName: [],
+  },
+  {
+    id: "artist-2",
+    name: "Arijit Sing",
+    avatar: "",
+    songsName: [],
+  },
+  {
+    id: "artist-3",
     name: "Neha Kakkar",
     avatar: "",
     songsName: [],

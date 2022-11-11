@@ -2,13 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./app";
+import GenreProvider from "./context/genre.context";
+import PageProvider from "./context/page.context";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <GenreProvider>
+        <PageProvider>
+          <App />
+        </PageProvider>
+      </GenreProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

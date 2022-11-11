@@ -1,0 +1,27 @@
+.search-page {
+  color: white;
+  & > h3 {
+    margin: 3rem 0;
+  }
+}
+.search-genres {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2.5rem;
+  padding-bottom: 10rem;
+  .search-box {
+    position: relative;
+    height: 20rem;
+    overflow: hidden;
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  img {
+    height: 13rem;
+    width: 13rem;
+    transform: rotate(25deg) translate(18%, -2%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
