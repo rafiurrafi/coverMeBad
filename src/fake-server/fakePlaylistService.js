@@ -1,14 +1,15 @@
 const PlaylistService = [
   {
-    _id: "playlist-",
+    id: "playlist-1",
     title: "Nehu",
-    cover: "assets/albums/album-2.jpeg",
+    cover: "/assets/albums/album-1.jpeg",
     songs: ["song-1"],
   },
   {
-    _id: "playlist-",
+    id: "playlist-2",
     title: "Street -2",
-    cover: "assets/albums/album-3.jpeg",
+    cover: "/assets/albums/album-3.jpeg",
     songs: ["song-2"],
   },
 ];
+export default PlaylistService;

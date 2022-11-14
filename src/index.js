@@ -4,17 +4,20 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./app";
 import GenreProvider from "./context/genre.context";
 import PageProvider from "./context/page.context";
+import PlaylistProvider from "./context/playlist.context";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <GenreProvider>
-        <PageProvider>
-          <App />
-        </PageProvider>
-      </GenreProvider>
+      <PlaylistProvider>
+        <GenreProvider>
+          <PageProvider>
+            <App />
+          </PageProvider>
+        </GenreProvider>
+      </PlaylistProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

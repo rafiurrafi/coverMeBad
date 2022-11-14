@@ -1,0 +1,8 @@
+.genre-search-page {
+  color: white;
+}
+.genre-search-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2.5rem;
+}

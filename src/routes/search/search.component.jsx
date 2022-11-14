@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { PageContext } from "../../context/page.context";
 import { useEffect } from "react";
 import { GenreContext } from "../../context/genre.context";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const { setCurrentPage } = useContext(PageContext);
@@ -17,14 +18,15 @@ const Search = () => {
         <h3>Browse All</h3>
         <div className="search-genres">
           {genres.map(({ id, title, color, cover }) => (
-            <div
+            <Link
+              to={`/genre/${id}`}
               className="search-box"
               style={{ backgroundColor: color }}
               key={id}
             >
               <h3>{title}</h3>
               <img src={cover} alt={title} />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

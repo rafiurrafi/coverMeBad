@@ -9,7 +9,7 @@ const Cards = ({ albums }) => {
       </div>
       <div className="cards-item">
         {albums.map((album) => (
-          <Card content={album} />
+          <Card key={album.id} content={album} />
         ))}
       </div>
     </div>
