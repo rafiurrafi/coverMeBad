@@ -7,9 +7,8 @@ import "./playlist.style.scss";
 const Playlist = () => {
   const { id } = useParams();
   const { playlists } = useContext(PlaylistContext);
-  const { cover, title, desc, songs, color } = playlists.filter(
-    (item) => item.id === id
-  )[0];
+  const playlist = playlists.filter((item) => item.id === id)[0];
+  const { cover, title, desc, songs, color } = playlist;
   console.log(cover);
   return (
     <Content>
@@ -37,6 +36,7 @@ const Playlist = () => {
           <BsThreeDots />
         </button>
       </div>
+      <div className="playlist-table"></div>
     </Content>
   );
 };
