@@ -4,12 +4,25 @@ import Content from "../../components/content/content.component";
 import { PlaylistContext } from "../../context/playlist.context";
 import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
 import "./playlist.style.scss";
+import { SongContext } from "../../context/song.context";
 const Playlist = () => {
   const { id } = useParams();
   const { playlists } = useContext(PlaylistContext);
-  const playlist = playlists.filter((item) => item.id === id)[0];
-  const { cover, title, desc, songs, color } = playlist;
-  console.log(cover);
+  const {
+    cover,
+    title,
+    desc,
+    songs: songIds,
+    color,
+  } = playlists.filter((item) => item.id === id)[0];
+  const { songs } = useContext(SongContext);
+
+  function getSongs(songIds) {
+    return songIds.map((id) => {
+      return songs.filter((song) => song.id === id)[0];
+    });
+  }
+  const filteredSongs = getSongs(songIds);
   return (
     <Content>
       <div className="playlist-header" style={{ backgroundColor: color }}>
@@ -36,7 +49,11 @@ const Playlist = () => {
           <BsThreeDots />
         </button>
       </div>
-      <div className="playlist-table"></div>
+      <div className="playlist-table">
+        {filteredSongs.map((song) => (
+          <h1>{song.title}</h1>
+        ))}
+      </div>
     </Content>
   );
 };

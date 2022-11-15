@@ -5,6 +5,8 @@ import App from "./app";
 import GenreProvider from "./context/genre.context";
 import PageProvider from "./context/page.context";
 import PlaylistProvider from "./context/playlist.context";
+import SearchProvider from "./context/search.context";
+import SongProvider from "./context/song.context";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -13,9 +15,13 @@ root.render(
     <BrowserRouter>
       <PlaylistProvider>
         <GenreProvider>
-          <PageProvider>
-            <App />
-          </PageProvider>
+          <SongProvider>
+            <PageProvider>
+              <SearchProvider>
+                <App />
+              </SearchProvider>
+            </PageProvider>
+          </SongProvider>
         </GenreProvider>
       </PlaylistProvider>
     </BrowserRouter>
