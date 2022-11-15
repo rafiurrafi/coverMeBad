@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./app";
+import ArtistProvider from "./context/artist.context";
 import GenreProvider from "./context/genre.context";
 import PageProvider from "./context/page.context";
 import PlaylistProvider from "./context/playlist.context";
@@ -15,13 +16,15 @@ root.render(
     <BrowserRouter>
       <PlaylistProvider>
         <GenreProvider>
-          <SongProvider>
-            <PageProvider>
-              <SearchProvider>
-                <App />
-              </SearchProvider>
-            </PageProvider>
-          </SongProvider>
+          <ArtistProvider>
+            <SongProvider>
+              <PageProvider>
+                <SearchProvider>
+                  <App />
+                </SearchProvider>
+              </PageProvider>
+            </SongProvider>
+          </ArtistProvider>
         </GenreProvider>
       </PlaylistProvider>
     </BrowserRouter>

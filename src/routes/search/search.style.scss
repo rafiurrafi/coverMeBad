@@ -27,3 +27,28 @@
     bottom: 0;
   }
 }
+//search result
+.search-result {
+  &-header {
+    display: flex;
+  }
+  &-main {
+    flex: 0 0 50%;
+    img {
+      height: 9.5rem;
+      width: 9.5rem;
+    }
+    h3 {
+      font-size: 3rem;
+    }
+  }
+  &-options {
+    flex: 1;
+  }
+}
+.blank-result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
