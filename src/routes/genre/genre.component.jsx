@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Content from "../../components/content/content.component";
 import { GenreContext } from "../../context/genre.context";
 import { PageContext } from "../../context/page.context";
@@ -26,7 +26,10 @@ const Genre = () => {
         <h3>Genre</h3>
         <div className="genre-search-grid">
           {items.map((item) => (
-            <Card key={item.id} content={item} />
+            <Link key={item.id} to={`/playlist/${item.id}`}>
+              {" "}
+              <Card content={item} />
+            </Link>
           ))}
         </div>
       </div>

@@ -26,30 +26,34 @@
   p {
     font-size: 90%;
   }
-  &-btn {
+  .card-inner-btn {
     position: absolute;
     top: 50%;
     right: 2rem;
-    background-color: $color-primary;
-    border: none;
-    height: 4.5rem;
-    width: 4.5rem;
-    font-size: 3.5rem;
-    border-radius: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: -0.5rem;
-    transition: 0.5s;
     opacity: 0;
-    svg {
-      margin-right: -0.35rem;
-    }
   }
 }
+.card-btn {
+  background-color: $color-primary;
+  border: none;
+  height: 4.5rem;
+  width: 4.5rem;
+  font-size: 3.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 
+  margin-right: -0.5rem;
+  transition: 0.5s;
+
+  svg {
+    margin-top: 0.5rem;
+    margin-right: -0.35rem;
+  }
+}
 // @keyframes moveInTop {
 //   0% {
 //     opacity: 0;

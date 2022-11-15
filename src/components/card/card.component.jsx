@@ -6,7 +6,7 @@ const Card = ({ content: { id, cover, title, desc } }) => {
       <img src={cover} alt="" />
       <h3>{title}</h3>
       <p>{desc}</p>
-      <button className="card-btn">
+      <button className="card-btn card-inner-btn">
         <BsFillPlayFill />
       </button>
     </div>

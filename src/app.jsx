@@ -4,6 +4,7 @@ import Template from "./components/template/template.component";
 import Auth from "./routes/auth/auth.component";
 import Genre from "./routes/genre/genre.component";
 import Home from "./routes/home/home.component";
+import Playlist from "./routes/playlist/playlist.component";
 import Search from "./routes/search/search.component";
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="search" element={<Search />} />
         <Route path="genre/:id" element={<Genre />} />
-        <Route path="playlist/:id" element={<Genre />} />
+        <Route path="playlist/:id" element={<Playlist />} />
       </Route>
       {/* <Route path="/" element={<Home />} />
       <Route path="/" element={<Home />} />
