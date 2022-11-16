@@ -1,11 +1,11 @@
 import Content from "../../components/content/content.component";
-import "./collection.style.scss";
+import "./collection-track.style.scss";
 import { BsFillPlayFill, BsThreeDots } from "react-icons/bs";
 import { useContext } from "react";
 import { LikedSongContext } from "../../context/liked-song.context";
 import img from "./liked.png";
 import LoveButton from "../../components/love-button/love-button.component";
-const Collection = () => {
+const CollectionTrack = () => {
   const { likedSongs } = useContext(LikedSongContext);
   return (
     <Content>
@@ -36,4 +36,4 @@ const Collection = () => {
   );
 };
 
-export default Collection;
+export default CollectionTrack;
