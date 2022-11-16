@@ -10,7 +10,8 @@ import { SongContext } from "../../context/song.context";
 import { PlaylistContext } from "../../context/playlist.context";
 import { ArtistContext } from "../../context/artist.context";
 import SongList from "../../components/song-list/song-list.component";
-
+import CardRound from "../../components/card-round/card-round.component";
+import Card from "../../components/card/card.component";
 const Search = () => {
   const { setCurrentPage } = useContext(PageContext);
   const { genres } = useContext(GenreContext);
@@ -29,7 +30,11 @@ const Search = () => {
         !filteredSongs.length ? (
           <SearchResultBlank query={searchQuery} />
         ) : (
-          <SearchResultFound song={filteredSongs[0]} songs={songs} />
+          <SearchResultFound
+            song={filteredSongs[0]}
+            songs={songs}
+            playlists={playlists}
+          />
         )
       ) : (
         <SearchPageDefault genres={genres} />
@@ -59,7 +64,7 @@ function SearchPageDefault({ genres }) {
     </div>
   );
 }
-function SearchResultFound({ song, songs }) {
+function SearchResultFound({ song, songs, playlists }) {
   const { artists } = useContext(ArtistContext);
   const artistsFromSong = song.artists.map((item) => {
     return artists.filter((artist) => artist.id === item)[0];
@@ -82,6 +87,22 @@ function SearchResultFound({ song, songs }) {
         <div className="search-result-options">
           {songs.map((song) => (
             <SongList key={song.id} song={song} />
+          ))}
+        </div>
+      </div>
+      <div className="search-result-body">
+        <h3>Artist</h3>
+        <div className="search-result-boxes">
+          {artistsFromSong.map((artist) => (
+            <CardRound key={artist.id} artist={artist} />
+          ))}
+        </div>
+      </div>
+      <div className="search-result-body" style={{ marginBottom: "5rem" }}>
+        <h3>Album</h3>
+        <div className="search-result-boxes">
+          {playlists.map((album) => (
+            <Card key={album.id} content={album} />
           ))}
         </div>
       </div>

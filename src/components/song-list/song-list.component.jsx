@@ -1,6 +1,6 @@
 import "./song-list.style.scss";
-
-import { BsSuitHeart, BsThreeDots } from "react-icons/bs";
+import LoveButton from "../../components/love-button/love-button.component";
+import { BsThreeDots } from "react-icons/bs";
 const SongList = ({ song }) => {
   return (
     <div className="song-list">
@@ -13,7 +13,7 @@ const SongList = ({ song }) => {
       </div>
       <div className="song-list-more">
         <span className="song-list-hidden">
-          <BsSuitHeart />
+          <LoveButton name={song.title} song={song} />
         </span>
         <span>03:45</span>
         <span className="song-list-hidden">
