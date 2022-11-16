@@ -1,0 +1,19 @@
+.liked-song-empty {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: linear-gradient(to bottom, rgb(29, 11, 87), #000);
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    margin: 2rem 0;
+  }
+  .btn {
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}

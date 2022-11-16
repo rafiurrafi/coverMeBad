@@ -14,13 +14,13 @@ const Navbar = () => {
         <Link to="/search" className="mb-m">
           <FaSearch /> Search
         </Link>
-        <Link to="/" className="mb-xl">
+        <Link to="/collection/playlist" className="mb-xl">
           <BiLibrary /> Your Library
         </Link>
         <Link to="/" className="mb-m">
           <BsFillPlusCircleFill /> Create Playlist
         </Link>
-        <Link to="/" className="mb-m">
+        <Link to="/collection/tracks" className="mb-m">
           <BsSuitHeartFill /> Liked songs
         </Link>
       </div>

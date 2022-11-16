@@ -1,6 +1,5 @@
 import "./card-round.style.scss";
 const CardRound = ({ artist }) => {
-  console.log(artist);
   return (
     <div>
       <div className="card-round">

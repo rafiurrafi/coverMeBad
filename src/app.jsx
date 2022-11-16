@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./app.scss";
 import Template from "./components/template/template.component";
 import Auth from "./routes/auth/auth.component";
+import Collection from "./routes/collection-tracks/collection.component";
 import Genre from "./routes/genre/genre.component";
 import Home from "./routes/home/home.component";
 import Playlist from "./routes/playlist/playlist.component";
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="search" element={<Search />} />
         <Route path="genre/:id" element={<Genre />} />
         <Route path="playlist/:id" element={<Playlist />} />
+        <Route path="collection/tracks" element={<Collection />} />
       </Route>
       {/* <Route path="/" element={<Home />} />
       <Route path="/" element={<Home />} />

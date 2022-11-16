@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { createContext } from "react";
-
+function toogleLiked(likedSongs, songToBeLiked) {
+  const foundSong = likedSongs.find((song) => song.id === songToBeLiked.id);
+  if (foundSong)
+    return likedSongs.filter((song) => song.id !== songToBeLiked.id);
+  return [...likedSongs, { ...songToBeLiked, liked: true }];
+}
 export const LikedSongContext = createContext({
   likedSongs: [],
   toggleLikedSongs: () => null,
@@ -9,8 +14,7 @@ export const LikedSongContext = createContext({
 const LikedSongProvider = ({ children }) => {
   const [likedSongs, setLikedSongs] = useState([]);
   function toggleLikedSongs(songToBeLiked) {
-    const foundSong = likedSongs.find((song) => song.id === songToBeLiked.id);
-    console.log(foundSong);
+    setLikedSongs(toogleLiked(likedSongs, songToBeLiked));
   }
   const value = { toggleLikedSongs, likedSongs };
   return (
