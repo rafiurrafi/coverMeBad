@@ -33,7 +33,13 @@
     display: flex;
   }
   &-main {
-    flex: 0 0 50%;
+    flex: 0 0 48%;
+    padding: 2rem;
+    background-color: #1f1f1f;
+    margin-right: 4rem;
+    &:hover {
+      background-color: #282828;
+    }
     img {
       height: 9.5rem;
       width: 9.5rem;
@@ -44,6 +50,17 @@
   }
   &-options {
     flex: 1;
+  }
+  &-cat {
+    background-color: #202020;
+    padding: 0.35rem 1rem;
+    text-transform: uppercase;
+    border-radius: 1.5rem;
+    margin-left: 1.5rem;
+  }
+  &-artist {
+    text-decoration: none;
+    color: #aaa;
   }
 }
 .blank-result {

@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { SearchContext } from "../../context/search.context";
 import { SongContext } from "../../context/song.context";
 import { PlaylistContext } from "../../context/playlist.context";
+import { ArtistContext } from "../../context/artist.context";
+import SongList from "../../components/song-list/song-list.component";
 
 const Search = () => {
   const { setCurrentPage } = useContext(PageContext);
@@ -24,10 +26,10 @@ const Search = () => {
   return (
     <Content>
       {searchQuery ? (
-        filteredSongs.length ? (
-          <SearchResultFound song={filteredSongs[0]} songs={songs} />
-        ) : (
+        !filteredSongs.length ? (
           <SearchResultBlank query={searchQuery} />
+        ) : (
+          <SearchResultFound song={filteredSongs[0]} songs={songs} />
         )
       ) : (
         <SearchPageDefault genres={genres} />
@@ -58,17 +60,29 @@ function SearchPageDefault({ genres }) {
   );
 }
 function SearchResultFound({ song, songs }) {
+  const { artists } = useContext(ArtistContext);
+  const artistsFromSong = song.artists.map((item) => {
+    return artists.filter((artist) => artist.id === item)[0];
+  });
   return (
     <div className="search-page">
       <div className="search-result-header">
         <div className="search-result-main">
           <img src={song.cover} alt="" />
           <h3>{song.title}</h3>
+          <div style={{ marginTop: "2rem" }}>
+            {artistsFromSong.map((artist) => (
+              <a href="" className="search-result-artist">
+                {artist.name}
+              </a>
+            ))}{" "}
+            <span className="search-result-cat">Song</span>
+          </div>
         </div>
         <div className="search-result-options">
-          {songs.map((song) => {
-            return song.title;
-          })}
+          {songs.map((song) => (
+            <SongList key={song.id} song={song} />
+          ))}
         </div>
       </div>
     </div>
