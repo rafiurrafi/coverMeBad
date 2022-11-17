@@ -15,7 +15,11 @@ const CreatedPlaylistProvider = ({ children }) => {
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit Cumqu",
     },
   ]);
-  const value = { createdPlaylists };
+  console.log(createdPlaylists);
+  function addCreatedPlaylist(playlist) {
+    setCreatedPlaylists([...createdPlaylists, playlist]);
+  }
+  const value = { createdPlaylists, addCreatedPlaylist };
   return (
     <CreatedPlaylistContext.Provider value={value}>
       {children}

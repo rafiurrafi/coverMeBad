@@ -27,7 +27,7 @@ const Playlist = () => {
     <Content>
       <div className="playlist-header" style={{ backgroundColor: color }}>
         <div className="playlist-header-img">
-          <img src={cover} alt="" />
+          {cover && <img src={cover} alt="" />}
         </div>
         <div className="playlist-header-content">
           <h4 className="playlist-header-subtitle">Playlist</h4>
