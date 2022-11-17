@@ -8,3 +8,10 @@ export function getPlaylistId() {
   }
   return "playlist-" + generatedId;
 }
+export function getRandomColor() {
+  function getColor() {
+    const hex = Math.floor(Math.random() * 256).toString(16);
+    return ("0" + String(hex)).substr(-2);
+  }
+  return "#" + getColor() + getColor() + getColor();
+}

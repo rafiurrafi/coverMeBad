@@ -4,10 +4,20 @@ import { BiLibrary } from "react-icons/bi";
 import { BsSuitHeartFill, BsFillPlusCircleFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { getPlaylistId } from "../../utils/utils";
+import { useContext } from "react";
+import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 const Navbar = () => {
   const navigate = useNavigate();
+  const { createdPlaylists } = useContext(CreatedPlaylistContext);
   function createPlaylist() {
-    navigate(getPlaylistId());
+    const playlistId = getPlaylistId();
+    const playlist = {
+      id: playlistId,
+      title: "playlist #" + createdPlaylists.length,
+      songs: [],
+      color: "red",
+    };
+    navigate();
   }
   return (
     <div className="navbar">
