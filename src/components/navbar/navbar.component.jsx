@@ -2,8 +2,13 @@ import "./navbar.style.scss";
 import { FaHome, FaSearch } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import { BsSuitHeartFill, BsFillPlusCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getPlaylistId } from "../../utils/utils";
 const Navbar = () => {
+  const navigate = useNavigate();
+  function createPlaylist() {
+    navigate(getPlaylistId());
+  }
   return (
     <div className="navbar">
       <h1 className="mb-xl">CoverMeBad</h1>
@@ -18,8 +23,11 @@ const Navbar = () => {
           <BiLibrary /> Your Library
         </Link>
         <Link to="/" className="mb-m">
-          <BsFillPlusCircleFill /> Create Playlist
+          <BsFillPlusCircleFill /> Create Playlist (-res)
         </Link>
+        <button onClick={createPlaylist}>
+          <BsFillPlusCircleFill /> Create Playlist
+        </button>
         <Link to="/collection/tracks" className="mb-m">
           <BsSuitHeartFill /> Liked songs
         </Link>

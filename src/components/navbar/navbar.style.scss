@@ -10,7 +10,8 @@
     margin-left: 2rem;
     margin-top: 2rem;
   }
-  a {
+  a,
+  button {
     display: block;
     text-decoration: none;
     color: rgb(186, 186, 186);
@@ -22,7 +23,13 @@
     }
   }
   &-menu {
-    a {
+    button {
+      background-color: transparent;
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    a,
+    button {
       display: flex;
       align-items: center;
       svg {
