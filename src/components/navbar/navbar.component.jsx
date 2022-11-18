@@ -20,7 +20,7 @@ const Navbar = () => {
       color: getRandomColor(),
     };
     addCreatedPlaylist(playlist);
-    navigate("playlist/" + playlistId);
+    navigate("user-playlist/" + playlistId);
   }
   return (
     <div className="navbar">
@@ -35,9 +35,9 @@ const Navbar = () => {
         <Link to="/collection/playlist" className="mb-xl">
           <BiLibrary /> Your Library
         </Link>
-        <Link to="/" className="mb-m">
+        {/* <Link to="/" className="mb-m">
           <BsFillPlusCircleFill /> Create Playlist (-res)
-        </Link>
+        </Link> */}
         <button onClick={createPlaylist}>
           <BsFillPlusCircleFill /> Create Playlist
         </button>
