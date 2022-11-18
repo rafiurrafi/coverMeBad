@@ -6,22 +6,26 @@ import { Link, useNavigate } from "react-router-dom";
 import { getPlaylistId, getRandomColor } from "../../utils/utils";
 import { useContext } from "react";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
+
+import { v4 as uuidv4 } from "uuid";
 const Navbar = () => {
   const navigate = useNavigate();
   const { createdPlaylists, addCreatedPlaylist } = useContext(
     CreatedPlaylistContext
   );
   function createPlaylist() {
-    const playlistId = getPlaylistId();
+    const playlistId = uuidv4();
     const playlist = {
       id: playlistId,
       title: "playlist #" + createdPlaylists.length,
       songs: [],
       color: getRandomColor(),
     };
+    console.log(playlistId);
     addCreatedPlaylist(playlist);
     navigate("user-playlist/" + playlistId);
   }
+
   return (
     <div className="navbar">
       <h1 className="mb-xl">CoverMeBad</h1>

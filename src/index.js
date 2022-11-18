@@ -7,6 +7,7 @@ import CreatedPlaylistProvider from "./context/created-playlist.context";
 import GenreProvider from "./context/genre.context";
 import LikedSongProvider from "./context/liked-song.context";
 import PageProvider from "./context/page.context";
+import PlayerProvider from "./context/player.context";
 import PlaylistProvider from "./context/playlist.context";
 import SearchProvider from "./context/search.context";
 import SongProvider from "./context/song.context";
@@ -24,7 +25,9 @@ root.render(
                 <CreatedPlaylistProvider>
                   <PageProvider>
                     <SearchProvider>
-                      <App />
+                      <PlayerProvider>
+                        <App />
+                      </PlayerProvider>
                     </SearchProvider>
                   </PageProvider>
                 </CreatedPlaylistProvider>

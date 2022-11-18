@@ -5,12 +5,12 @@ import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
 const UserPlaylist = () => {
   const { id } = useParams();
-  const { createdPlaylist, setCreatedPlaylist } = useContext(
+  const { createdPlaylists, setCreatedPlaylist } = useContext(
     CreatedPlaylistContext
   );
-  const { title, songs, color } = createdPlaylist.filter(
-    (list) => list.id === id
-  )[0];
+  const item = createdPlaylists.filter((list) => list.id === id)[0];
+  const { title, songs, color } = item;
+  console.log(id);
   return (
     <Content>
       <div className="playlist-header" style={{ backgroundColor: color }}>
