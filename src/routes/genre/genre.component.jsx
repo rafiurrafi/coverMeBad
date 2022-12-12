@@ -14,6 +14,7 @@ const Genre = () => {
   const { genres } = useContext(GenreContext);
   const { playlists: playlistIds } = genres.find((g) => g.id === id);
   const { playlists } = useContext(PlaylistContext);
+  console.log(genres, playlists, playlistIds);
   const items = playlistIds.map((list) => {
     return playlists.filter((item) => item.id === list)[0];
   });
@@ -26,9 +27,9 @@ const Genre = () => {
         <h3>Genre</h3>
         <div className="genre-search-grid">
           {items.map((item) => (
-            <Link key={item.id} to={`/playlist/${item.id}`}>
+            <Link key={item?.id} to={`/playlist/${item?.id}`}>
               {" "}
-              <Card content={item} />
+              {item && <Card content={item} />}
             </Link>
           ))}
         </div>

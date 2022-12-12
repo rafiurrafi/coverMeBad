@@ -6,7 +6,7 @@ const LoveButton = ({ name, song }) => {
   return (
     <div className="love-button">
       <input type="checkbox" id={`${name}`} name="like" />
-      <label for={`${name}`} onClick={() => toggleLikedSongs(song)}>
+      <label htmlFor={`${name}`} onClick={() => toggleLikedSongs(song)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 189.2 87.507"

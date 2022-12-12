@@ -1,0 +1,27 @@
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-left {
+    display: flex;
+    img {
+      width: 3rem;
+    }
+  }
+  &-middle {
+    flex: 0 0 30%;
+    text-align: center;
+    button {
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+      font-size: 2rem;
+    }
+    input {
+      width: 100%;
+    }
+  }
+  &-progressbar {
+    display: flex;
+  }
+}

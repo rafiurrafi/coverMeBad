@@ -21,7 +21,6 @@ const Navbar = () => {
       songs: [],
       color: getRandomColor(),
     };
-    console.log(playlistId);
     addCreatedPlaylist(playlist);
     navigate("user-playlist/" + playlistId);
   }

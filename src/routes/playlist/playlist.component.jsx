@@ -5,10 +5,12 @@ import { PlaylistContext } from "../../context/playlist.context";
 import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
 import "./playlist.style.scss";
 import { SongContext } from "../../context/song.context";
+import { PlayerContext } from "../../context/player.context";
 const Playlist = () => {
   const { id } = useParams();
   const { playlists } = useContext(PlaylistContext);
-  const playlist = playlists.filter((item) => item.id === id)[0];
+  const { setCurrentSong, isPlaying, setIsPlaying } = useContext(PlayerContext);
+  const playlist = playlists.filter((item) => item.id === id)[0] || {};
 
   const { cover, title, desc, songs: songIds, color } = playlist;
 
@@ -48,7 +50,17 @@ const Playlist = () => {
       </div>
       <div className="playlist-table">
         {filteredSongs.map((song) => (
-          <h1>{song.title}</h1>
+          <div key={song.id}>
+            <h1>{song.title}</h1>{" "}
+            <button
+              onClick={() => {
+                setCurrentSong(song);
+                setIsPlaying(!isPlaying);
+              }}
+            >
+              play
+            </button>
+          </div>
         ))}
       </div>
     </Content>
