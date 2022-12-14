@@ -3,18 +3,22 @@ import LoveButton from "../../components/love-button/love-button.component";
 import { BsThreeDots } from "react-icons/bs";
 import { useContext } from "react";
 import { PlayerContext } from "../../context/player.context";
-import { FaPlay } from "react-icons/fa";
-const SongList = ({ song }) => {
-  const { addCurrentSong } = useContext(PlayerContext);
+import { FaPause, FaPlay } from "react-icons/fa";
+const SongList = ({ song, idx = 0 }) => {
+  const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
   return (
     <div className="song-list">
+      <div className="song-list-index">{idx + 1}</div>
       <div className="song-list-img">
         <img src={song.cover} alt="" />
         <div
           className="song-list-play-icon"
-          onClick={() => addCurrentSong(song)}
+          onClick={() => {
+            setCurrentSong(song);
+            setIsPlaying(!isPlaying);
+          }}
         >
-          <FaPlay />
+          {isPlaying ? <FaPlay /> : <FaPause />}
         </div>
       </div>
       <div className="song-list-title">

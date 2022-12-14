@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Content from "../../components/content/content.component";
 import { PlaylistContext } from "../../context/playlist.context";
 import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
+import SongList from "../../components/song-list/song-list.component";
 
 import { SongContext } from "../../context/song.context";
 import { PlayerContext } from "../../context/player.context";
@@ -59,18 +60,8 @@ const Playlist = () => {
           </button>
         </PlaylistAction>
         <div className="playlist-table">
-          {filteredSongs.map((song) => (
-            <div key={song.id}>
-              <h1>{song.title}</h1>{" "}
-              <button
-                onClick={() => {
-                  setCurrentSong(song);
-                  setIsPlaying(!isPlaying);
-                }}
-              >
-                play
-              </button>
-            </div>
+          {filteredSongs.map((song, idx) => (
+            <SongList song={song} idx={idx} />
           ))}
         </div>
       </PlaylistBottom>

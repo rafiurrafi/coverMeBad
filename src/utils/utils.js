@@ -15,3 +15,7 @@ export function getRandomColor() {
   }
   return "#" + getColor() + getColor() + getColor();
 }
+
+export function getSong(songs, id) {
+  return songs.find((s) => s.id == id);
+}

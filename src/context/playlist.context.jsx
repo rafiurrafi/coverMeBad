@@ -6,7 +6,8 @@ export const PlaylistContext = createContext({ playlists: [] });
 
 const PlaylistProvider = ({ children }) => {
   const [playlists, setPlaylist] = useState(PlaylistService);
-  const value = { playlists };
+  const [activePlaylist, setActivePlaylist] = useState(false);
+  const value = { playlists, activePlaylist, setActivePlaylist };
   return (
     <PlaylistContext.Provider value={value}>
       {children}
