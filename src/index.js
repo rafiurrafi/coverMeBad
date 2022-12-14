@@ -20,17 +20,15 @@ root.render(
         <GenreProvider>
           <ArtistProvider>
             <SongProvider>
-              <LikedSongProvider>
-                <CreatedPlaylistProvider>
-                  <PageProvider>
-                    <SearchProvider>
-                      <PlayerProvider>
-                        <App />
-                      </PlayerProvider>
-                    </SearchProvider>
-                  </PageProvider>
-                </CreatedPlaylistProvider>
-              </LikedSongProvider>
+              <CreatedPlaylistProvider>
+                <PageProvider>
+                  <SearchProvider>
+                    <PlayerProvider>
+                      <App />
+                    </PlayerProvider>
+                  </SearchProvider>
+                </PageProvider>
+              </CreatedPlaylistProvider>
             </SongProvider>
           </ArtistProvider>
         </GenreProvider>

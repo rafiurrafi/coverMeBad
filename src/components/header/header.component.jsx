@@ -1,6 +1,6 @@
 import "./header.style.scss";
 import { RiMoonClearFill } from "react-icons/ri";
-import { BsFillEmojiSunglassesFill } from "react-icons/bs";
+import { BsFillEmojiSunglassesFill, BsSearch } from "react-icons/bs";
 import { useContext } from "react";
 import { PageContext } from "../../context/page.context";
 import { SearchContext } from "../../context/search.context";
@@ -11,12 +11,17 @@ const Header = () => {
   return (
     <div className="header">
       {currentPage === "search" && (
-        <input
-          placeholder="Search"
-          className="header-search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+        <div className="header-search">
+          <input
+            placeholder="Search your music"
+            className="header-search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <span>
+            <BsSearch />
+          </span>
+        </div>
       )}
       <button
         style={{

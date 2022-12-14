@@ -14,23 +14,24 @@ import {
   PlaylistHeaderContent,
   PlaylistTitle,
 } from "./playlist.style.js";
+import LoveButton from "../../components/love-button/love-button.component";
 const Playlist = () => {
   const { id } = useParams();
   const { playlists } = useContext(PlaylistContext);
-  const { setCurrentSong, isPlaying, setIsPlaying } = useContext(PlayerContext);
   const playlist = playlists.filter((item) => item.id === id)[0] || {};
 
   const { cover, title, desc, songs: songIds, color } = playlist;
 
   const { songs } = useContext(SongContext);
-  const red = "red";
+  console.log(songIds, songs);
 
   function getSongs(songIds) {
-    return songIds.map((id) => {
-      return songs.filter((song) => song.id === id)[0];
+    return songIds?.map((id) => {
+      return songs?.filter((song) => song.id === id)[0];
     });
   }
-  const filteredSongs = getSongs(songIds);
+  const filteredSongs = getSongs(songIds) || [];
+
   return (
     <Content full>
       <PlaylistHeader colorTop={color[0]} colorBottom={color[1]}>
@@ -42,7 +43,7 @@ const Playlist = () => {
           <PlaylistTitle>{title}</PlaylistTitle>
           <p>{desc}</p>
           <p>
-            Cover Me Bad . <span>{songs.length}</span> songs
+            Cover Me Bad . <span>{songs?.length}</span> songs
           </p>
         </PlaylistHeaderContent>
       </PlaylistHeader>
@@ -52,16 +53,14 @@ const Playlist = () => {
           <button className="card-btn">
             <BsFillPlayFill />
           </button>
-          <button>
-            <BsSuitHeart />
-          </button>
+          <button className="playlist-love-btn">{/* <LoveButton /> */}</button>
           <button>
             <BsThreeDots />
           </button>
         </PlaylistAction>
         <div className="playlist-table">
           {filteredSongs.map((song, idx) => (
-            <SongList song={song} idx={idx} />
+            <>{song && <SongList key={song.id} song={song} idx={idx} />}</>
           ))}
         </div>
       </PlaylistBottom>

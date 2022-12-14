@@ -1,12 +1,20 @@
+import { Link } from "react-router-dom";
 import Card from "../card/card.component";
 import "./cards.style.scss";
-const Cards = ({ albums = [], min = 0, max = albums.length, title = "" }) => {
-  console.log(albums);
+const Cards = ({
+  albums = [],
+  min = 0,
+  max = albums.length,
+  title = "",
+  section = 1,
+  page = false,
+}) => {
+  console.log(albums.length);
   return (
     <div className="cards">
       <div className="cards-header mb-m">
         <h3>{title}</h3>
-        <a href="">See All</a>
+        {!page && <Link to={`section/section-${section}`}>See All</Link>}
       </div>
       <div className="cards-item">
         {albums

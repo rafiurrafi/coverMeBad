@@ -24,6 +24,7 @@ const Search = () => {
   const filteredSongs = songs.filter(({ title }) =>
     title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
   );
+  console.log(filteredSongs);
   return (
     <Content>
       {searchQuery ? (
@@ -31,7 +32,7 @@ const Search = () => {
           <SearchResultBlank query={searchQuery} />
         ) : (
           <SearchResultFound
-            song={filteredSongs[0]}
+            filteredSongs={filteredSongs}
             songs={songs}
             playlists={playlists}
           />
@@ -64,11 +65,12 @@ function SearchPageDefault({ genres }) {
     </div>
   );
 }
-function SearchResultFound({ song, songs, playlists }) {
+function SearchResultFound({ filteredSongs, songs, playlists }) {
   const { artists } = useContext(ArtistContext);
-  const artistsFromSong = song.artists.map((item) => {
+  const artistsFromSong = filteredSongs[0].artists.map((item) => {
     return artists.filter((artist) => artist.id === item)[0];
   });
+  const song = filteredSongs[0];
   return (
     <div className="search-page">
       <div className="search-result-header">
@@ -85,9 +87,11 @@ function SearchResultFound({ song, songs, playlists }) {
           </div>
         </div>
         <div className="search-result-options">
-          {songs.map((song) => (
-            <SongList key={song.id} song={song} />
-          ))}
+          {filteredSongs
+            .filter((_, idx) => idx < 3)
+            .map((song, idx) => (
+              <SongList key={song.id} song={song} idx={idx} />
+            ))}
         </div>
       </div>
       <div className="search-result-body">

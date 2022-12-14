@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { LikedSongContext } from "../../context/liked-song.context";
+import { SongContext } from "../../context/song.context";
 import "./love-button.style.scss";
 const LoveButton = ({ name, song }) => {
-  const { toggleLikedSongs } = useContext(LikedSongContext);
+  const { toggleLikedSongs } = useContext(SongContext);
   return (
     <div className="love-button">
       <input type="checkbox" id={`${name}`} name="like" />

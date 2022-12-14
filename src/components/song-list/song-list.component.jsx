@@ -4,8 +4,10 @@ import { BsThreeDots } from "react-icons/bs";
 import { useContext } from "react";
 import { PlayerContext } from "../../context/player.context";
 import { FaPause, FaPlay } from "react-icons/fa";
+import { SongContext } from "../../context/song.context";
 const SongList = ({ song, idx = 0 }) => {
   const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
+
   return (
     <div className="song-list">
       <div className="song-list-index">{idx + 1}</div>

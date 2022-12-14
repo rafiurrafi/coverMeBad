@@ -30,7 +30,6 @@ export const PlaylistAction = styled.div`
   align-items: center;
   padding: 5rem 4rem;
   button {
-    margin-right: 3rem;
     &:not(:first-of-type) {
       color: white;
       font-size: 3.3rem;
@@ -38,5 +37,11 @@ export const PlaylistAction = styled.div`
       background-color: transparent;
       cursor: pointer;
     }
+    &:last-of-type {
+      margin-bottom: -1rem;
+    }
+  }
+  .playlist-love-btn {
+    margin-left: 5rem;
   }
 `;

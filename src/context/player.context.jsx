@@ -14,7 +14,6 @@ const PlayerProvider = ({ children }) => {
     currentTime: 0,
     duration: 0,
   });
-  console.log(songInfo);
   const audioRef = useRef(null);
 
   function timeUpdate() {

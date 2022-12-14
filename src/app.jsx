@@ -8,6 +8,7 @@ import Genre from "./routes/genre/genre.component";
 import Home from "./routes/home/home.component";
 import Playlist from "./routes/playlist/playlist.component";
 import Search from "./routes/search/search.component";
+import Section from "./routes/section/section.component";
 import UserPlaylist from "./routes/user-playlist/user-playlist.component";
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="user-playlist/:id" element={<UserPlaylist />} />
         <Route path="collection/tracks" element={<CollectionTrack />} />
         <Route path="collection/playlist" element={<CollectionPlaylist />} />
+        <Route path="section/:id" element={<Section />} />
       </Route>
       {/* <Route path="/" element={<Home />} />
       <Route path="/" element={<Home />} />

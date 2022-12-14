@@ -13,6 +13,28 @@
     }
   }
   &-search {
+    margin-bottom: -0.7rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: white;
+    width: 20rem;
+    margin-left: 3rem;
     float: left;
+    height: 3rem;
+    border-radius: 1.4rem;
+    input {
+      border: none;
+      margin-left: 0;
+      padding-left: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+    span {
+      color: #ddd;
+      transform: translateY(0.5rem);
+      padding-right: 1rem;
+    }
   }
 }

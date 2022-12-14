@@ -14,7 +14,6 @@ const Card = ({ content: { id, cover, title, desc, songs } }) => {
 
   const songId = songs[0];
   const song = getSong(allSongs, songId);
-  console.log(song);
   function handlePlaySong(playlistId) {
     //change the play to pause
     setIsActivePlaylist(!isActivePlaylist);
