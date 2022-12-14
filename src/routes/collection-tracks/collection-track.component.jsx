@@ -1,6 +1,6 @@
 import Content from "../../components/content/content.component";
 import "./collection-track.style.scss";
-import { BsFillPlayFill, BsThreeDots } from "react-icons/bs";
+import { BsFillPlayFill, BsThreeDots, BsMusicNote } from "react-icons/bs";
 import { useContext } from "react";
 import { LikedSongContext } from "../../context/liked-song.context";
 import img from "./liked.png";
@@ -12,11 +12,13 @@ import {
   PlaylistHeaderContent,
   PlaylistTitle,
 } from "../playlist/playlist.style";
+import { useNavigate } from "react-router-dom";
 const CollectionTrack = () => {
   const { likedSongs } = useContext(LikedSongContext);
+  const navigate = useNavigate();
   return (
     <Content full>
-      <PlaylistHeader style={{ backgroundColor: "#3B2A72" }}>
+      <PlaylistHeader colorTop="#4F399A" colorBottom="#2E215A">
         <div className="playlist-header-img">
           <img src={img} alt="" />
         </div>
@@ -33,9 +35,14 @@ const CollectionTrack = () => {
           </button>
         </PlaylistAction>
         <div className="liked-song-empty">
+          <div style={{ fontSize: "5rem", marginBottom: 10 }}>
+            <BsMusicNote />
+          </div>
           <h3>Songs you like will appear here</h3>
           <p>Save songs by tapping the heart icon.</p>
-          <button className="btn btn--full">Find Songs</button>
+          <button className="btn btn--full" onClick={() => navigate("/search")}>
+            Find Songs
+          </button>
         </div>
       </PlaylistBottom>
     </Content>

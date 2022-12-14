@@ -132,7 +132,7 @@ const PlaylistService = [
       "song-12",
       "song-14",
     ],
-    color: ["#1C7EC3", "#0B304A", "#0C314B"],
+    color: ["#1C7EC3", "#0B304A", "#05243b"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
