@@ -8,5 +8,7 @@
     rgba(#1e1e1e, 1),
     rgba(#121212, 1)
   );
-  padding: 8rem 3rem 0;
+  &--pad {
+    padding: 8rem 3rem 0;
+  }
 }

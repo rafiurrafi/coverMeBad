@@ -1,6 +1,8 @@
 import "./content.style.scss";
-const Content = ({ children }) => {
-  return <div className="content">{children}</div>;
+const Content = ({ children, full }) => {
+  return (
+    <div className={`content ${full ? "" : "content--pad"}`}>{children}</div>
+  );
 };
 
 export default Content;

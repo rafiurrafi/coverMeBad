@@ -23,5 +23,8 @@
   }
   &-progressbar {
     display: flex;
+    p {
+      min-width: 5rem;
+    }
   }
 }
