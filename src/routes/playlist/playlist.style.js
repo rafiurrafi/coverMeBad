@@ -5,6 +5,8 @@ export const PlaylistHeader = styled.div`
   padding-top: 8rem;
   padding-bottom: 4rem;
   padding-left: 4rem;
+  background-image: ${({ colorTop, colorBottom }) =>
+    `linear-gradient(to bottom, ${colorTop}, ${colorBottom})`};
   img {
     height: 23rem;
     width: 23rem;

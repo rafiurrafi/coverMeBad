@@ -32,7 +32,7 @@ const Playlist = () => {
   const filteredSongs = getSongs(songIds);
   return (
     <Content full>
-      <PlaylistHeader style={{ backgroundColor: color }}>
+      <PlaylistHeader colorTop={color[0]} colorBottom={color[1]}>
         <div className="playlist-header-img">
           {cover && <img src={cover} alt="" />}
         </div>
@@ -46,7 +46,7 @@ const Playlist = () => {
         </PlaylistHeaderContent>
       </PlaylistHeader>
 
-      <PlaylistBottom color={color}>
+      <PlaylistBottom color={color[2]}>
         <PlaylistAction>
           <button className="card-btn">
             <BsFillPlayFill />

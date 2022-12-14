@@ -4,7 +4,7 @@ const PlaylistService = [
     title: "Peaceful piano",
     cover: "/assets/albums/album-1.jpeg",
     songs: ["song-1"],
-    color: "red",
+    color: ["#440909", "#410606", "#270606"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -12,7 +12,7 @@ const PlaylistService = [
     title: "Deep focus",
     cover: "/assets/albums/album-3.jpeg",
     songs: ["song-2"],
-    color: "red",
+    color: ["#6F8FA6", "#29343C", "#262F35"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -28,7 +28,7 @@ const PlaylistService = [
       "song-6",
       "song-7",
     ],
-    color: "",
+    color: ["#2B5A15", "#112109", "#12200B"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -44,7 +44,7 @@ const PlaylistService = [
       "song-13",
       "song-14",
     ],
-    color: "",
+    color: ["#6603AB", "#26033F", "#220735"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -52,7 +52,7 @@ const PlaylistService = [
     title: "Todays top hit",
     cover: "/assets/albums/4.jpg",
     songs: ["song-15", "song-16", "song-17", "song-18", "song-19", "song-20"],
-    color: "",
+    color: ["#6F8FA6", "#29343C", "#262F35"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -68,7 +68,7 @@ const PlaylistService = [
       "song-26",
       "song-27",
     ],
-    color: "",
+    color: ["#CE232A", "#4D0F12", "#520F12"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -76,7 +76,7 @@ const PlaylistService = [
     title: "Mood booster",
     cover: "/assets/albums/6.jpg",
     songs: ["song-28", "song-29", "song-30", "song-31", "song-32"],
-    color: "",
+    color: ["#CE232A", "#4D0F12", "#520F12"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -84,7 +84,7 @@ const PlaylistService = [
     title: "Dark & stormy",
     cover: "/assets/albums/7.jpg",
     songs: ["song-1", "song-3", "song-5", "song-7"],
-    color: "",
+    color: ["#0E7FD3", "#06304E", "#082A43"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -100,7 +100,7 @@ const PlaylistService = [
       "song-19",
       "song-21",
     ],
-    color: "",
+    color: ["#783B43", "#422024", "#2F171A"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -108,7 +108,7 @@ const PlaylistService = [
     title: "Bangladeshi Mix",
     cover: "/assets/albums/10.jpg",
     songs: ["song-23", "song-25", "song-27", "song-29", "song-31"],
-    color: "",
+    color: ["#0E7FD3", "#06304E", "#082A43"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -116,7 +116,7 @@ const PlaylistService = [
     title: "Discover weekly",
     cover: "/assets/albums/11.jpg",
     songs: ["song-1", "song-2", "song-5", "song-8", "song-9", "song-10"],
-    color: "",
+    color: ["#4370E1", "#192A54", "#182547"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -132,7 +132,7 @@ const PlaylistService = [
       "song-12",
       "song-14",
     ],
-    color: "",
+    color: ["#1C7EC3", "#0B304A", "#0C314B"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -148,7 +148,7 @@ const PlaylistService = [
       "song-26",
       "song-28",
     ],
-    color: "",
+    color: ["#E7329C", "#56143B", "#5B153E"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
   {
@@ -156,7 +156,7 @@ const PlaylistService = [
     title: "Desi hits",
     cover: "/assets/albums/10.webp",
     songs: ["song-30", "song-31", "song-32", "song-1", "song-5", "song-3"],
-    color: "",
+    color: ["#4370E1", "#192A54", "#182547"],
     desc: "Lorem ipsum dolor sit amet consectetur",
   },
 ];
