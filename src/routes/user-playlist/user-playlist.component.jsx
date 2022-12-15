@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Content from "../../components/content/content.component";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
-
+import { BsMusicNoteBeamed } from "react-icons/bs";
 import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
 import {
   PlaylistAction,
@@ -21,7 +21,7 @@ const UserPlaylist = () => {
   const { title, songs, color, desc, cover } = item;
   console.log(id);
   return (
-    <Content>
+    <Content full>
       {/* <div className="playlist-header" style={{ backgroundColor: color }}>
         <div className="playlist-header-img">
           <div>img</div>
@@ -51,7 +51,7 @@ const UserPlaylist = () => {
           <h1>{song.title}</h1>
         ))}
       </div> */}
-      <PlaylistHeader colorTop={color} colorBottom={color}>
+      <PlaylistHeader colorTop={color[0]} colorBottom={color[1]}>
         <div className="playlist-header-img">
           {cover && <img src={cover} alt="" />}
         </div>
@@ -76,9 +76,20 @@ const UserPlaylist = () => {
           </button>
         </PlaylistAction>
         <div className="playlist-table">
-          {songs.map((song, idx) => (
-            <>{song && <SongList key={song.id} song={song} idx={idx} />}</>
-          ))}
+          {songs.length ? (
+            songs.map((song, idx) => (
+              <>{song && <SongList key={song.id} song={song} idx={idx} />}</>
+            ))
+          ) : (
+            <div className="collection-empty">
+              <div className="collection-empty-icon">
+                <BsMusicNoteBeamed />
+              </div>
+              <h3>Create your first playlist</h3>
+              <p>It's easy, we'll help you.</p>
+              <button className="btn btn--full">Create Playlist</button>
+            </div>
+          )}
         </div>
       </PlaylistBottom>
     </Content>

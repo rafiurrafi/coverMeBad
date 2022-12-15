@@ -3,7 +3,7 @@ import { FaHome, FaSearch } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import { BsSuitHeartFill, BsFillPlusCircleFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
-import { getPlaylistId, getRandomColor } from "../../utils/utils";
+import { colorShade, getPlaylistId, getRandomColor } from "../../utils/utils";
 import { useContext } from "react";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 
@@ -16,11 +16,12 @@ const Navbar = () => {
   function createPlaylist() {
     const playlistId = uuidv4();
     const link = "/user-playlist/" + playlistId;
+    const color = getRandomColor();
     const playlist = {
       id: playlistId,
       title: "playlist #" + createdPlaylists.length,
       songs: [],
-      color: getRandomColor(),
+      color: [color, colorShade(color, -70), colorShade(color, -90)],
       link: link,
     };
     addCreatedPlaylist(playlist);

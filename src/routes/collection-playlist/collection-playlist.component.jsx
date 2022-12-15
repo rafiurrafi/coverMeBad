@@ -1,7 +1,7 @@
 import Card from "../../components/card/card.component";
 import Content from "../../components/content/content.component";
 import "./collection-playlist.style.scss";
-import { BsMusicNoteBeamed } from "react-icons/bs";
+
 import { useContext } from "react";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 import { Link } from "react-router-dom";
@@ -27,14 +27,6 @@ const CollectionPlaylist = () => {
           ))}
         </div>
       </div>
-      {/* <div className="collection-empty">
-        <div className="collection-empty-icon">
-          <BsMusicNoteBeamed />
-        </div>
-        <h3>Create your first playlist</h3>
-        <p>It's easy, we'll help you.</p>
-        <button className="btn btn--full">Create Playlist</button>
-      </div> */}
     </Content>
   );
 };
