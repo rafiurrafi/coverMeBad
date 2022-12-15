@@ -14,7 +14,6 @@ const Genre = () => {
   const { genres } = useContext(GenreContext);
   const { playlists: playlistIds } = genres.find((g) => g.id === id);
   const { playlists } = useContext(PlaylistContext);
-  console.log(genres, playlists, playlistIds);
   const items = playlistIds.map((list) => {
     return playlists.filter((item) => item.id === list)[0];
   });

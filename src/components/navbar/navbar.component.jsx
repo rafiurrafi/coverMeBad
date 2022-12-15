@@ -15,14 +15,16 @@ const Navbar = () => {
   );
   function createPlaylist() {
     const playlistId = uuidv4();
+    const link = "/user-playlist/" + playlistId;
     const playlist = {
       id: playlistId,
       title: "playlist #" + createdPlaylists.length,
       songs: [],
       color: getRandomColor(),
+      link: link,
     };
     addCreatedPlaylist(playlist);
-    navigate("user-playlist/" + playlistId);
+    navigate(link);
   }
 
   return (

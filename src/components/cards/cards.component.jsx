@@ -9,7 +9,6 @@ const Cards = ({
   section = 1,
   page = false,
 }) => {
-  console.log(albums.length);
   return (
     <div className="cards">
       <div className="cards-header mb-m">

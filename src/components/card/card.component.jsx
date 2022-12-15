@@ -6,9 +6,13 @@ import { PlaylistContext } from "../../context/playlist.context";
 import { SongContext } from "../../context/song.context";
 import { getSong } from "../../utils/utils";
 import "./card.style.scss";
-const Card = ({ content: { id, cover, title, desc, songs } }) => {
+const Card = ({
+  content: { id, cover, title, desc, songs, link },
+  created = false,
+}) => {
   const [isActivePlaylist, setIsActivePlaylist] = useState(false); // current play/pause
-  const { activePlaylist, setActivePlaylist } = useContext(PlaylistContext);
+  const { activePlaylist, setActivePlaylist, playlists, setPlaylist } =
+    useContext(PlaylistContext);
   const { songs: allSongs } = useContext(SongContext);
   const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
 
@@ -16,15 +20,33 @@ const Card = ({ content: { id, cover, title, desc, songs } }) => {
   const song = getSong(allSongs, songId);
   function handlePlaySong(playlistId) {
     //change the play to pause
-    setIsActivePlaylist(!isActivePlaylist);
-    setActivePlaylist(playlistId);
-    setCurrentSong(song);
-    setIsPlaying(!isPlaying);
+    const updatedPlaylist = playlists.map((list) =>
+      list.id === playlistId
+        ? { ...list, isActive: !list.isActive }
+        : { ...list, isActive: false }
+    );
+    setPlaylist(updatedPlaylist);
+    const idx = +playlistId.split("-")[1] - 1;
+    if (updatedPlaylist[idx].isActive) {
+      setIsActivePlaylist(true);
+      setActivePlaylist(playlistId);
+      setCurrentSong(song);
+      setIsPlaying(true);
+    } else {
+      setIsActivePlaylist(false);
+      setActivePlaylist(false);
+      setIsPlaying(false);
+    }
+
+    // setIsActivePlaylist(!isActivePlaylist);
+    // setActivePlaylist(playlistId);
+    // setCurrentSong(song);
+    // setIsPlaying(!isPlaying);
   }
   return (
     <div className="card">
       <img src={cover} alt="" />
-      <Link to={`/playlist/${id}`}>
+      <Link to={created ? link : `/playlist/${id}`}>
         <h3>{title}</h3>
       </Link>
       <p>{desc}</p>

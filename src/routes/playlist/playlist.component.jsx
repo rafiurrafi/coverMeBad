@@ -23,7 +23,6 @@ const Playlist = () => {
   const { cover, title, desc, songs: songIds, color } = playlist;
 
   const { songs } = useContext(SongContext);
-  console.log(songIds, songs);
 
   function getSongs(songIds) {
     return songIds?.map((id) => {
