@@ -23,6 +23,7 @@ const App = () => {
         <Route path="collection/playlist" element={<CollectionPlaylist />} />
         <Route path="section/:id" element={<Section />} />
       </Route>
+      <Route path="/auth/:auth" element={<Auth />} />
       {/* <Route path="/" element={<Home />} />
       <Route path="/" element={<Home />} />
       <Route path="/" element={<Home />} />

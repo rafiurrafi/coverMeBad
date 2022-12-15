@@ -22,8 +22,8 @@ const PlayerProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    if (isPlaying) audioRef.current.play();
-    else audioRef.current.pause();
+    if (isPlaying) audioRef?.current?.play();
+    else audioRef?.current?.pause();
   }, [isPlaying]);
 
   const value = {

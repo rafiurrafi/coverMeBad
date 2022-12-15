@@ -10,8 +10,6 @@
     background-color: #242424;
   }
   &:hover &-btn {
-    // animation-name: moveInTop;
-    // animation-duration: 0.4s;
     opacity: 1;
   }
   img {
@@ -42,9 +40,6 @@
   font-size: 3.5rem;
   border-radius: 50%;
   cursor: pointer;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
 
   margin-right: -0.5rem;
   transition: 0.5s;
@@ -54,11 +49,3 @@
     margin-right: -0.35rem;
   }
 }
-// @keyframes moveInTop {
-//   0% {
-//     opacity: 0;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
