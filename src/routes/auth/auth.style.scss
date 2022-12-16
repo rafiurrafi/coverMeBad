@@ -12,4 +12,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  &__icon {
+    height: 5rem;
+    width: 5rem;
+    color: white;
+    background-color: var(--color-primary);
+  }
+}
+.auth__content {
+  background-color: rgba($color: #000000, $alpha: 0.15);
+  width: 40vw;
+  backdrop-filter: blur(10px);
 }

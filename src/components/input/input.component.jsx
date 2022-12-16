@@ -1,15 +1,17 @@
 import "./input.style.scss";
-const Input = () => {
+const Input = ({ label, name, value, onChange, type = "text" }) => {
   return (
     <div className="input-group">
       <input
         required
-        type="text"
-        name="text"
+        type={type}
+        name={name}
         autoComplete="off"
         className="input"
+        value={value}
+        onChange={onChange}
       />
-      <label className="user-label">First Name</label>
+      <label className="user-label">{label}</label>
     </div>
   );
 };
