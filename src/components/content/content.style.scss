@@ -1,8 +1,8 @@
 @import "../../variables";
 .content {
   min-height: 100vh;
-  margin-left: $left-margin;
-  width: calc(100% - $left-margin);
+  margin-left: var(--left-margin);
+  width: calc(100% - var(--left-margin));
   background-image: linear-gradient(
     to bottom,
     rgba(#1e1e1e, 1),

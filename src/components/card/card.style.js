@@ -1,5 +1,6 @@
-@import "../../variables";
-.card {
+import styled from "styled-components";
+
+export const CardContainer = styled.div`
   position: relative;
   background-color: #181818;
   padding: 1.6rem;
@@ -9,7 +10,7 @@
   &:hover {
     background-color: #242424;
   }
-  &:hover &-btn {
+  &:hover ${CardBtn} {
     opacity: 1;
   }
   img {
@@ -24,15 +25,8 @@
   p {
     font-size: 90%;
   }
-  .card-inner-btn {
-    position: absolute;
-    top: 50%;
-    right: 2rem;
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-}
-.card-btn {
+`;
+export const CardBtn = styled.button`
   background-color: var(--color-primary);
   border: none;
   height: 4.5rem;
@@ -41,6 +35,12 @@
   border-radius: 50%;
   cursor: pointer;
 
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  opacity: 0;
+
   margin-right: -0.5rem;
   transition: 0.5s;
 
@@ -48,4 +48,4 @@
     margin-top: 0.5rem;
     margin-right: -0.35rem;
   }
-}
+`;

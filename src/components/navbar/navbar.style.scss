@@ -1,8 +1,7 @@
-@import "../../variables";
 .navbar {
   position: fixed;
   z-index: 3;
-  width: $left-margin;
+  width: var(--left-margin);
   background-color: #000;
   height: 100vh;
   h1 {

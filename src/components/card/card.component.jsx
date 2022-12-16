@@ -5,7 +5,7 @@ import { PlayerContext } from "../../context/player.context";
 import { PlaylistContext } from "../../context/playlist.context";
 import { SongContext } from "../../context/song.context";
 import { getSong } from "../../utils/utils";
-import "./card.style.scss";
+import { CardBtn, CardContainer } from "./card.style";
 const Card = ({
   content: { id, cover, title, desc, songs, link },
   created = false,
@@ -44,23 +44,20 @@ const Card = ({
     // setIsPlaying(!isPlaying);
   }
   return (
-    <div className="card">
+    <CardContainer>
       <img src={cover} alt="" />
       <Link to={created ? link : `/playlist/${id}`}>
         <h3>{title}</h3>
       </Link>
       <p>{desc}</p>
-      <button
-        className="card-btn card-inner-btn"
-        onClick={() => handlePlaySong(id)}
-      >
+      <CardBtn onClick={() => handlePlaySong(id)}>
         {activePlaylist === id && isActivePlaylist ? (
           <BsPauseFill />
         ) : (
           <BsFillPlayFill />
         )}
-      </button>
-    </div>
+      </CardBtn>
+    </CardContainer>
   );
 };
 

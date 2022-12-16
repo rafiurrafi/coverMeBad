@@ -2,8 +2,8 @@
 .header {
   position: fixed;
   z-index: 2;
-  margin-left: $left-margin;
-  width: calc(100% - $left-margin);
+  margin-left: var(--left-margin);
+  width: calc(100% - var(--left-margin));
   background-color: #101010;
   text-align: right;
   padding: 1rem 0;
