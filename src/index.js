@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./app";
+import UserProvider from "./components/card/user.context";
 import ArtistProvider from "./context/artist.context";
 import CreatedPlaylistProvider from "./context/created-playlist.context";
 import GenreProvider from "./context/genre.context";
@@ -24,7 +25,9 @@ root.render(
                 <PageProvider>
                   <SearchProvider>
                     <PlayerProvider>
-                      <App />
+                      <UserProvider>
+                        <App />
+                      </UserProvider>
                     </PlayerProvider>
                   </SearchProvider>
                 </PageProvider>
