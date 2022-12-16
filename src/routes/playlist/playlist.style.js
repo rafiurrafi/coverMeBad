@@ -42,6 +42,7 @@ export const PlaylistAction = styled.div`
     }
   }
   .playlist-love-btn {
-    margin-left: 5rem;
+    margin: 0 3rem;
+    transform: translateY(-1rem) scale(1.5);
   }
 `;

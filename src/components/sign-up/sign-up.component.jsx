@@ -7,6 +7,9 @@ import {
 
 import Input from "../input/input.component";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -14,8 +17,18 @@ const defaultFormFields = {
   confirmPassword: "",
 };
 
-// abc@xyz.com
-// 12345678
+const notify = (msg) => {
+  toast(msg, {
+    position: "top-right",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
+};
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
@@ -28,7 +41,7 @@ const SignUpForm = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("passwords do not match");
+      notify("passwords do not match");
       return;
     }
 
@@ -42,9 +55,9 @@ const SignUpForm = () => {
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        alert("Cannot create user, email already in use");
+        notify("Cannot create user, email already in use");
       } else {
-        console.log("user creation encountered an error", error);
+        notify("user creation encountered an error", error);
       }
     }
   };
@@ -95,6 +108,7 @@ const SignUpForm = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

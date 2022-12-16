@@ -23,6 +23,7 @@ const Playlist = () => {
   const { cover, title, desc, songs: songIds, color } = playlist;
 
   const { songs } = useContext(SongContext);
+  const { toggleLikedPlaylist } = useContext(PlaylistContext);
 
   function getSongs(songIds) {
     return songIds?.map((id) => {
@@ -52,14 +53,20 @@ const Playlist = () => {
           <button className="card-btn">
             <BsFillPlayFill />
           </button>
-          <button className="playlist-love-btn">{/* <LoveButton /> */}</button>
+          <button className="playlist-love-btn">
+            <LoveButton
+              name={playlist.title}
+              item={playlist}
+              onClick={toggleLikedPlaylist}
+            />
+          </button>
           <button>
             <BsThreeDots />
           </button>
         </PlaylistAction>
         <div className="playlist-table">
           {filteredSongs.map((song, idx) => (
-            <>{song && <SongList key={song.id} song={song} idx={idx} />}</>
+            <>{song && <SongList key={idx} song={song} idx={idx} />}</>
           ))}
         </div>
       </PlaylistBottom>

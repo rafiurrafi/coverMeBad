@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import { SongContext } from "../../context/song.context";
 import "./love-button.style.scss";
-const LoveButton = ({ name, song }) => {
-  const { toggleLikedSongs } = useContext(SongContext);
+const LoveButton = ({ name, item, onClick }) => {
   return (
     <div className="love-button">
-      <input type="checkbox" id={`${name}`} name="like" />
-      <label htmlFor={`${name}`} onClick={() => toggleLikedSongs(song)}>
+      <input type="checkbox" id={`${name}`} name={name} />
+      <label htmlFor={`${name}`} onClick={() => onClick(item)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 189.2 87.507"

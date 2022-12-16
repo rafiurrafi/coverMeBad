@@ -2,6 +2,7 @@
   display: inline-block;
   height: 50px;
   width: 50px;
+  transform: translateY(3rem);
   // background: #333;
 
   svg {
@@ -117,4 +118,10 @@
       opacity: 0;
     }
   }
+}
+
+// added style
+.input:focus ~ label,
+input:valid ~ label {
+  background-color: transparent;
 }

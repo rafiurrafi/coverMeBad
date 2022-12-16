@@ -8,6 +8,7 @@ import { SongContext } from "../../context/song.context";
 const SongList = ({ song, idx = 0 }) => {
   const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
 
+  const { toggleLikedSongs } = useContext(SongContext);
   return (
     <div className="song-list">
       <div className="song-list-index">{idx + 1}</div>
@@ -29,7 +30,11 @@ const SongList = ({ song, idx = 0 }) => {
       </div>
       <div className="song-list-more">
         <span className="song-list-hidden">
-          <LoveButton name={song.title} song={song} />
+          <LoveButton
+            name={song.title}
+            item={song}
+            onClick={toggleLikedSongs}
+          />
         </span>
         <span>03:45</span>
         <span className="song-list-hidden">
