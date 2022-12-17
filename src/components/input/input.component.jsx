@@ -1,5 +1,5 @@
 import { InputContainer, InputGroup, Userlabel } from "./input.style";
-
+import "./input.style.scss";
 const Input = ({ label, name, value, onChange, type = "text" }) => {
   return (
     <InputGroup>
@@ -17,4 +17,7 @@ const Input = ({ label, name, value, onChange, type = "text" }) => {
   );
 };
 
+export const RangeInput = (props) => {
+  return <input className="range" {...props} />;
+};
 export default Input;

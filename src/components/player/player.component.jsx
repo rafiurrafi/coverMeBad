@@ -9,6 +9,7 @@ import {
   PlayerMiddle,
   PlayerProgressbar,
 } from "./player.style";
+import { RangeInput } from "../input/input.component";
 const Player = () => {
   const {
     currentSong,
@@ -54,13 +55,20 @@ const Player = () => {
           </div>
           <PlayerProgressbar>
             <p>{getTime(currentTime)}</p>
-            <input
+            <RangeInput
               type="range"
               onChange={dragHandler}
               value={currentTime}
               min={0}
               max={duration || 0}
             />
+            {/* <input
+              type="range"
+              onChange={dragHandler}
+              value={currentTime}
+              min={0}
+              max={duration || 0}
+            /> */}
             <p>{getTime(duration)}</p>
           </PlayerProgressbar>
         </PlayerMiddle>
