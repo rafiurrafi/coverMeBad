@@ -2,32 +2,40 @@ import { Link, useParams } from "react-router-dom";
 import SignIn from "../../components/sign-in/sign-in.component";
 import SignUpForm from "../../components/sign-up/sign-up.component";
 import { AiFillUnlock } from "react-icons/ai";
-import "./auth.style.scss";
+
+import image1 from "../../assets/cover-1.jpg";
+import image2 from "../../assets/large.jpeg";
+
+import {
+  AuthContainer,
+  AuthContent,
+  AuthIcon,
+  AuthText,
+  AuthTitle,
+} from "./auth.style.js";
 const Auth = () => {
   const { auth } = useParams();
   console.log(auth);
   return (
-    <div className="auth">
-      <div className="auth__content">
-        <div className="auth__icon">
+    <AuthContainer image={image2}>
+      <AuthContent>
+        <AuthIcon>
           <AiFillUnlock />
-        </div>
-        <h2 className="auth__title">
-          {auth === "sign-in" ? "Sign in" : "Sign Up"}
-        </h2>
+        </AuthIcon>
+        <AuthTitle>{auth === "sign-in" ? "Sign in" : "Sign Up"}</AuthTitle>
         {auth === "sign-in" && <SignIn />}
         {auth === "sign-up" && <SignUpForm />}
         {auth === "sign-in" ? (
-          <p className="auth__text">
+          <AuthText>
             Create an account <Link to="/auth/sign-up">Sign up</Link>
-          </p>
+          </AuthText>
         ) : (
-          <p className="auth__text">
+          <AuthText>
             Already have an account <Link to="/auth/sign-in">Sign in</Link>
-          </p>
+          </AuthText>
         )}
-      </div>
-    </div>
+      </AuthContent>
+    </AuthContainer>
   );
 };
 

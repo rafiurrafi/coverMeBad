@@ -1,4 +1,3 @@
-import "./navbar.style.scss";
 import { FaHome, FaSearch } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import { BsSuitHeartFill, BsFillPlusCircleFill } from "react-icons/bs";
@@ -8,6 +7,7 @@ import { useContext } from "react";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 
 import { v4 as uuidv4 } from "uuid";
+import { NavbarContainer, NavbarMenu } from "./navbar.style";
 const Navbar = () => {
   const navigate = useNavigate();
   const { createdPlaylists, addCreatedPlaylist } = useContext(
@@ -29,9 +29,9 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar">
+    <NavbarContainer>
       <h1 className="mb-xl">CoverMeBad</h1>
-      <div className="navbar-menu">
+      <NavbarMenu>
         <Link to="/" className="mb-m">
           <FaHome /> Home
         </Link>
@@ -50,11 +50,11 @@ const Navbar = () => {
         <Link to="/collection/tracks" className="mb-m">
           <BsSuitHeartFill /> Liked songs
         </Link>
-      </div>
+      </NavbarMenu>
       <div className="navbar-playlist">
         <Link to="/">Playlist #1</Link>
       </div>
-    </div>
+    </NavbarContainer>
   );
 };
 

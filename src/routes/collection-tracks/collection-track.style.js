@@ -1,4 +1,6 @@
-.liked-song-empty {
+import styled from "styled-components";
+
+export const LikedSongEmpty = styled.div`
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -16,4 +18,4 @@
     font-size: 1.8rem;
     cursor: pointer;
   }
-}
+`;

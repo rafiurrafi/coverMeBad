@@ -1,4 +1,27 @@
 import styled from "styled-components";
+export const CardBtn = styled.button`
+  background-color: var(--color-primary);
+  border: none;
+  height: 4.5rem;
+  width: 4.5rem;
+  font-size: 3.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  opacity: 0;
+
+  margin-right: -0.5rem;
+  transition: 0.5s;
+
+  svg {
+    margin-top: 0.5rem;
+    margin-right: -0.35rem;
+  }
+`;
 
 export const CardContainer = styled.div`
   position: relative;
@@ -24,28 +47,5 @@ export const CardContainer = styled.div`
   }
   p {
     font-size: 90%;
-  }
-`;
-export const CardBtn = styled.button`
-  background-color: var(--color-primary);
-  border: none;
-  height: 4.5rem;
-  width: 4.5rem;
-  font-size: 3.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-
-  position: absolute;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%);
-  opacity: 0;
-
-  margin-right: -0.5rem;
-  transition: 0.5s;
-
-  svg {
-    margin-top: 0.5rem;
-    margin-right: -0.35rem;
   }
 `;

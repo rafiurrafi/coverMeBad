@@ -1,6 +1,6 @@
-import "./home-footer.style.scss";
+import { HomeFooterContainer } from "./home-footer.style";
 const HomeFooter = ({ children }) => {
-  return <div className="home-footer">{children}</div>;
+  return <HomeFooterContainer>{children}</HomeFooterContainer>;
 };
 
 export default HomeFooter;

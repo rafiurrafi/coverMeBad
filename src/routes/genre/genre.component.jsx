@@ -6,7 +6,7 @@ import { GenreContext } from "../../context/genre.context";
 import { PageContext } from "../../context/page.context";
 import { PlaylistContext } from "../../context/playlist.context";
 import Card from "../../components/card/card.component";
-import "./genre.style.scss";
+import { GenreSearchGrid, GenreSearchPage } from "./genre.style";
 
 const Genre = () => {
   const { id } = useParams();
@@ -22,17 +22,17 @@ const Genre = () => {
   }, []);
   return (
     <Content>
-      <div className="genre-search-page">
+      <GenreSearchPage>
         <h3>Genre</h3>
-        <div className="genre-search-grid">
+        <GenreSearchGrid>
           {items.map((item) => (
             <Link key={item?.id} to={`/playlist/${item?.id}`}>
               {" "}
               {item && <Card content={item} />}
             </Link>
           ))}
-        </div>
-      </div>
+        </GenreSearchGrid>
+      </GenreSearchPage>
     </Content>
   );
 };

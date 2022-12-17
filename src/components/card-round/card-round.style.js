@@ -1,4 +1,6 @@
-.card-round {
+import styled from "styled-components";
+
+export const CardRoundContainer = styled.div`
   padding: 1.5rem;
   color: white;
   background-color: #1f1f1f;
@@ -15,4 +17,4 @@
   &-title {
     font-size: 1rem;
   }
-}
+`;

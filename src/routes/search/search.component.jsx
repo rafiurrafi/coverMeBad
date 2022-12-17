@@ -1,4 +1,3 @@
-import "./search.style.scss";
 import Content from "../../components/content/content.component";
 import { useContext } from "react";
 import { PageContext } from "../../context/page.context";
@@ -12,6 +11,19 @@ import { ArtistContext } from "../../context/artist.context";
 import SongList from "../../components/song-list/song-list.component";
 import CardRound from "../../components/card-round/card-round.component";
 import Card from "../../components/card/card.component";
+import {
+  BlankResult,
+  SearchBox,
+  SearchGenres,
+  SearchPageContainer,
+  SearchResultArtist,
+  SearchResultBody,
+  SearchResultBoxs,
+  SearchResultCat,
+  SearchResultHeader,
+  SearchResultMain,
+  SearchResultOptions,
+} from "./search.style";
 const Search = () => {
   const { setCurrentPage } = useContext(PageContext);
   const { genres } = useContext(GenreContext);
@@ -47,22 +59,21 @@ const Search = () => {
 export default Search;
 function SearchPageDefault({ genres }) {
   return (
-    <div className="search-page">
+    <SearchPageContainer>
       <h3>Browse All</h3>
-      <div className="search-genres">
+      <SearchGenres>
         {genres?.map(({ id, title, color, cover }) => (
-          <Link
+          <SearchBox
             to={`/genre/${id}`}
-            className="search-box"
             style={{ backgroundColor: color }}
             key={id}
           >
             <h3>{title}</h3>
             <img src={cover} alt={title} />
-          </Link>
+          </SearchBox>
         ))}
-      </div>
-    </div>
+      </SearchGenres>
+    </SearchPageContainer>
   );
 }
 function SearchResultFound({ filteredSongs, songs, playlists }) {
@@ -72,50 +83,48 @@ function SearchResultFound({ filteredSongs, songs, playlists }) {
   });
   const song = filteredSongs[0];
   return (
-    <div className="search-page">
-      <div className="search-result-header">
-        <div className="search-result-main">
+    <SearchPageContainer>
+      <SearchResultHeader>
+        <SearchResultMain>
           <img src={song.cover} alt="" />
           <h3>{song.title}</h3>
           <div style={{ marginTop: "2rem" }}>
             {artistsFromSong.map((artist) => (
-              <a href="" className="search-result-artist">
-                {artist.name}
-              </a>
+              <SearchResultArtist>{artist.name}</SearchResultArtist>
             ))}{" "}
-            <span className="search-result-cat">Song</span>
+            <SearchResultCat>Song</SearchResultCat>
           </div>
-        </div>
-        <div className="search-result-options">
+        </SearchResultMain>
+        <SearchResultOptions>
           {filteredSongs
             .filter((_, idx) => idx < 3)
             .map((song, idx) => (
               <SongList key={song.id} song={song} idx={idx} />
             ))}
-        </div>
-      </div>
-      <div className="search-result-body">
+        </SearchResultOptions>
+      </SearchResultHeader>
+      <SearchResultBody>
         <h3>Artist</h3>
-        <div className="search-result-boxes">
+        <SearchResultBoxs>
           {artistsFromSong.map((artist) => (
             <CardRound key={artist.id} artist={artist} />
           ))}
-        </div>
-      </div>
-      <div className="search-result-body" style={{ marginBottom: "5rem" }}>
+        </SearchResultBoxs>
+      </SearchResultBody>
+      <SearchResultBody style={{ marginBottom: "5rem" }}>
         <h3>Album</h3>
-        <div className="search-result-boxes">
+        <SearchResultBoxs>
           {playlists.map((album) => (
             <Card key={album.id} content={album} />
           ))}
-        </div>
-      </div>
-    </div>
+        </SearchResultBoxs>
+      </SearchResultBody>
+    </SearchPageContainer>
   );
 }
 function SearchResultBlank({ query }) {
   return (
-    <div style={{ color: "white" }} className="blank-result">
+    <BlankResult style={{ color: "white" }}>
       <h3>
         No results found for <span style={{ color: "red" }}>{query}</span>
       </h3>
@@ -123,6 +132,6 @@ function SearchResultBlank({ query }) {
         Please make sure your words are spelled correctly or use less or
         different keywords.
       </p>
-    </div>
+    </BlankResult>
   );
 }

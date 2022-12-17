@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import { PlayerContext } from "../../context/player.context";
-import "./player.style.scss";
 import { CgPlayTrackPrev, CgPlayButton, CgPlayTrackNext } from "react-icons/cg";
 import { HiOutlinePause } from "react-icons/hi";
 import { BsVolumeDownFill } from "react-icons/bs";
+import {
+  PlayerContainer,
+  PlayerLeft,
+  PlayerMiddle,
+  PlayerProgressbar,
+} from "./player.style";
 const Player = () => {
   const {
     currentSong,
@@ -27,15 +32,15 @@ const Player = () => {
   }
   return (
     <>
-      <div className="player">
-        <div className="player-left">
+      <PlayerContainer>
+        <PlayerLeft>
           <img src="" alt="" />
           <div className="player-title">
             <h3>Song name</h3>
             <p>Artist</p>
           </div>
-        </div>
-        <div className="player-middle">
+        </PlayerLeft>
+        <PlayerMiddle>
           <div className="player-control">
             <button>
               <CgPlayTrackPrev />
@@ -47,7 +52,7 @@ const Player = () => {
               <CgPlayTrackNext />
             </button>
           </div>
-          <div className="player-progressbar">
+          <PlayerProgressbar>
             <p>{getTime(currentTime)}</p>
             <input
               type="range"
@@ -57,14 +62,14 @@ const Player = () => {
               max={duration || 0}
             />
             <p>{getTime(duration)}</p>
-          </div>
-        </div>
+          </PlayerProgressbar>
+        </PlayerMiddle>
         <div className="player-right">
           <div>
             <BsVolumeDownFill />
           </div>
         </div>
-      </div>
+      </PlayerContainer>
       <audio
         src={currentSong.audio}
         ref={audioRef}

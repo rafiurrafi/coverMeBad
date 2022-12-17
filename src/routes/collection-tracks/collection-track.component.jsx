@@ -1,5 +1,4 @@
 import Content from "../../components/content/content.component";
-import "./collection-track.style.scss";
 import { BsFillPlayFill, BsThreeDots, BsMusicNote } from "react-icons/bs";
 import { useContext } from "react";
 import SongList from "../../components/song-list/song-list.component";
@@ -14,6 +13,7 @@ import {
 } from "../playlist/playlist.style";
 import { useNavigate } from "react-router-dom";
 import { SongContext } from "../../context/song.context";
+import { LikedSongEmpty } from "./collection-track.style";
 const CollectionTrack = () => {
   const navigate = useNavigate();
   const { songs } = useContext(SongContext);
@@ -47,7 +47,7 @@ const CollectionTrack = () => {
             </div>
           </>
         ) : (
-          <div className="liked-song-empty">
+          <LikedSongEmpty>
             <div style={{ fontSize: "5rem", marginBottom: 10 }}>
               <BsMusicNote />
             </div>
@@ -59,7 +59,7 @@ const CollectionTrack = () => {
             >
               Find Songs
             </button>
-          </div>
+          </LikedSongEmpty>
         )}
       </PlaylistBottom>
     </Content>

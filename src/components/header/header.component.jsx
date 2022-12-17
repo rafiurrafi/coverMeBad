@@ -1,17 +1,17 @@
-import "./header.style.scss";
 import { RiMoonClearFill } from "react-icons/ri";
 import { BsFillEmojiSunglassesFill, BsSearch } from "react-icons/bs";
 import { useContext } from "react";
 import { PageContext } from "../../context/page.context";
 import { SearchContext } from "../../context/search.context";
+import { HeaderContainer, HeaderSearch } from "./header.style";
 const Header = () => {
   const { currentPage } = useContext(PageContext);
   const { searchQuery, setSearchQuery } = useContext(SearchContext);
 
   return (
-    <div className="header">
+    <HeaderContainer>
       {currentPage === "search" && (
-        <div className="header-search">
+        <HeaderSearch>
           <input
             placeholder="Search your music"
             className="header-search"
@@ -21,7 +21,7 @@ const Header = () => {
           <span>
             <BsSearch />
           </span>
-        </div>
+        </HeaderSearch>
       )}
       <div>
         <button
@@ -51,7 +51,7 @@ const Header = () => {
           Sign up
         </a>
       </div>
-    </div>
+    </HeaderContainer>
   );
 };
 

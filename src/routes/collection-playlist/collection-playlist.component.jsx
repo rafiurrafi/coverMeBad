@@ -1,10 +1,13 @@
 import Card from "../../components/card/card.component";
 import Content from "../../components/content/content.component";
-import "./collection-playlist.style.scss";
 
 import { useContext } from "react";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 import { Link } from "react-router-dom";
+import {
+  CollectionPlaylistItem,
+  CollectionPlaylistItems,
+} from "./collection-playlist.style";
 
 const CollectionPlaylist = () => {
   const { createdPlaylists } = useContext(CreatedPlaylistContext);
@@ -13,19 +16,19 @@ const CollectionPlaylist = () => {
     <Content>
       <div className="collection-playlist">
         <h3>Collection playlist</h3>
-        <div className="collection-playlist-items">
-          <div className="collection-playlist-item">
+        <CollectionPlaylistItems>
+          <CollectionPlaylistItem>
             <Link to="/collection/tracks">
               <h3>Liked Songs</h3>
             </Link>
             <p>0 Liked songs</p>
-          </div>
+          </CollectionPlaylistItem>
           {createdPlaylists.map((playlist) => (
-            <div id={playlist.id} className="collection-playlist-item">
+            <CollectionPlaylistItem id={playlist.id}>
               <Card id={playlist.id} content={playlist} created />
-            </div>
+            </CollectionPlaylistItem>
           ))}
-        </div>
+        </CollectionPlaylistItems>
       </div>
     </Content>
   );

@@ -1,8 +1,9 @@
-import "./input.style.scss";
+import { InputContainer, InputGroup, Userlabel } from "./input.style";
+
 const Input = ({ label, name, value, onChange, type = "text" }) => {
   return (
-    <div className="input-group">
-      <input
+    <InputGroup>
+      <InputContainer
         required
         type={type}
         name={name}
@@ -11,8 +12,8 @@ const Input = ({ label, name, value, onChange, type = "text" }) => {
         value={value}
         onChange={onChange}
       />
-      <label className="user-label">{label}</label>
-    </div>
+      <Userlabel>{label}</Userlabel>
+    </InputGroup>
   );
 };
 
