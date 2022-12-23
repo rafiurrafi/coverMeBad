@@ -11,7 +11,7 @@ import PlayerProvider from "./context/player.context";
 import PlaylistProvider from "./context/playlist.context";
 import SearchProvider from "./context/search.context";
 import SongProvider from "./context/song.context";
-
+import ThemeProvider from "./context/theme.context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -25,7 +25,9 @@ root.render(
                   <SearchProvider>
                     <PlayerProvider>
                       <UserProvider>
-                        <App />
+                        <ThemeProvider>
+                          <App />
+                        </ThemeProvider>
                       </UserProvider>
                     </PlayerProvider>
                   </SearchProvider>

@@ -4,12 +4,16 @@ import { useContext } from "react";
 import { PageContext } from "../../context/page.context";
 import { SearchContext } from "../../context/search.context";
 import { HeaderContainer, HeaderSearch } from "./header.style";
+import { ThemeContext } from "../../context/theme.context";
+
+import { ButtonLink } from "../button/button.component";
 const Header = () => {
   const { currentPage } = useContext(PageContext);
   const { searchQuery, setSearchQuery } = useContext(SearchContext);
-
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  console.log(theme);
   return (
-    <HeaderContainer>
+    <HeaderContainer theme={theme}>
       {currentPage === "search" && (
         <HeaderSearch>
           <input
@@ -24,32 +28,38 @@ const Header = () => {
         </HeaderSearch>
       )}
       <div>
-        <button
-          style={{
-            fontSize: "2rem",
-            backgroundColor: "transparent",
-            color: "white",
-            border: "none",
-          }}
-        >
-          <RiMoonClearFill />
-        </button>
-        <button
-          style={{
-            fontSize: "2rem",
-            backgroundColor: "transparent",
-            color: "white",
-            border: "none",
-          }}
-        >
-          <BsFillEmojiSunglassesFill />
-        </button>
-        <a href="/auth/sign-in" className="btn btn--ghost">
+        {theme === "light" ? (
+          <button
+            style={{
+              fontSize: "2rem",
+              backgroundColor: "transparent",
+              color: "white",
+              border: "none",
+            }}
+            onClick={toggleTheme}
+          >
+            <RiMoonClearFill />
+          </button>
+        ) : (
+          <button
+            style={{
+              fontSize: "2rem",
+              backgroundColor: "transparent",
+              color: "white",
+              border: "none",
+            }}
+            onClick={toggleTheme}
+          >
+            <BsFillEmojiSunglassesFill />
+          </button>
+        )}
+
+        <ButtonLink to="/auth/sign-in" type="ghost">
           Sign in
-        </a>
-        <a href="/auth/sign-up" className="btn btn--full">
+        </ButtonLink>
+        <ButtonLink to="/auth/sign-up" type="full">
           Sign up
-        </a>
+        </ButtonLink>
       </div>
     </HeaderContainer>
   );

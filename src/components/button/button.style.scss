@@ -1,0 +1,24 @@
+.btn {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 0.5rem 2.5rem;
+  border: 1px solid transparent;
+  display: inline-block;
+  border-radius: 2rem;
+  backface-visibility: hidden;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:hover {
+    transform: scale(1.03);
+  }
+  &--ghost {
+    border: 1px solid;
+  }
+  &--full {
+    background-color: white;
+    // background-color: $color-primary;
+    // border: 1px solid $color-primary;
+    border: 1px solid white;
+    color: black;
+  }
+}

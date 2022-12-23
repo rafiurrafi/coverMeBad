@@ -4,7 +4,7 @@ export const HeaderContainer = styled.div`
   z-index: 2;
   margin-left: var(--left-margin);
   width: calc(100% - var(--left-margin));
-  background-color: #101010;
+  background-color: ${({ theme }) => (theme === "light" ? "#fff" : "#101010")};
   text-align: right;
   padding: 1rem 0;
   .btn {
