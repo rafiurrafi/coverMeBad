@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { InputGroup } from "../../components/input/input.style";
 
@@ -15,6 +16,7 @@ export const AuthContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 export const AuthContent = styled.div`
   background-color: rgba($color: #000000, $alpha: 0.15);
@@ -55,4 +57,12 @@ export const AuthText = styled.p`
     color: var(--color-primary);
     font-weight: 700;
   }
+`;
+export const AuthHomeLink = styled(Link)`
+  text-decoration: none;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: white;
+  font-size: 3rem;
 `;

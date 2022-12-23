@@ -23,7 +23,7 @@ const Section = () => {
   const [min, max] = sectionObj[id];
   console.log(min, max);
   return (
-    <Content>
+    <Content space>
       <Cards
         title="Latest playlist"
         albums={playlists}

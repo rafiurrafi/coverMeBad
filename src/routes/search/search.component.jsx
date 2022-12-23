@@ -38,7 +38,7 @@ const Search = () => {
   );
   console.log(filteredSongs);
   return (
-    <Content>
+    <Content space>
       {searchQuery ? (
         !filteredSongs.length ? (
           <SearchResultBlank query={searchQuery} />

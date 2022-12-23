@@ -20,7 +20,7 @@ const CollectionTrack = () => {
   const likedSongs = songs.filter((song) => song.liked);
   console.log(likedSongs);
   return (
-    <Content full>
+    <Content>
       <PlaylistHeader colorTop="#4F399A" colorBottom="#2E215A">
         <div className="playlist-header-img">
           <img src={img} alt="" />

@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { ContentContainer } from "./content.style";
-
-const Content = ({ children, full }) => {
+import { ThemeContext } from "../../context/theme.context";
+const Content = ({ children, space }) => {
+  const { theme } = useContext(ThemeContext);
   return (
     // <div className={`content ${full ? "" : "content--pad"}`}>{children}</div>
-    <ContentContainer full>{children}</ContentContainer>
+    <ContentContainer theme={theme} space={space}>
+      {children}
+    </ContentContainer>
   );
 };
 

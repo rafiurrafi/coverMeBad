@@ -4,22 +4,23 @@ export const NavbarContainer = styled.div`
   position: fixed;
   z-index: 3;
   width: var(--left-margin);
-  background-color: #000;
+  background-color: ${({ theme }) => (theme === "dark" ? "#000" : "#fff")};
   height: 100vh;
   h1 {
-    color: white;
+    color: ${({ theme }) => (theme === "dark" ? "#fff" : "#000")};
     margin-left: 2rem;
     margin-top: 2rem;
   }
   a,
   button {
+    cursor: pointer;
     display: block;
     text-decoration: none;
-    color: rgb(186, 186, 186);
+    color: ${({ theme }) => (theme === "dark" ? "rgb(186, 186, 186)" : "#000")};
     padding-left: 2rem;
     transition: 0.3s;
     &:hover {
-      color: white;
+      color: ${({ theme }) => (theme === "dark" ? "white" : "#000")};
       font-weight: 400;
     }
   }
@@ -29,11 +30,19 @@ export const NavbarMenu = styled.div`
     background-color: transparent;
     font-size: 1.6rem;
     margin-bottom: 2rem;
+    border: none;
+    &:focus {
+      outline: none;
+    }
   }
   a,
   button {
     display: flex;
     align-items: center;
+    &.active {
+      color: white;
+      background-color: ${({ theme }) => theme && "black"};
+    }
     svg {
       margin-right: 0.7rem;
       font-size: 2rem;

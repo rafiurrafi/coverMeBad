@@ -21,7 +21,7 @@ const Genre = () => {
     setCurrentPage("genre");
   }, []);
   return (
-    <Content>
+    <Content space>
       <GenreSearchPage>
         <h3>Genre</h3>
         <GenreSearchGrid>

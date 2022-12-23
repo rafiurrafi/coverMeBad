@@ -1,15 +1,16 @@
 import { FaHome, FaSearch } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import { BsSuitHeartFill, BsFillPlusCircleFill } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { colorShade, getPlaylistId, getRandomColor } from "../../utils/utils";
 import { useContext } from "react";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
-
+import { ThemeContext } from "../../context/theme.context";
 import { v4 as uuidv4 } from "uuid";
 import { NavbarContainer, NavbarMenu } from "./navbar.style";
 const Navbar = () => {
   const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
   const { createdPlaylists, addCreatedPlaylist } = useContext(
     CreatedPlaylistContext
   );
@@ -29,30 +30,49 @@ const Navbar = () => {
   }
 
   return (
-    <NavbarContainer>
-      <h1 className="mb-xl">CoverMeBad</h1>
-      <NavbarMenu>
-        <Link to="/" className="mb-m">
+    <NavbarContainer theme={theme}>
+      <Link to="/" className="mb-xl">
+        <h1> CoverMeBad</h1>
+      </Link>
+      <NavbarMenu theme={theme}>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active mb-m" : "mb-m")}
+        >
           <FaHome /> Home
-        </Link>
-        <Link to="/search" className="mb-m">
+        </NavLink>
+        <NavLink
+          to="/search"
+          className={({ isActive }) => (isActive ? "active mb-m" : "mb-m")}
+        >
           <FaSearch /> Search
-        </Link>
-        <Link to="/collection/playlist" className="mb-xl">
+        </NavLink>
+        <NavLink
+          to="/collection/playlist"
+          className={({ isActive }) => (isActive ? "active mb-m" : "mb-m")}
+        >
           <BiLibrary /> Your Library
-        </Link>
+        </NavLink>
         {/* <Link to="/" className="mb-m">
           <BsFillPlusCircleFill /> Create Playlist (-res)
         </Link> */}
         <button onClick={createPlaylist}>
           <BsFillPlusCircleFill /> Create Playlist
         </button>
-        <Link to="/collection/tracks" className="mb-m">
+        <NavLink
+          to="/collection/tracks"
+          className={({ isActive }) => (isActive ? "active mb-m" : "mb-m")}
+        >
           <BsSuitHeartFill /> Liked songs
-        </Link>
+        </NavLink>
       </NavbarMenu>
       <div className="navbar-playlist">
-        <Link to="/">Playlist #1</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active mb-m" : "mb-m")}
+        >
+          Playlist #1
+        </NavLink>
       </div>
     </NavbarContainer>
   );

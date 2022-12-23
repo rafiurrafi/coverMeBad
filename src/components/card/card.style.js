@@ -25,7 +25,8 @@ export const CardBtn = styled.button`
 
 export const CardContainer = styled.div`
   position: relative;
-  background-color: #181818;
+  background-color: ${({ theme }) =>
+    theme === "dark" ? "#181818" : "#A0A0A0"};
   padding: 1.6rem;
   border-radius: 1.5rem;
   color: white;
@@ -44,6 +45,10 @@ export const CardContainer = styled.div`
   }
   h3 {
     margin: 1rem 0;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
   }
   p {
     font-size: 90%;

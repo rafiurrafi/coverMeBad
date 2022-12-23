@@ -9,6 +9,7 @@ import image2 from "../../assets/large.jpeg";
 import {
   AuthContainer,
   AuthContent,
+  AuthHomeLink,
   AuthIcon,
   AuthText,
   AuthTitle,
@@ -18,6 +19,9 @@ const Auth = () => {
   console.log(auth);
   return (
     <AuthContainer image={image2}>
+      <AuthHomeLink to="/" className="">
+        Cover ME BAD
+      </AuthHomeLink>
       <AuthContent>
         <AuthIcon>
           <AiFillUnlock />

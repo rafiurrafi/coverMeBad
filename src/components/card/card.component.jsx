@@ -6,10 +6,12 @@ import { PlaylistContext } from "../../context/playlist.context";
 import { SongContext } from "../../context/song.context";
 import { getSong } from "../../utils/utils";
 import { CardBtn, CardContainer } from "./card.style";
+import { ThemeContext } from "../../context/theme.context";
 const Card = ({
   content: { id, cover, title, desc, songs, link },
   created = false,
 }) => {
+  const { theme } = useContext(ThemeContext);
   const [isActivePlaylist, setIsActivePlaylist] = useState(false); // current play/pause
   const { activePlaylist, setActivePlaylist, playlists, setPlaylist } =
     useContext(PlaylistContext);
@@ -44,7 +46,7 @@ const Card = ({
     // setIsPlaying(!isPlaying);
   }
   return (
-    <CardContainer>
+    <CardContainer theme={theme}>
       <img src={cover} alt="" />
       <Link to={created ? link : `/playlist/${id}`}>
         <h3>{title}</h3>

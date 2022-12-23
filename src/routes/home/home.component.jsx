@@ -12,7 +12,7 @@ const Home = () => {
     setCurrentPage("home");
   }, []);
   return (
-    <Content>
+    <Content space>
       <Cards
         title="Latest playlist"
         albums={playlists}

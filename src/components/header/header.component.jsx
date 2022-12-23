@@ -33,7 +33,7 @@ const Header = () => {
             style={{
               fontSize: "2rem",
               backgroundColor: "transparent",
-              color: "white",
+              color: theme === "light" ? "black" : "white",
               border: "none",
             }}
             onClick={toggleTheme}
@@ -45,7 +45,7 @@ const Header = () => {
             style={{
               fontSize: "2rem",
               backgroundColor: "transparent",
-              color: "white",
+              color: theme === "light" ? "black" : "white",
               border: "none",
             }}
             onClick={toggleTheme}
@@ -54,10 +54,19 @@ const Header = () => {
           </button>
         )}
 
-        <ButtonLink to="/auth/sign-in" type="ghost">
+        <ButtonLink
+          to="/auth/sign-in"
+          type="ghost"
+          theme={theme}
+          style={{ marginLeft: "1.5rem" }}
+        >
           Sign in
         </ButtonLink>
-        <ButtonLink to="/auth/sign-up" type="full">
+        <ButtonLink
+          to="/auth/sign-up"
+          style={{ marginLeft: "1.5rem" }}
+          theme={theme}
+        >
           Sign up
         </ButtonLink>
       </div>

@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
-import "./button.style.scss";
+import { ButtonLinkContainer } from "./button.style.js";
 const Button = () => {
   return <button></button>;
 };
-export const ButtonLink = ({ to = "/", children, type }) => {
+export const ButtonLink = ({ to = "/", children, type = "", style = {} }) => {
   return (
-    <Link to={to} className={`btn btn--${type}`}>
+    <ButtonLinkContainer to={to} type={type} style={style}>
       {children}
-    </Link>
+    </ButtonLinkContainer>
   );
 };
 export default Button;
