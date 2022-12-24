@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../utils/utils";
 
 export const NavbarContainer = styled.div`
   position: fixed;
@@ -23,6 +24,9 @@ export const NavbarContainer = styled.div`
       color: ${({ theme }) => (theme === "dark" ? "white" : "#000")};
       font-weight: 400;
     }
+  }
+  @media ${device.tablet} {
+    display: none;
   }
 `;
 export const NavbarMenu = styled.div`

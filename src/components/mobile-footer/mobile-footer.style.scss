@@ -1,0 +1,19 @@
+.mobile-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background-color: rgba(#121212, 0.95);
+  a {
+    color: white;
+    font-size: 3rem;
+    &.active {
+      color: var(--color-primary);
+    }
+  }
+}

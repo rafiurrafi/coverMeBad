@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../utils/utils";
 export const PlaylistHeader = styled.div`
   display: flex;
   color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
@@ -15,6 +16,13 @@ export const PlaylistHeader = styled.div`
     border-radius: 50%;
     box-shadow: 0.5rem 1rem 2rem rgba($color: #000000, $alpha: 0.6);
   }
+  @media ${device.tablet} {
+    display: block;
+    img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
 `;
 export const PlaylistHeaderContent = styled.div`
   margin-left: 3rem;
@@ -22,6 +30,9 @@ export const PlaylistHeaderContent = styled.div`
 `;
 export const PlaylistTitle = styled.h1`
   font-size: 6rem;
+  @media ${device.tablet} {
+    font-size: 3rem;
+  }
 `;
 export const PlaylistBottom = styled.div`
   background-image: ${({ color, theme }) =>

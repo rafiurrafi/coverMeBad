@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { device } from "../../utils/utils";
 
 export const SearchPageContainer = styled.div`
   color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
@@ -9,7 +10,7 @@ export const SearchPageContainer = styled.div`
 `;
 export const SearchGenres = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   grid-gap: 2.5rem;
   padding-bottom: 10rem;
 `;
@@ -33,6 +34,9 @@ export const SearchBox = styled(Link)`
 `;
 export const SearchResultHeader = styled.div`
   display: flex;
+  @media ${device.tablet} {
+    display: block;
+  }
 `;
 export const SearchResultMain = styled.div`
   flex: 0 0 48%;

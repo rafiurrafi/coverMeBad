@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../utils/utils";
 export const HeaderContainer = styled.div`
   position: fixed;
   z-index: 2;
@@ -11,6 +12,10 @@ export const HeaderContainer = styled.div`
     &:first-of-type {
       margin-right: 2rem;
     }
+  }
+  @media ${device.tablet} {
+    margin-left: 0;
+    width: 100%;
   }
 `;
 export const HeaderSearch = styled.div`
