@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Card from "../card/card.component";
+import Title from "../title/title.component";
 import "./cards.style.scss";
 const Cards = ({
   albums = [],
@@ -12,7 +13,7 @@ const Cards = ({
   return (
     <div className="cards">
       <div className="cards-header mb-m">
-        <h3>{title}</h3>
+        <Title>{title}</Title>
         {!page && <Link to={`section/section-${section}`}>See All</Link>}
       </div>
       <div className="cards-item">

@@ -24,6 +24,8 @@ import {
   SearchResultMain,
   SearchResultOptions,
 } from "./search.style";
+import Title from "../../components/title/title.component";
+import { ThemeContext } from "../../context/theme.context";
 const Search = () => {
   const { setCurrentPage } = useContext(PageContext);
   const { genres } = useContext(GenreContext);
@@ -58,12 +60,14 @@ const Search = () => {
 
 export default Search;
 function SearchPageDefault({ genres }) {
+  const { theme } = useContext(ThemeContext);
   return (
     <SearchPageContainer>
-      <h3>Browse All</h3>
+      <Title>Browse All</Title>
       <SearchGenres>
         {genres?.map(({ id, title, color, cover }) => (
           <SearchBox
+            theme={theme}
             to={`/genre/${id}`}
             style={{ backgroundColor: color }}
             key={id}
@@ -77,15 +81,16 @@ function SearchPageDefault({ genres }) {
   );
 }
 function SearchResultFound({ filteredSongs, songs, playlists }) {
+  const { theme } = useContext(ThemeContext);
   const { artists } = useContext(ArtistContext);
   const artistsFromSong = filteredSongs[0].artists.map((item) => {
     return artists.filter((artist) => artist.id === item)[0];
   });
   const song = filteredSongs[0];
   return (
-    <SearchPageContainer>
+    <SearchPageContainer theme={theme}>
       <SearchResultHeader>
-        <SearchResultMain>
+        <SearchResultMain theme={theme}>
           <img src={song.cover} alt="" />
           <h3>{song.title}</h3>
           <div style={{ marginTop: "2rem" }}>
@@ -123,8 +128,9 @@ function SearchResultFound({ filteredSongs, songs, playlists }) {
   );
 }
 function SearchResultBlank({ query }) {
+  const { theme } = useContext(ThemeContext);
   return (
-    <BlankResult style={{ color: "white" }}>
+    <BlankResult style={{ color: theme === "dark" ? "white" : "#444" }}>
       <h3>
         No results found for <span style={{ color: "red" }}>{query}</span>
       </h3>

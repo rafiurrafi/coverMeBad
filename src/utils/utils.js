@@ -41,3 +41,13 @@ export const colorShade = (col, amt) => {
 
   return `#${rr}${gg}${bb}`;
 };
+const size = {
+  mobile: "600px",
+  tablet: "900px",
+  desktop: "1400px",
+};
+export const device = {
+  mobile: `(max-width: ${size.mobile})`,
+  tablet: `(max-width: ${size.tablet})`,
+  desktop: `(min-width: ${size.desktop})`,
+};

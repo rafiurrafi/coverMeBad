@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SearchPageContainer = styled.div`
-  color: white;
+  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
   & > h3 {
     margin: 3rem 0;
   }
@@ -19,7 +19,7 @@ export const SearchBox = styled(Link)`
   overflow: hidden;
   padding: 1.5rem;
   border-radius: 1rem;
-  color: white;
+  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")}
   text-decoration: none;
 
   img {
@@ -38,9 +38,10 @@ export const SearchResultMain = styled.div`
   flex: 0 0 48%;
   padding: 2rem;
   margin-right: 4rem;
-  background-color: #1f1f1f;
+  background-color:color: ${({ theme }) =>
+    theme === "dark" ? "#1f1f1f" : "#f1f1f1"} ;
   &:hover {
-    background-color: #282828;
+    background-color: ${({ theme }) => (theme === "dark" ? "#282828" : "#eef")};
   }
   img {
     height: 9.5rem;
@@ -54,7 +55,7 @@ export const SearchResultOptions = styled.div`
   flex: 1;
 `;
 export const SearchResultCat = styled.div`
-  background-color: #202020;
+  background-color: ${({ theme }) => (theme === "dark" ? "#202020" : "#eef")};
   padding: 0.35rem 1rem;
   text-transform: uppercase;
   border-radius: 1.5rem;
@@ -62,7 +63,7 @@ export const SearchResultCat = styled.div`
 `;
 export const SearchResultArtist = styled(Link)`
   text-decoration: none;
-  color: #aaa;
+  color: ${({ theme }) => (theme === "dark" ? "#aaa" : "#444")};
 `;
 
 export const SearchResultBody = styled.div`

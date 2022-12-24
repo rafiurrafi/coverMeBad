@@ -1,12 +1,14 @@
 import styled from "styled-components";
 export const PlaylistHeader = styled.div`
   display: flex;
-  color: white;
+  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
   padding-top: 8rem;
   padding-bottom: 4rem;
   padding-left: 4rem;
-  background-image: ${({ colorTop, colorBottom }) =>
-    `linear-gradient(to bottom, ${colorTop}, ${colorBottom})`};
+  background-image: ${({ colorTop, colorBottom, theme }) =>
+    theme === "dark"
+      ? `linear-gradient(to bottom, ${colorTop}, ${colorBottom})`
+      : "#fff"};
   img {
     height: 23rem;
     width: 23rem;
@@ -22,8 +24,10 @@ export const PlaylistTitle = styled.h1`
   font-size: 6rem;
 `;
 export const PlaylistBottom = styled.div`
-  background-image: ${({ color }) =>
-    `linear-gradient(to bottom, ${color}, #000, #000)`};
+  background-image: ${({ color, theme }) =>
+    theme === "dark"
+      ? `linear-gradient(to bottom, ${color}, #000, #000)`
+      : "#fff"};
 `;
 export const PlaylistAction = styled.div`
   display: flex;
@@ -31,7 +35,7 @@ export const PlaylistAction = styled.div`
   padding: 5rem 4rem;
   button {
     &:not(:first-of-type) {
-      color: white;
+      color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
       font-size: 3.3rem;
       border: none;
       background-color: transparent;

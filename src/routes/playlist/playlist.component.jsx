@@ -15,7 +15,9 @@ import {
   PlaylistTitle,
 } from "./playlist.style.js";
 import LoveButton from "../../components/love-button/love-button.component";
+import { ThemeContext } from "../../context/theme.context";
 const Playlist = () => {
+  const { theme } = useContext(ThemeContext);
   const { id } = useParams();
   const { playlists } = useContext(PlaylistContext);
   const playlist = playlists.filter((item) => item.id === id)[0] || {};
@@ -34,7 +36,7 @@ const Playlist = () => {
 
   return (
     <Content full>
-      <PlaylistHeader colorTop={color[0]} colorBottom={color[1]}>
+      <PlaylistHeader colorTop={color[0]} colorBottom={color[1]} theme={theme}>
         <div className="playlist-header-img">
           {cover && <img src={cover} alt="" />}
         </div>
@@ -48,8 +50,8 @@ const Playlist = () => {
         </PlaylistHeaderContent>
       </PlaylistHeader>
 
-      <PlaylistBottom color={color[2]}>
-        <PlaylistAction>
+      <PlaylistBottom color={color[2]} theme={theme}>
+        <PlaylistAction theme={theme}>
           <button className="card-btn">
             <BsFillPlayFill />
           </button>

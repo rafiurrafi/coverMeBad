@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const CardRoundContainer = styled.div`
   padding: 1.5rem;
-  color: white;
-  background-color: #1f1f1f;
+  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
+  background-color: ${({ theme }) =>
+    theme === "dark" ? "#1f1f1f" : "#a0a0a0"};
   &:hover {
-    background-color: #282828;
+    background-color: ${({ theme }) =>
+      theme === "dark" ? "#282828" : "#797979"};
   }
   img {
     height: 16.8rem;

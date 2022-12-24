@@ -32,7 +32,8 @@ export const CardContainer = styled.div`
   color: white;
   transition: background-color 0.3s;
   &:hover {
-    background-color: #242424;
+    background-color: ${({ theme }) =>
+      theme === "dark" ? "#242424" : "#797979"};
   }
   &:hover ${CardBtn} {
     opacity: 1;

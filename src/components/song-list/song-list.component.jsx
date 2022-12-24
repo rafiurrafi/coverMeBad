@@ -1,47 +1,55 @@
-import "./song-list.style.scss";
+import "./song-list.style.js";
 import LoveButton from "../../components/love-button/love-button.component";
 import { BsThreeDots } from "react-icons/bs";
 import { useContext } from "react";
 import { PlayerContext } from "../../context/player.context";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { SongContext } from "../../context/song.context";
+import { ThemeContext } from "../../context/theme.context";
+import {
+  SongListContainer,
+  SongListHidden,
+  SongListIcon,
+  SongListImg,
+  SongListIndex,
+  SongListTitle,
+} from "./song-list.style.js";
 const SongList = ({ song, idx = 0 }) => {
   const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
-
+  const { theme } = useContext(ThemeContext);
   const { toggleLikedSongs } = useContext(SongContext);
   return (
-    <div className="song-list">
-      <div className="song-list-index">{idx + 1}</div>
-      <div className="song-list-img">
+    <SongListContainer theme={theme}>
+      <SongListIndex>{idx + 1}</SongListIndex>
+      <SongListImg>
         <img src={song.cover} alt="" />
-        <div
-          className="song-list-play-icon"
+        <SongListIcon
           onClick={() => {
             setCurrentSong(song);
             setIsPlaying(!isPlaying);
           }}
         >
           {isPlaying ? <FaPlay /> : <FaPause />}
-        </div>
-      </div>
-      <div className="song-list-title">
+        </SongListIcon>
+      </SongListImg>
+      <SongListTitle>
         <h4>{song.title}</h4>
         <p style={{ marginBottom: 0, fontSize: "90%" }}>Usama</p>
-      </div>
+      </SongListTitle>
       <div className="song-list-more">
-        <span className="song-list-hidden">
+        <SongListHidden>
           <LoveButton
             name={song.title}
             item={song}
             onClick={toggleLikedSongs}
           />
-        </span>
+        </SongListHidden>
         <span>03:45</span>
-        <span className="song-list-hidden">
+        <SongListHidden>
           <BsThreeDots />
-        </span>
+        </SongListHidden>
       </div>
-    </div>
+    </SongListContainer>
   );
 };
 
