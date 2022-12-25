@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Content from "../../components/content/content.component";
 import { PlaylistContext } from "../../context/playlist.context";
-import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
+import { BsFillPlayFill, BsThreeDots } from "react-icons/bs";
 import SongList from "../../components/song-list/song-list.component";
 import { useEffect } from "react";
 import { SongContext } from "../../context/song.context";
@@ -15,6 +15,9 @@ import {
 } from "./playlist.style.js";
 import LoveButton from "../../components/love-button/love-button.component";
 import { ThemeContext } from "../../context/theme.context";
+import LikeBtn from "../../components/like-btn/like-btn.component";
+import { CardBtn } from "../../components/card/card.style";
+import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 const Playlist = () => {
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
@@ -25,11 +28,16 @@ const Playlist = () => {
 
   const { songs } = useContext(SongContext);
   const { toggleLikedPlaylist } = useContext(PlaylistContext);
+  const { addCreatedPlaylist } = useContext(CreatedPlaylistContext);
 
   function getSongs(songIds) {
     return songIds?.map((id) => {
       return songs?.filter((song) => song.id === id)[0];
     });
+  }
+  function handleLikedList(item) {
+    toggleLikedPlaylist(item);
+    addCreatedPlaylist(item);
   }
   const filteredSongs = getSongs(songIds) || [];
   useEffect(() => {
@@ -56,11 +64,13 @@ const Playlist = () => {
           <button className="card-btn">
             <BsFillPlayFill />
           </button>
+
           <button className="playlist-love-btn">
-            <LoveButton
+            <LikeBtn
               name={playlist.title}
               item={playlist}
-              onClick={toggleLikedPlaylist}
+              onClick={() => handleLikedList(playlist)}
+              isLiked={playlist.liked}
             />
           </button>
           <button>

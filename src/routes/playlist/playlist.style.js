@@ -43,21 +43,25 @@ export const PlaylistBottom = styled.div`
 export const PlaylistAction = styled.div`
   display: flex;
   align-items: center;
-  padding: 5rem 4rem;
+  padding: 5rem 3rem;
   button {
-    &:not(:first-of-type) {
-      color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
-      font-size: 3.3rem;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-    }
+    color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
+    font-size: 4rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
     &:last-of-type {
       margin-bottom: -1rem;
     }
   }
+  .card-btn {
+    padding-top: 0.5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+  }
   .playlist-love-btn {
     margin: 0 3rem;
-    transform: translateY(-1rem) scale(1.5);
   }
 `;

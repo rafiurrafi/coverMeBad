@@ -7,6 +7,16 @@ export const NavbarContainer = styled.div`
   width: var(--left-margin);
   background-color: ${({ theme }) => (theme === "dark" ? "#000" : "#fff")};
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 8rem;
+  //scroll
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
   h1 {
     color: ${({ theme }) => (theme === "dark" ? "#fff" : "#000")};
     margin-left: 2rem;

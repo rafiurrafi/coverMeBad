@@ -8,7 +8,7 @@ export const LikedSongEmpty = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-
+  transform: translateY(-10vh);
   h3 {
     font-size: 2rem;
   }
@@ -20,6 +20,5 @@ export const LikedSongEmpty = styled.div`
     cursor: pointer;
   }
   @media ${device.tablet} {
-    transform: translateY(-10vh);
   }
 `;

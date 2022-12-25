@@ -1,6 +1,5 @@
 import styled from "styled-components";
 export const InputContainer = styled.div`
-  background-color: red;
   svg {
     height: ${({ size }) => size + "px"};
     //   height: 300px;
@@ -30,7 +29,7 @@ export const InputContainer = styled.div`
         transition: 0.2s ease;
       }
       #outer {
-        fill: white;
+        fill: ${({ theme }) => (theme === "dark" ? "white" : "#000")};
         transition: 0.2s ease;
       }
     }

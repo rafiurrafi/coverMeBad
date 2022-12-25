@@ -11,6 +11,7 @@ import {
 
 const CollectionPlaylist = () => {
   const { createdPlaylists } = useContext(CreatedPlaylistContext);
+  console.log(createdPlaylists);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

@@ -1,18 +1,22 @@
+import { useContext } from "react";
 import { useState } from "react";
-import { InputContainer } from "./like-btn.js";
-const LikeBtn = () => {
-  const [checked, setChecked] = useState(true);
+import { ThemeContext } from "../../context/theme.context";
+import { InputContainer } from "./like-btn";
+
+const LikeBtn = ({ name, item, onClick, isLiked, size = 30 }) => {
+  const [checked, setChecked] = useState(isLiked);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <InputContainer checked={checked} size={80}>
+    <InputContainer checked={checked} size={size} theme={theme}>
       <input
         type="checkbox"
-        id="like"
-        name="like"
+        id={name}
+        name={name}
         checked={checked}
         onChange={() => setChecked(!checked)}
       />
-      <label htmlFor="like">
+      <label htmlFor={name} onClick={onClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 189.2 87.507"
