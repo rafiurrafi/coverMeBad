@@ -6,10 +6,11 @@ export const HeaderContainer = styled.div`
   margin-left: var(--left-margin);
   width: calc(100% - var(--left-margin));
   background-color: ${({ theme }) => (theme === "light" ? "#fff" : "#101010")};
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 7rem;
+  height: 5.5rem;
   padding: 0 2rem;
   .btn {
     &:first-of-type {

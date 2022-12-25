@@ -7,8 +7,7 @@ export const LikedSongEmpty = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  transform: translateY(-10vh);
+  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
   h3 {
     font-size: 2rem;
   }
@@ -20,5 +19,6 @@ export const LikedSongEmpty = styled.div`
     cursor: pointer;
   }
   @media ${device.tablet} {
+    transform: translateY(-10vh);
   }
 `;

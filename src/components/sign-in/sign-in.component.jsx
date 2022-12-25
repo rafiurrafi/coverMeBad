@@ -6,6 +6,7 @@ import {
   signInWithGooglePopup,
 } from "../../utils/firebase.utils";
 import "./sign-in.style.scss";
+import Button, { ButtonLink } from "../button/button.component";
 
 const defaultFormFields = {
   email: "",
@@ -72,7 +73,8 @@ const SignIn = () => {
           value={password}
           onChange={handleChange}
         />
-        <button>Sign in</button>
+        {/* <button>Sign in</button> */}
+        <Button theme="light">Sign up</Button>
       </form>
     </div>
   );

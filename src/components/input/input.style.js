@@ -12,7 +12,7 @@ export const InputContainer = styled.input`
   border-radius: 1rem;
   background: none;
   padding: 1.5rem;
-  font-size: 1rem;
+  font-size: 1.6rem;
   color: #f5f5f5;
   transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
   &:focus,

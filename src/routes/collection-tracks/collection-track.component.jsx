@@ -11,19 +11,26 @@ import {
   PlaylistHeaderContent,
   PlaylistTitle,
 } from "../playlist/playlist.style";
-import { useNavigate } from "react-router-dom";
 import { SongContext } from "../../context/song.context";
 import { LikedSongEmpty } from "./collection-track.style";
+import { ThemeContext } from "../../context/theme.context";
+import { ButtonLink } from "../../components/button/button.component";
+import { PageContext } from "../../context/page.context";
+
 const CollectionTrack = () => {
-  const navigate = useNavigate();
   const { songs } = useContext(SongContext);
   const likedSongs = songs.filter((song) => song.liked);
+  const { theme } = useContext(ThemeContext);
+  const { setCurrentPage } = useContext(PageContext);
+  useEffect(() => {
+    setCurrentPage("home");
+  }, []);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <Content>
-      <PlaylistHeader colorTop="#4F399A" colorBottom="#2E215A">
+      <PlaylistHeader colorTop="#4F399A" colorBottom="#2E215A" theme={theme}>
         <div className="playlist-header-img">
           <img src={img} alt="" />
         </div>
@@ -33,7 +40,7 @@ const CollectionTrack = () => {
           <p>Author</p>
         </PlaylistHeaderContent>
       </PlaylistHeader>
-      <PlaylistBottom color="#20173D">
+      <PlaylistBottom color="#20173D" theme={theme}>
         {likedSongs.length ? (
           <>
             <PlaylistAction>
@@ -49,18 +56,20 @@ const CollectionTrack = () => {
             </div>
           </>
         ) : (
-          <LikedSongEmpty>
+          <LikedSongEmpty theme={theme}>
             <div style={{ fontSize: "5rem", marginBottom: 10 }}>
               <BsMusicNote />
             </div>
             <h3>Songs you like will appear here</h3>
             <p>Save songs by tapping the heart icon.</p>
-            <button
-              className="btn btn--full"
-              onClick={() => navigate("/search")}
+
+            <ButtonLink
+              to="/search"
+              style={{ marginLeft: "1.5rem" }}
+              theme={theme}
             >
               Find Songs
-            </button>
+            </ButtonLink>
           </LikedSongEmpty>
         )}
       </PlaylistBottom>

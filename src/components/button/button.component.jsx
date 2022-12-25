@@ -1,6 +1,10 @@
-import { ButtonLinkContainer } from "./button.style.js";
-const Button = () => {
-  return <button></button>;
+import { ButtonContainer, ButtonLinkContainer } from "./button.style.js";
+const Button = ({ children, type = "", theme = "dark", style = {} }) => {
+  return (
+    <ButtonContainer type={type} theme={theme} style={style}>
+      {children}
+    </ButtonContainer>
+  );
 };
 export const ButtonLink = ({
   to = "/",
