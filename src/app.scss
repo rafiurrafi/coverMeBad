@@ -17,7 +17,9 @@ body {
   font-weight: 400;
   text-rendering: optimizeLegibility;
 }
-
+a {
+  text-decoration: none;
+}
 .mb-s {
   margin-bottom: 1rem;
 }

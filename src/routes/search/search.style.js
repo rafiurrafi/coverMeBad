@@ -20,9 +20,8 @@ export const SearchBox = styled(Link)`
   overflow: hidden;
   padding: 1.5rem;
   border-radius: 1rem;
-  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")}
+  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
   text-decoration: none;
-
   img {
     height: 13rem;
     width: 13rem;
@@ -42,11 +41,13 @@ export const SearchResultMain = styled.div`
   flex: 0 0 48%;
   padding: 2rem;
   margin-right: 4rem;
+  box-shadow : 0 0 1rem rgba(0, 0, 0, .15);
   background-color:color: ${({ theme }) =>
     theme === "dark" ? "#1f1f1f" : "#f1f1f1"} ;
   &:hover {
     background-color: ${({ theme }) => (theme === "dark" ? "#282828" : "#eef")};
   }
+
   img {
     height: 9.5rem;
     width: 9.5rem;
@@ -59,11 +60,12 @@ export const SearchResultOptions = styled.div`
   flex: 1;
 `;
 export const SearchResultCat = styled.div`
-  background-color: ${({ theme }) => (theme === "dark" ? "#202020" : "#eef")};
+  background-color: ${({ theme }) => (theme === "dark" ? "#121212" : "#eef")};
   padding: 0.35rem 1rem;
   text-transform: uppercase;
   border-radius: 1.5rem;
-  margin-left: 1.5rem;
+  margin-top: 1rem;
+  display: inline-block;
 `;
 export const SearchResultArtist = styled(Link)`
   text-decoration: none;

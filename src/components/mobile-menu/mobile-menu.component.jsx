@@ -4,11 +4,18 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../context/user.context";
 import { AiOutlineMenu } from "react-icons/ai";
 import { GiSkullCrossedBones } from "react-icons/gi";
-import "./mobile-menu.style.scss";
 import { useWindowSize } from "../../utils/custom-hooks";
+import {
+  MobileMenuBtn,
+  MobileMenuContainer,
+  MobileMenuLinks,
+  MobileMenuOthers,
+} from "./mobile-menu.style";
+import { ThemeContext } from "../../context/theme.context";
 const MobileMenu = () => {
   const [active, setActive] = useState(false);
   const { currentUser } = useContext(UserContext);
+  const { theme } = useContext(ThemeContext);
   const width = useWindowSize();
   function toggleActive() {
     setActive(!active);
@@ -17,22 +24,22 @@ const MobileMenu = () => {
   return (
     <>
       {width < 900 && (
-        <button className="mobile-menu__open" onClick={toggleActive}>
+        <MobileMenuBtn onClick={toggleActive} theme={theme}>
           <AiOutlineMenu />
-        </button>
+        </MobileMenuBtn>
       )}
-      <div className={`${active ? "active" : ""} mobile-menu`}>
+      <MobileMenuContainer active={active}>
         {active && (
-          <button
-            className="mobile-menu__open"
+          <MobileMenuBtn
+            theme="dark"
             onClick={toggleActive}
             style={{ fontSize: "3rem" }}
           >
             <GiSkullCrossedBones />
-          </button>
+          </MobileMenuBtn>
         )}
-        <div className="mobile-menu__links">
-          {!currentUser ? (
+        <MobileMenuLinks>
+          {currentUser ? (
             <div>
               <Link to="/">View Account</Link>
               <Link to="/">Profile</Link>
@@ -45,15 +52,15 @@ const MobileMenu = () => {
             </div>
           )}
 
-          <div className="mobile-menu__others">
+          <MobileMenuOthers>
             <Link to="/">Premium</Link>
             <Link to="/">Help</Link>
             <Link to="/">Download</Link>
             <Link to="/">Privacy</Link>
             <Link to="/">Terms</Link>
-          </div>
-        </div>
-      </div>
+          </MobileMenuOthers>
+        </MobileMenuLinks>
+      </MobileMenuContainer>
     </>
   );
 };

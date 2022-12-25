@@ -33,6 +33,8 @@ export const HeaderSearch = styled.div`
   float: left;
   height: 3rem;
   border-radius: 1.4rem;
+  border: ${({ theme }) =>
+    theme === "dark" ? "1px solid transparent" : "1px solid #666"};
   input {
     border: none;
     margin-left: 0;
@@ -42,7 +44,7 @@ export const HeaderSearch = styled.div`
     }
   }
   span {
-    color: #ddd;
+    color: #555;
     transform: translateY(0.5rem);
     padding-right: 1rem;
   }

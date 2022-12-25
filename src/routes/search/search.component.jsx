@@ -26,6 +26,7 @@ import {
 } from "./search.style";
 import Title from "../../components/title/title.component";
 import { ThemeContext } from "../../context/theme.context";
+import { shuffleArray } from "../../utils/utils";
 const Search = () => {
   const { setCurrentPage } = useContext(PageContext);
   const { genres } = useContext(GenreContext);
@@ -94,10 +95,12 @@ function SearchResultFound({ filteredSongs, songs, playlists }) {
           <img src={song.cover} alt="" />
           <h3>{song.title}</h3>
           <div style={{ marginTop: "2rem" }}>
-            {artistsFromSong.map((artist) => (
-              <SearchResultArtist>{artist.name}</SearchResultArtist>
-            ))}{" "}
-            <SearchResultCat>Song</SearchResultCat>
+            <div>
+              {artistsFromSong.map((artist) => (
+                <SearchResultArtist>{artist.name}</SearchResultArtist>
+              ))}{" "}
+            </div>
+            <SearchResultCat theme={theme}>Song</SearchResultCat>
           </div>
         </SearchResultMain>
         <SearchResultOptions>
@@ -119,9 +122,11 @@ function SearchResultFound({ filteredSongs, songs, playlists }) {
       <SearchResultBody style={{ marginBottom: "5rem" }}>
         <h3>Album</h3>
         <SearchResultBoxs>
-          {playlists.map((album) => (
-            <Card key={album.id} content={album} />
-          ))}
+          {playlists
+            .filter((_, idx) => idx < 7)
+            .map((album) => (
+              <Card key={album.id} content={album} />
+            ))}
         </SearchResultBoxs>
       </SearchResultBody>
     </SearchPageContainer>

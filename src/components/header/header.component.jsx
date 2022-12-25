@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <HeaderContainer theme={theme}>
       {currentPage === "search" ? (
-        <HeaderSearch>
+        <HeaderSearch theme={theme}>
           <input
             placeholder="Search your music"
             className="header-search"

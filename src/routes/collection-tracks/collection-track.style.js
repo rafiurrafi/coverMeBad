@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../utils/utils";
 
 export const LikedSongEmpty = styled.div`
   min-height: 50vh;
@@ -17,5 +18,8 @@ export const LikedSongEmpty = styled.div`
   .btn {
     font-size: 1.8rem;
     cursor: pointer;
+  }
+  @media ${device.tablet} {
+    transform: translateY(-10vh);
   }
 `;

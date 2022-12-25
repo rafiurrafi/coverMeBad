@@ -19,4 +19,7 @@ export const CardRoundContainer = styled.div`
   &-title {
     font-size: 1rem;
   }
+  a {
+    color: white;
+  }
 `;

@@ -5,6 +5,6 @@ export const GenreSearchPage = styled.div`
 `;
 export const GenreSearchGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 2.5rem;
 `;
