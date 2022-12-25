@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./app.scss";
 import Template from "./components/template/template.component";
 import Auth from "./routes/auth/auth.component";
@@ -25,10 +25,7 @@ const App = () => {
         <Route path="section/:id" element={<Section />} />
       </Route>
       <Route path="/auth/:auth" element={<Auth />} />
-      {/* <Route path="/" element={<Home />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/" element={<Home />} /> */}
+      <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

@@ -1,9 +1,10 @@
 import { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Content from "../../components/content/content.component";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 import { BsMusicNoteBeamed } from "react-icons/bs";
-import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
+import { HiMusicNote } from "react-icons/hi";
+import { BsFillPlayFill, BsThreeDots } from "react-icons/bs";
 import {
   PlaylistAction,
   PlaylistBottom,
@@ -13,23 +14,30 @@ import {
 } from "../playlist/playlist.style";
 import SongList from "../../components/song-list/song-list.component";
 import { ThemeContext } from "../../context/theme.context";
+import { UserPlaylistIcon } from "./user-playlist.style";
 const UserPlaylist = () => {
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
-  const { createdPlaylists, setCreatedPlaylist } = useContext(
-    CreatedPlaylistContext
-  );
-  const item = createdPlaylists.filter((list) => list.id === id)[0];
-  const { title, songs, color, desc, cover } = item;
+  const { createdPlaylists } = useContext(CreatedPlaylistContext);
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const item = createdPlaylists.filter((list) => list.id === id)[0];
+  if (!item) {
+    navigate("/");
+    return;
+  }
+  const { title, songs, color, desc } = item;
+
   return (
     <Content full>
       <PlaylistHeader theme={theme} colorTop={color[0]} colorBottom={color[1]}>
-        <div className="playlist-header-img">
-          {cover && <img src={cover} alt="" />}
-        </div>
+        <UserPlaylistIcon>
+          <HiMusicNote />
+        </UserPlaylistIcon>
         <PlaylistHeaderContent>
           <h4 className="playlist-header-subtitle">Playlist</h4>
           <PlaylistTitle>{title}</PlaylistTitle>

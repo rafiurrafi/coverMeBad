@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
+import { HiMusicNote } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { PlayerContext } from "../../context/player.context";
 import { PlaylistContext } from "../../context/playlist.context";
@@ -7,6 +8,7 @@ import { SongContext } from "../../context/song.context";
 import { getSong } from "../../utils/utils";
 import { CardBtn, CardContainer } from "./card.style";
 import { ThemeContext } from "../../context/theme.context";
+import { UserPlaylistIcon } from "../../routes/user-playlist/user-playlist.style";
 const Card = ({
   content: { id, cover, title, desc, songs, link },
   created = false,
@@ -39,15 +41,16 @@ const Card = ({
       setActivePlaylist(false);
       setIsPlaying(false);
     }
-
-    // setIsActivePlaylist(!isActivePlaylist);
-    // setActivePlaylist(playlistId);
-    // setCurrentSong(song);
-    // setIsPlaying(!isPlaying);
   }
   return (
     <CardContainer theme={theme}>
-      <img src={cover} alt="" />
+      {cover ? (
+        <img src={cover} alt="" />
+      ) : (
+        <UserPlaylistIcon>
+          <HiMusicNote />
+        </UserPlaylistIcon>
+      )}
       <Link to={created ? link : `/playlist/${id}`}>
         <h3>{title}</h3>
       </Link>
