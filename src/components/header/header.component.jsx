@@ -3,7 +3,12 @@ import { BsFillEmojiSunglassesFill, BsSearch } from "react-icons/bs";
 import { useContext } from "react";
 import { PageContext } from "../../context/page.context";
 import { SearchContext } from "../../context/search.context";
-import { HeaderContainer, HeaderSearch } from "./header.style";
+import {
+  HeaderAuthBtn,
+  HeaderContainer,
+  HeaderRight,
+  HeaderSearch,
+} from "./header.style";
 import { ThemeContext } from "../../context/theme.context";
 
 import { ButtonLink } from "../button/button.component";
@@ -14,7 +19,7 @@ const Header = () => {
 
   return (
     <HeaderContainer theme={theme}>
-      {currentPage === "search" && (
+      {currentPage === "search" ? (
         <HeaderSearch>
           <input
             placeholder="Search your music"
@@ -26,8 +31,10 @@ const Header = () => {
             <BsSearch />
           </span>
         </HeaderSearch>
+      ) : (
+        <div>&nbsp;</div>
       )}
-      <div>
+      <HeaderRight>
         {theme === "light" ? (
           <button
             style={{
@@ -54,22 +61,24 @@ const Header = () => {
           </button>
         )}
 
-        <ButtonLink
-          to="/auth/sign-in"
-          type="ghost"
-          theme={theme}
-          style={{ marginLeft: "1.5rem" }}
-        >
-          Sign in
-        </ButtonLink>
-        <ButtonLink
-          to="/auth/sign-up"
-          style={{ marginLeft: "1.5rem" }}
-          theme={theme}
-        >
-          Sign up
-        </ButtonLink>
-      </div>
+        <HeaderAuthBtn>
+          <ButtonLink
+            to="/auth/sign-in"
+            type="ghost"
+            theme={theme}
+            style={{ marginLeft: "1.5rem" }}
+          >
+            Sign in
+          </ButtonLink>
+          <ButtonLink
+            to="/auth/sign-up"
+            style={{ marginLeft: "1.5rem" }}
+            theme={theme}
+          >
+            Sign up
+          </ButtonLink>
+        </HeaderAuthBtn>
+      </HeaderRight>
     </HeaderContainer>
   );
 };

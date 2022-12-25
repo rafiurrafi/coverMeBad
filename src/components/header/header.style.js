@@ -6,8 +6,11 @@ export const HeaderContainer = styled.div`
   margin-left: var(--left-margin);
   width: calc(100% - var(--left-margin));
   background-color: ${({ theme }) => (theme === "light" ? "#fff" : "#101010")};
-  text-align: right;
-  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+  padding: 0 2rem;
   .btn {
     &:first-of-type {
       margin-right: 2rem;
@@ -42,5 +45,17 @@ export const HeaderSearch = styled.div`
     color: #ddd;
     transform: translateY(0.5rem);
     padding-right: 1rem;
+  }
+`;
+export const HeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+  @media ${device.tablet} {
+    margin-right: 4rem;
+  }
+`;
+export const HeaderAuthBtn = styled.div`
+  @media ${device.tablet} {
+    display: none;
   }
 `;

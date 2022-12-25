@@ -5,17 +5,22 @@ import { UserContext } from "../../context/user.context";
 import { AiOutlineMenu } from "react-icons/ai";
 import { GiSkullCrossedBones } from "react-icons/gi";
 import "./mobile-menu.style.scss";
+import { useWindowSize } from "../../utils/custom-hooks";
 const MobileMenu = () => {
   const [active, setActive] = useState(false);
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
+  const width = useWindowSize();
   function toggleActive() {
     setActive(!active);
   }
+
   return (
     <>
-      <button className="mobile-menu__open" onClick={toggleActive}>
-        <AiOutlineMenu />
-      </button>
+      {width < 900 && (
+        <button className="mobile-menu__open" onClick={toggleActive}>
+          <AiOutlineMenu />
+        </button>
+      )}
       <div className={`${active ? "active" : ""} mobile-menu`}>
         {active && (
           <button
@@ -39,6 +44,7 @@ const MobileMenu = () => {
               <Link to="/auth/sign-up">Sign Up</Link>
             </div>
           )}
+
           <div className="mobile-menu__others">
             <Link to="/">Premium</Link>
             <Link to="/">Help</Link>
