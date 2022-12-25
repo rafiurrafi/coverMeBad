@@ -11,6 +11,7 @@ import { NavbarContainer, NavbarMenu } from "./navbar.style";
 const Navbar = () => {
   const navigate = useNavigate();
   const { theme } = useContext(ThemeContext);
+
   const { createdPlaylists, addCreatedPlaylist } = useContext(
     CreatedPlaylistContext
   );
@@ -67,12 +68,14 @@ const Navbar = () => {
         </NavLink>
       </NavbarMenu>
       <div className="navbar-playlist">
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "active mb-m" : "mb-m")}
-        >
-          Playlist #1
-        </NavLink>
+        {createdPlaylists.map((playlist) => (
+          <NavLink
+            to={`/user-playlist/${playlist.id}`}
+            className={({ isActive }) => (isActive ? "active mb-m" : "mb-m")}
+          >
+            {playlist.title}
+          </NavLink>
+        ))}
       </div>
     </NavbarContainer>
   );
