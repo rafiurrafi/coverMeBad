@@ -4,9 +4,8 @@ import Content from "../../components/content/content.component";
 import { PlaylistContext } from "../../context/playlist.context";
 import { BsFillPlayFill, BsSuitHeart, BsThreeDots } from "react-icons/bs";
 import SongList from "../../components/song-list/song-list.component";
-
+import { useEffect } from "react";
 import { SongContext } from "../../context/song.context";
-import { PlayerContext } from "../../context/player.context";
 import {
   PlaylistAction,
   PlaylistBottom,
@@ -33,7 +32,9 @@ const Playlist = () => {
     });
   }
   const filteredSongs = getSongs(songIds) || [];
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Content full>
       <PlaylistHeader colorTop={color[0]} colorBottom={color[1]} theme={theme}>

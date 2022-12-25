@@ -3,7 +3,7 @@ import { BsFillPlayFill, BsThreeDots, BsMusicNote } from "react-icons/bs";
 import { useContext } from "react";
 import SongList from "../../components/song-list/song-list.component";
 import img from "./liked.png";
-import LoveButton from "../../components/love-button/love-button.component";
+import { useEffect } from "react";
 import {
   PlaylistAction,
   PlaylistBottom,
@@ -18,7 +18,9 @@ const CollectionTrack = () => {
   const navigate = useNavigate();
   const { songs } = useContext(SongContext);
   const likedSongs = songs.filter((song) => song.liked);
-  console.log(likedSongs);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Content>
       <PlaylistHeader colorTop="#4F399A" colorBottom="#2E215A">

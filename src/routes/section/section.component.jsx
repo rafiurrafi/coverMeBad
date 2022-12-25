@@ -20,6 +20,9 @@ const Section = () => {
   useEffect(() => {
     setCurrentPage("home");
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [min, max] = sectionObj[id];
   console.log(min, max);
   return (

@@ -1,6 +1,6 @@
 import Card from "../../components/card/card.component";
 import Content from "../../components/content/content.component";
-
+import { useEffect } from "react";
 import { useContext } from "react";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 import { Link } from "react-router-dom";
@@ -11,7 +11,9 @@ import {
 
 const CollectionPlaylist = () => {
   const { createdPlaylists } = useContext(CreatedPlaylistContext);
-  console.log(createdPlaylists);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Content>
       <div className="collection-playlist">

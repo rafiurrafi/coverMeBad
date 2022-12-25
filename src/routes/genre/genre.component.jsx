@@ -20,6 +20,9 @@ const Genre = () => {
   useEffect(() => {
     setCurrentPage("genre");
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Content space>
       <GenreSearchPage>

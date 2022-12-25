@@ -62,6 +62,9 @@ const Search = () => {
 export default Search;
 function SearchPageDefault({ genres }) {
   const { theme } = useContext(ThemeContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <SearchPageContainer>
       <Title>Browse All</Title>
