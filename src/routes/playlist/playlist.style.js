@@ -62,6 +62,6 @@ export const PlaylistAction = styled.div`
     background-color: var(--color-primary);
   }
   .playlist-love-btn {
-    margin: 0 3rem;
+    margin: 0 4rem;
   }
 `;

@@ -14,7 +14,8 @@ import {
 } from "../playlist/playlist.style";
 import SongList from "../../components/song-list/song-list.component";
 import { ThemeContext } from "../../context/theme.context";
-import { UserPlaylistIcon } from "./user-playlist.style";
+import { EmptyCollection, UserPlaylistIcon } from "./user-playlist.style";
+import LikeBtn from "../../components/like-btn/like-btn.component";
 const UserPlaylist = () => {
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
@@ -53,7 +54,9 @@ const UserPlaylist = () => {
           <button className="card-btn">
             <BsFillPlayFill />
           </button>
-          <button className="playlist-love-btn">{/* <LoveButton /> */}</button>
+          <button className="playlist-love-btn">
+            <LikeBtn name={title} item={item} isLiked={true} />
+          </button>
           <button>
             <BsThreeDots />
           </button>
@@ -64,14 +67,11 @@ const UserPlaylist = () => {
               <>{song && <SongList key={song.id} song={song} idx={idx} />}</>
             ))
           ) : (
-            <div className="collection-empty">
-              <div className="collection-empty-icon">
-                <BsMusicNoteBeamed />
-              </div>
-              <h3>Create your first playlist</h3>
+            <EmptyCollection theme={theme}>
+              <h3>Let's find something for your playlist</h3>
               <p>It's easy, we'll help you.</p>
               <button className="btn btn--full">Create Playlist</button>
-            </div>
+            </EmptyCollection>
           )}
         </div>
       </PlaylistBottom>

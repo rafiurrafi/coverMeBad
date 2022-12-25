@@ -8,14 +8,22 @@ import styled from "styled-components";
 // else  color Black,
 // if type === "ghost" color =white
 // else color "black"
+function generateBtnColor(type, theme) {
+  if (type === "ghost" && theme === "dark")
+    return { color: "white", bg: "transparent" };
+  else if (type === "ghost" && theme === "light")
+    return { color: "#dc1d24", bg: "transparent" };
+  else if (theme === "light") return { color: "white", bg: "#dc1d24" };
+  else return { color: "#444", bg: "white" };
+}
 
 export const ButtonLinkContainer = styled(Link)`
-  color: ${({ type }) => (type === "ghost" ? "white" : "black")};
-  background-color: ${({ type }) =>
-    type === "ghost" ? "transparent" : "white"};
+  color: ${({ type, theme }) => generateBtnColor(type, theme).color};
+  // color: ${({ type }) => (type === "ghost" ? "white" : "black")};
+  background-color: ${({ type, theme }) => generateBtnColor(type, theme).bg};
   text-decoration: none;
   padding: 0.5rem 2.5rem;
-  border: 1px solid white;
+  border: 1px solid ${({ type, theme }) => generateBtnColor(type, theme).color};
   display: inline-block;
   border-radius: 2rem;
   backface-visibility: hidden;

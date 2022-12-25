@@ -13,10 +13,8 @@ import {
   PlaylistHeaderContent,
   PlaylistTitle,
 } from "./playlist.style.js";
-import LoveButton from "../../components/love-button/love-button.component";
 import { ThemeContext } from "../../context/theme.context";
 import LikeBtn from "../../components/like-btn/like-btn.component";
-import { CardBtn } from "../../components/card/card.style";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 const Playlist = () => {
   const { theme } = useContext(ThemeContext);

@@ -12,3 +12,9 @@ export const UserPlaylistIcon = styled.div`
   color: rgba(255, 255, 255, 0.7);
   font-size: 10rem;
 `;
+export const EmptyCollection = styled.div`
+  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
+  & > * {
+    margin-bottom: 1rem;
+  }
+`;

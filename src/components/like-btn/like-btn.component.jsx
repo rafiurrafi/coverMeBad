@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ThemeContext } from "../../context/theme.context";
 import { InputContainer } from "./like-btn";
 
-const LikeBtn = ({ name, item, onClick, isLiked, size = 30 }) => {
+const LikeBtn = ({ name, onClick = () => {}, isLiked, size = 30 }) => {
   const [checked, setChecked] = useState(isLiked);
   const { theme } = useContext(ThemeContext);
 

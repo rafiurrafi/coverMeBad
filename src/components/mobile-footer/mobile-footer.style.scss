@@ -9,11 +9,15 @@
   justify-content: space-between;
   padding: 1.5rem 3rem;
   background-color: rgba(#121212, 0.95);
+  display: none;
   a {
     color: white;
     font-size: 3rem;
     &.active {
       color: var(--color-primary);
     }
+  }
+  @media (max-width: 900px) {
+    display: block;
   }
 }
