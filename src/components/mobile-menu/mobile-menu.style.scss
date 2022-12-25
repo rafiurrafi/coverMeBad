@@ -1,0 +1,55 @@
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: #121212;
+  color: white;
+  z-index: 4;
+  transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  &.active {
+    width: 100%;
+  }
+  &__open {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 4;
+    color: red;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__links {
+    padding: 4rem;
+    a {
+      text-decoration: none;
+      font-size: 3rem;
+      display: block;
+      color: white;
+      margin-bottom: 1.3rem;
+    }
+  }
+  &__others {
+    position: relative;
+    padding-top: 3rem;
+    margin-top: 6.5rem;
+    a {
+      font-size: 2rem;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      top: -1.5rem;
+      left: 0;
+      height: 3px;
+      width: 6rem;
+      background-color: white;
+      display: block;
+    }
+  }
+}

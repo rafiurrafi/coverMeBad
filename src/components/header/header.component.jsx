@@ -11,7 +11,7 @@ const Header = () => {
   const { currentPage } = useContext(PageContext);
   const { searchQuery, setSearchQuery } = useContext(SearchContext);
   const { theme, toggleTheme } = useContext(ThemeContext);
-  console.log(theme);
+
   return (
     <HeaderContainer theme={theme}>
       {currentPage === "search" && (

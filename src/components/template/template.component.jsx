@@ -6,6 +6,7 @@ import SignUpbanner from "../sign-up-banner/sign-up-banner.component";
 import Player from "../player/player.component";
 import { useState } from "react";
 import MobileFooter from "../mobile-footer/mobile-footer.component";
+import MobileMenu from "../mobile-menu/mobile-menu.component";
 const Template = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   return (
@@ -15,6 +16,7 @@ const Template = () => {
       <Outlet />
       <HomeFooter>{isSignIn ? <Player /> : <SignUpbanner />}</HomeFooter>
       <MobileFooter />
+      <MobileMenu />
     </div>
   );
 };
