@@ -2,6 +2,7 @@ import styled from "styled-components";
 export const CollectionPlaylistItems = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  //   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 2rem;
   color: white;
 `;
@@ -13,7 +14,7 @@ export const CollectionPlaylistItem = styled.div`
       rgb(142, 142, 229) 99.16%
     );
     height: 27rem;
-    grid-column: span 2 / auto;
+    // grid-column: span 2 / auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

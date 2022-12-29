@@ -16,7 +16,7 @@ const CollectionPlaylist = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Content>
+    <Content space>
       <div className="collection-playlist">
         <h3>Collection playlist</h3>
         <CollectionPlaylistItems>

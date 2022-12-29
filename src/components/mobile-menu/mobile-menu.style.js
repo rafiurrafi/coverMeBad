@@ -16,7 +16,7 @@ export const MobileMenuContainer = styled.div`
 `;
 export const MobileMenuBtn = styled.button`
   position: fixed;
-  top: 2.3rem;
+  top: 1.5rem;
   right: 2rem;
   z-index: 4;
   color: ${({ theme }) => (theme === "dark" ? "white" : "#000")};

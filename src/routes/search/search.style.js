@@ -20,7 +20,7 @@ export const SearchBox = styled(Link)`
   overflow: hidden;
   padding: 1.5rem;
   border-radius: 1rem;
-  color: ${({ theme }) => (theme === "dark" ? "white" : "#444")};
+  color: white;
   text-decoration: none;
   img {
     height: 13rem;

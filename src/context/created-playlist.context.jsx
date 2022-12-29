@@ -7,7 +7,16 @@ export const CreatedPlaylistContext = createContext({
 const CreatedPlaylistProvider = ({ children }) => {
   const [createdPlaylists, setCreatedPlaylists] = useState([]);
   function addCreatedPlaylist(playlist) {
-    setCreatedPlaylists([...createdPlaylists, playlist]);
+    const foundPlaylist = createdPlaylists.find(
+      (list) => list.id === playlist.id
+    );
+    if (!foundPlaylist) setCreatedPlaylists([...createdPlaylists, playlist]);
+    else {
+      const updatedPlaylist = createdPlaylists.filter(
+        (list) => list.id !== playlist.id
+      );
+      setCreatedPlaylists(updatedPlaylist);
+    }
   }
   const value = { createdPlaylists, addCreatedPlaylist };
   return (
