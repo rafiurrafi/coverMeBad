@@ -1,9 +1,25 @@
 import { useContext } from "react";
 import { SongContext } from "../../context/song.context";
 import "./love-button.style.scss";
-const LoveButton = ({ name, item, onClick }) => {
+const LoveButton = ({
+  name,
+  item,
+  onClick,
+  playlist,
+  height = 50,
+  width = 50,
+  style = {},
+}) => {
   return (
-    <div className="love-button">
+    <div
+      className="love-button"
+      style={{
+        transform: `${playlist} ? translateY(3rem) : ""`,
+        height,
+        width,
+        ...style,
+      }}
+    >
       <input type="checkbox" id={`${name}`} name={name} />
       <label htmlFor={`${name}`} onClick={() => onClick(item)}>
         <svg

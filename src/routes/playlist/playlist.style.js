@@ -39,6 +39,9 @@ export const PlaylistBottom = styled.div`
     theme === "dark"
       ? `linear-gradient(to bottom, ${color}, #000, #000)`
       : "#fff"};
+  .playlist-table {
+    padding: 0 3rem;
+  }
 `;
 export const PlaylistAction = styled.div`
   display: flex;

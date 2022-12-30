@@ -18,7 +18,7 @@ export const SongListImg = styled.div`
 `;
 export const SongListHidden = styled.div`
   padding: 0 2rem;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
   box-sizing: border-box;
 `;
@@ -31,13 +31,12 @@ export const SongListIcon = styled.div`
   left: 0;
   display: none;
   text-align: center;
-  padding-top: 1rem;
 `;
 export const SongListContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem;
+  padding: 0.3rem 0rem 0.3rem 1rem;
   color: ${({ theme }) => (theme === "dark" ? "#fff" : "#444")};
   &:hover {
     background-color: ${({ theme }) =>
@@ -49,4 +48,8 @@ export const SongListContainer = styled.div`
   &:hover ${SongListIcon} {
     display: block;
   }
+`;
+export const SongListMore = styled.div`
+  display: flex;
+  align-items: center;
 `;

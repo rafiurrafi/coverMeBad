@@ -12,6 +12,7 @@ import {
   SongListIcon,
   SongListImg,
   SongListIndex,
+  SongListMore,
   SongListTitle,
 } from "./song-list.style.js";
 const SongList = ({ song, idx = 0 }) => {
@@ -20,8 +21,10 @@ const SongList = ({ song, idx = 0 }) => {
   const { toggleLikedSongs } = useContext(SongContext);
   return (
     <SongListContainer theme={theme}>
-      <SongListIndex>{idx + 1}</SongListIndex>
-      <SongListImg>
+      <SongListIndex style={{ backgroundColor: "yellow" }}>
+        {idx + 1}
+      </SongListIndex>
+      <SongListImg style={{ backgroundColor: "green" }}>
         <img src={song.cover} alt="" />
         <SongListIcon
           onClick={() => {
@@ -32,13 +35,16 @@ const SongList = ({ song, idx = 0 }) => {
           {isPlaying ? <FaPlay /> : <FaPause />}
         </SongListIcon>
       </SongListImg>
-      <SongListTitle>
+      <SongListTitle style={{ backgroundColor: "orange" }}>
         <h4>{song.title}</h4>
         <p style={{ marginBottom: 0, fontSize: "90%" }}>Usama</p>
       </SongListTitle>
-      <div className="song-list-more">
+      <SongListMore style={{ backgroundColor: "red" }}>
         <SongListHidden>
           <LoveButton
+            style={{ marginRight: "3rem" }}
+            height={10}
+            width={10}
             name={song.title}
             item={song}
             onClick={toggleLikedSongs}
@@ -48,7 +54,7 @@ const SongList = ({ song, idx = 0 }) => {
         <SongListHidden>
           <BsThreeDots />
         </SongListHidden>
-      </div>
+      </SongListMore>
     </SongListContainer>
   );
 };
