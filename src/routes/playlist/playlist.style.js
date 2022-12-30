@@ -41,6 +41,9 @@ export const PlaylistBottom = styled.div`
       : "#fff"};
   .playlist-table {
     padding: 0 3rem;
+    @media (max-width: 576px) {
+      padding: 0 2rem;
+    }
   }
 `;
 export const PlaylistAction = styled.div`

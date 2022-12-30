@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const SongListTitle = styled.div`
   margin-left: 1rem;
   margin-right: auto;
+  p {
+    margin-bottom: 0;
+    font-size: 90%;
+    opacity: 0.8;
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
 `;
 export const SongListIndex = styled.div`
   margin-right: 1.5rem;
@@ -36,7 +44,8 @@ export const SongListContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.3rem 0rem 0.3rem 1rem;
+  padding: 0.5rem 0rem 0.5rem 1rem;
+
   color: ${({ theme }) => (theme === "dark" ? "#fff" : "#444")};
   &:hover {
     background-color: ${({ theme }) =>
@@ -52,4 +61,10 @@ export const SongListContainer = styled.div`
 export const SongListMore = styled.div`
   display: flex;
   align-items: center;
+  .song-length {
+    margin-left: 4rem;
+    @media (max-width: 576px) {
+      margin-left: 1.5rem;
+    }
+  }
 `;

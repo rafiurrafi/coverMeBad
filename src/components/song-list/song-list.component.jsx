@@ -16,16 +16,20 @@ import {
   SongListTitle,
 } from "./song-list.style.js";
 import LikeBtn from "../like-btn/like-btn.component.jsx";
+import { ArtistContext } from "../../context/artist.context.jsx";
 const SongList = ({ song, idx = 0 }) => {
   const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
+  const { artists } = useContext(ArtistContext);
   const { theme } = useContext(ThemeContext);
   const { toggleLikedSongs } = useContext(SongContext);
+  const artistsFromSong = song.artists.map((item) => {
+    return artists.filter((artist) => artist.id === item)[0];
+  });
+  console.log(artistsFromSong);
   return (
     <SongListContainer theme={theme}>
-      <SongListIndex style={{ backgroundColor: "yellow" }}>
-        {idx + 1}
-      </SongListIndex>
-      <SongListImg style={{ backgroundColor: "green" }}>
+      <SongListIndex>{idx + 1}</SongListIndex>
+      <SongListImg>
         <img src={song.cover} alt="" />
         <SongListIcon
           onClick={() => {
@@ -36,11 +40,15 @@ const SongList = ({ song, idx = 0 }) => {
           {isPlaying ? <FaPlay /> : <FaPause />}
         </SongListIcon>
       </SongListImg>
-      <SongListTitle style={{ backgroundColor: "orange" }}>
+      <SongListTitle>
         <h4>{song.title}</h4>
-        <p style={{ marginBottom: 0, fontSize: "90%" }}>Usama</p>
+        <p>
+          {artistsFromSong.map((artist) => (
+            <span>{artist.name}, </span>
+          ))}
+        </p>
       </SongListTitle>
-      <SongListMore style={{ backgroundColor: "red" }}>
+      <SongListMore>
         <SongListHidden>
           <LikeBtn
             size={25}
@@ -50,7 +58,7 @@ const SongList = ({ song, idx = 0 }) => {
             isLiked={song.liked}
           />
         </SongListHidden>
-        <span style={{ marginLeft: "4rem" }}>03:45</span>
+        <span className="song-length">03:45</span>
         <SongListHidden>
           <BsThreeDots />
         </SongListHidden>
