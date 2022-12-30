@@ -12,6 +12,7 @@ function toggleLiked(songs, song) {
 }
 const SongProvider = ({ children }) => {
   const [songs, setSongs] = useState(SongServer);
+  console.log(songs);
   function toggleLikedSongs(song) {
     setSongs(toggleLiked(songs, song));
   }

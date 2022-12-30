@@ -15,6 +15,7 @@ import {
   SongListMore,
   SongListTitle,
 } from "./song-list.style.js";
+import LikeBtn from "../like-btn/like-btn.component.jsx";
 const SongList = ({ song, idx = 0 }) => {
   const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
   const { theme } = useContext(ThemeContext);
@@ -41,16 +42,15 @@ const SongList = ({ song, idx = 0 }) => {
       </SongListTitle>
       <SongListMore style={{ backgroundColor: "red" }}>
         <SongListHidden>
-          <LoveButton
-            style={{ marginRight: "3rem" }}
-            height={10}
-            width={10}
+          <LikeBtn
+            size={25}
             name={song.title}
             item={song}
-            onClick={toggleLikedSongs}
+            onClick={() => toggleLikedSongs(song)}
+            isLiked={song.liked}
           />
         </SongListHidden>
-        <span>03:45</span>
+        <span style={{ marginLeft: "4rem" }}>03:45</span>
         <SongListHidden>
           <BsThreeDots />
         </SongListHidden>

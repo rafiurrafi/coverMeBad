@@ -18,7 +18,7 @@ export const SongListImg = styled.div`
 `;
 export const SongListHidden = styled.div`
   padding: 0 2rem;
-  opacity: 1;
+  opacity: 0;
   transition: opacity 0.3s;
   box-sizing: border-box;
 `;
