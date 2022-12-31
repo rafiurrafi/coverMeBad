@@ -6,7 +6,6 @@ import { InputContainer } from "./like-btn";
 const LikeBtn = ({ name, onClick = () => {}, isLiked, size = 30 }) => {
   const [checked, setChecked] = useState(isLiked);
   const { theme } = useContext(ThemeContext);
-  console.log(isLiked);
 
   return (
     <InputContainer checked={checked} size={size} theme={theme}>

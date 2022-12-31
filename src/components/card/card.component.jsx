@@ -42,6 +42,7 @@ const Card = ({
       setIsPlaying(false);
     }
   }
+  console.log(activePlaylist, id);
   return (
     <CardContainer theme={theme}>
       {cover ? (
@@ -56,11 +57,7 @@ const Card = ({
       </Link>
       <p>{desc}</p>
       <CardBtn onClick={() => handlePlaySong(id)}>
-        {activePlaylist === id && isActivePlaylist ? (
-          <BsPauseFill />
-        ) : (
-          <BsFillPlayFill />
-        )}
+        {activePlaylist === id ? <BsPauseFill /> : <BsFillPlayFill />}
       </CardBtn>
     </CardContainer>
   );

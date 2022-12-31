@@ -31,7 +31,6 @@ const Player = () => {
       Math.floor(time / 60) + " : " + ("0" + Math.floor(time % 60)).slice(-2)
     );
   }
-  console.log(currentTime, duration);
   return (
     <>
       <PlayerContainer>

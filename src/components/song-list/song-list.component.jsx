@@ -17,6 +17,7 @@ import {
 } from "./song-list.style.js";
 import LikeBtn from "../like-btn/like-btn.component.jsx";
 import { ArtistContext } from "../../context/artist.context.jsx";
+import { Link } from "react-router-dom";
 const SongList = ({ song, idx = 0 }) => {
   const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
   const { artists } = useContext(ArtistContext);
@@ -25,7 +26,6 @@ const SongList = ({ song, idx = 0 }) => {
   const artistsFromSong = song.artists.map((item) => {
     return artists.filter((artist) => artist.id === item)[0];
   });
-  console.log(artistsFromSong);
   return (
     <SongListContainer theme={theme}>
       <SongListIndex>{idx + 1}</SongListIndex>
@@ -44,7 +44,9 @@ const SongList = ({ song, idx = 0 }) => {
         <h4>{song.title}</h4>
         <p>
           {artistsFromSong.map((artist) => (
-            <span>{artist.name}, </span>
+            <Link to={"/artists/" + artist.id} key={artist.id}>
+              {artist.name},{" "}
+            </Link>
           ))}
         </p>
       </SongListTitle>

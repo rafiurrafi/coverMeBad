@@ -54,7 +54,6 @@ const Playlist = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  console.log(activePlaylist, id);
   return (
     <Content full>
       <PlaylistHeader colorTop={color[0]} colorBottom={color[1]} theme={theme}>
@@ -77,7 +76,11 @@ const Playlist = () => {
             className="card-btn"
             onClick={() => toggleSongPlaying(filteredSongs[0])}
           >
-            {activePlaylist === id ? <BsFillPlayFill /> : <BsFillPauseFill />}
+            {activePlaylist === id && isPlaying ? (
+              <BsFillPauseFill />
+            ) : (
+              <BsFillPlayFill />
+            )}
           </button>
 
           <button className="playlist-love-btn">
