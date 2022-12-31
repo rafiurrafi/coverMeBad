@@ -1,6 +1,10 @@
 import "./song-list.style.js";
 import LoveButton from "../../components/love-button/love-button.component";
-import { BsThreeDots } from "react-icons/bs";
+import {
+  BsFillPauseBtnFill,
+  BsFillPlayFill,
+  BsThreeDots,
+} from "react-icons/bs";
 import { useContext } from "react";
 import { PlayerContext } from "../../context/player.context";
 import { FaPause, FaPlay } from "react-icons/fa";
@@ -18,27 +22,45 @@ import {
 import LikeBtn from "../like-btn/like-btn.component.jsx";
 import { ArtistContext } from "../../context/artist.context.jsx";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const SongList = ({ song, idx = 0 }) => {
-  const { setCurrentSong, setIsPlaying, isPlaying } = useContext(PlayerContext);
+  const { currentSong, setCurrentSong, setIsPlaying, isPlaying } =
+    useContext(PlayerContext);
   const { artists } = useContext(ArtistContext);
   const { theme } = useContext(ThemeContext);
-  const { toggleLikedSongs } = useContext(SongContext);
+  const { toggleLikedSongs, toggleActiveSong } = useContext(SongContext);
+
+  const [hover, setHover] = useState(false);
+
   const artistsFromSong = song.artists.map((item) => {
     return artists.filter((artist) => artist.id === item)[0];
   });
+  const isActiveSong = song.id === currentSong.id && isPlaying;
+  function handleSongPlaying(song) {
+    if (currentSong.id === song.id && isPlaying) {
+      setIsPlaying(false);
+    } else {
+      setIsPlaying(true);
+      setCurrentSong(song);
+    }
+  }
   return (
-    <SongListContainer theme={theme}>
-      <SongListIndex>{idx + 1}</SongListIndex>
+    <SongListContainer
+      theme={theme}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <SongListIndex onClick={() => handleSongPlaying(song)}>
+        {hover ? (
+          <div>
+            {isActiveSong ? <BsFillPauseBtnFill /> : <BsFillPlayFill />}
+          </div>
+        ) : (
+          <div>{isActiveSong ? "Playing " : idx + 1}</div>
+        )}
+      </SongListIndex>
       <SongListImg>
         <img src={song.cover} alt="" />
-        <SongListIcon
-          onClick={() => {
-            setCurrentSong(song);
-            setIsPlaying(!isPlaying);
-          }}
-        >
-          {isPlaying ? <FaPlay /> : <FaPause />}
-        </SongListIcon>
       </SongListImg>
       <SongListTitle>
         <h4>{song.title}</h4>

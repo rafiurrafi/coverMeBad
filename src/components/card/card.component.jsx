@@ -42,7 +42,6 @@ const Card = ({
       setIsPlaying(false);
     }
   }
-  console.log(activePlaylist, id);
   return (
     <CardContainer theme={theme}>
       {cover ? (

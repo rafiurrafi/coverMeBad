@@ -10,13 +10,22 @@ function toggleLiked(songs, song) {
     );
   }
 }
+function handleToogleActiveSong(songs, song) {
+  const foundSong = songs.find((s) => s.id === song.id);
+  if (foundSong)
+    return songs.map((s) =>
+      s.id === song.id ? { ...s, isActive: !s.isActive } : s
+    );
+}
 const SongProvider = ({ children }) => {
   const [songs, setSongs] = useState(SongServer);
-  console.log(songs);
   function toggleLikedSongs(song) {
     setSongs(toggleLiked(songs, song));
   }
-  const value = { songs, toggleLikedSongs };
+  function toggleActiveSong(song) {
+    setSongs(handleToogleActiveSong(songs, song));
+  }
+  const value = { songs, toggleLikedSongs, toggleActiveSong };
   return <SongContext.Provider value={value}>{children}</SongContext.Provider>;
 };
 

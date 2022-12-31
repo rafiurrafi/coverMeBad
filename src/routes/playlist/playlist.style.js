@@ -15,10 +15,12 @@ export const PlaylistHeader = styled.div`
     width: 23rem;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 3rem;
     box-shadow: 0.5rem 1rem 2rem rgba($color: #000000, $alpha: 0.6);
   }
-  @media ${device.tablet} {
+  @media ${device.mobile} {
     display: block;
+    text-align: center;
     img {
       margin: 0 auto;
       display: block;
