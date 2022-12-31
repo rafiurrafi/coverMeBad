@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Content from "../../components/content/content.component";
 import { PlaylistContext } from "../../context/playlist.context";
-import { BsFillPlayFill, BsThreeDots } from "react-icons/bs";
+import { BsFillPauseFill, BsFillPlayFill, BsThreeDots } from "react-icons/bs";
 import SongList from "../../components/song-list/song-list.component";
 import { useEffect } from "react";
 import { SongContext } from "../../context/song.context";
@@ -16,6 +16,7 @@ import {
 import { ThemeContext } from "../../context/theme.context";
 import LikeBtn from "../../components/like-btn/like-btn.component";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
+import { PlayerContext } from "../../context/player.context";
 const Playlist = () => {
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
@@ -25,8 +26,11 @@ const Playlist = () => {
   const { cover, title, desc, songs: songIds, color } = playlist;
 
   const { songs } = useContext(SongContext);
-  const { toggleLikedPlaylist } = useContext(PlaylistContext);
+  const { toggleLikedPlaylist, setActivePlaylist, activePlaylist } =
+    useContext(PlaylistContext);
   const { addCreatedPlaylist } = useContext(CreatedPlaylistContext);
+  const { currentSong, isPlaying, setCurrentSong, setIsPlaying } =
+    useContext(PlayerContext);
 
   function getSongs(songIds) {
     return songIds?.map((id) => {
@@ -37,10 +41,20 @@ const Playlist = () => {
     toggleLikedPlaylist(item);
     addCreatedPlaylist(item);
   }
+  function toggleSongPlaying(currentSong) {
+    if (isPlaying) {
+      setIsPlaying(false);
+    } else {
+      setIsPlaying(true);
+      setCurrentSong(currentSong);
+      setActivePlaylist(id);
+    }
+  }
   const filteredSongs = getSongs(songIds) || [];
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  console.log(activePlaylist, id);
   return (
     <Content full>
       <PlaylistHeader colorTop={color[0]} colorBottom={color[1]} theme={theme}>
@@ -59,8 +73,11 @@ const Playlist = () => {
 
       <PlaylistBottom color={color[2]} theme={theme}>
         <PlaylistAction theme={theme}>
-          <button className="card-btn">
-            <BsFillPlayFill />
+          <button
+            className="card-btn"
+            onClick={() => toggleSongPlaying(filteredSongs[0])}
+          >
+            {activePlaylist === id ? <BsFillPlayFill /> : <BsFillPauseFill />}
           </button>
 
           <button className="playlist-love-btn">

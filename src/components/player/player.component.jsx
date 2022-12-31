@@ -31,6 +31,7 @@ const Player = () => {
       Math.floor(time / 60) + " : " + ("0" + Math.floor(time % 60)).slice(-2)
     );
   }
+  console.log(currentTime, duration);
   return (
     <>
       <PlayerContainer>
@@ -54,22 +55,22 @@ const Player = () => {
             </button>
           </div>
           <PlayerProgressbar>
-            <p>{getTime(currentTime)}</p>
-            <RangeInput
-              type="range"
-              onChange={dragHandler}
-              value={currentTime}
-              min={0}
-              max={duration || 0}
-            />
-            {/* <input
+            <p>{getTime(currentTime) || 0}</p>
+            {/* <RangeInput
               type="range"
               onChange={dragHandler}
               value={currentTime}
               min={0}
               max={duration || 0}
             /> */}
-            <p>{getTime(duration)}</p>
+            <input
+              type="range"
+              onChange={dragHandler}
+              value={currentTime}
+              min={0}
+              max={duration || 0}
+            />
+            <p>{getTime(duration) || 0}</p>
           </PlayerProgressbar>
         </PlayerMiddle>
         <div className="player-right">

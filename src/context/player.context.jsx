@@ -24,7 +24,15 @@ const PlayerProvider = ({ children }) => {
   useEffect(() => {
     if (isPlaying) audioRef?.current?.play();
     else audioRef?.current?.pause();
-  }, [isPlaying]);
+  }, [isPlaying, audioRef?.current?.src]);
+  // useEffect(() => {
+  //   const { currentTime, duration } = songInfo;
+  //   if (currentTime === duration && currentTime !== 0 && duration !== 0) {
+  //     setIsPlaying(false);
+  //     setSongInfo({ ...songInfo, currentTime: 0 });
+  //   }
+  // }, [songInfo.currentTime, songInfo.duration]);
+  // console.log(songInfo.currentTime, songInfo.duration);
 
   const value = {
     currentSong,

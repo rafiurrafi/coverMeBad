@@ -59,6 +59,9 @@ export const PlaylistAction = styled.div`
     border: none;
     background-color: transparent;
     cursor: pointer;
+    &:first-of-type {
+      color: white !important;
+    }
     &:last-of-type {
       margin-bottom: -1rem;
     }

@@ -15,7 +15,6 @@ const Cards = ({
   page = false,
 }) => {
   const width = useWindowSize();
-  console.log(width > 1200);
   return (
     <CardsContainer>
       <CardsHeader className="mb-m">

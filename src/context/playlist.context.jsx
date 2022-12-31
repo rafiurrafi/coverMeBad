@@ -19,7 +19,6 @@ const PlaylistProvider = ({ children }) => {
   function toggleLikedPlaylist(playlist) {
     setPlaylist(togglePlaylist(playlists, playlist));
   }
-  console.log(playlists);
   const value = {
     playlists,
     activePlaylist,
