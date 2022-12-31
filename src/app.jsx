@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./app.scss";
+import MusicLoader from "./components/music-loader/music-loader.component";
 
 import Template from "./components/template/template.component";
 const Artists = lazy(() => import("./routes/artists/artists.component"));
@@ -22,7 +23,13 @@ const UserPlaylist = lazy(() =>
 );
 const App = () => {
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense
+      fallback={
+        <div className="loader-container">
+          <MusicLoader />
+        </div>
+      }
+    >
       <Routes>
         <Route path="/" element={<Template />}>
           <Route index element={<Home />} />
