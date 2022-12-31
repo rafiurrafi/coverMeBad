@@ -21,15 +21,7 @@ const Cards = ({
         <Title>{title}</Title>
         {!page && <Link to={`section/section-${section}`}>See All</Link>}
       </CardsHeader>
-      {width > 991 ? (
-        <CardsItem width={width}>
-          {albums
-            .filter((_, idx) => idx >= min && idx <= max)
-            .map((album) => (
-              <Card key={album.id} content={album} />
-            ))}
-        </CardsItem>
-      ) : (
+      {width < 991 && !page ? (
         <Slider {...sliderSettings}>
           {albums
             .filter((_, idx) => idx >= min && idx <= max)
@@ -37,6 +29,14 @@ const Cards = ({
               <Card key={album.id} content={album} />
             ))}
         </Slider>
+      ) : (
+        <CardsItem width={width}>
+          {albums
+            .filter((_, idx) => idx >= min && idx <= max)
+            .map((album) => (
+              <Card key={album.id} content={album} />
+            ))}
+        </CardsItem>
       )}
     </CardsContainer>
   );

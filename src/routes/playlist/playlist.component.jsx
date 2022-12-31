@@ -52,7 +52,7 @@ const Playlist = () => {
           <PlaylistTitle>{title}</PlaylistTitle>
           <p>{desc}</p>
           <p>
-            Cover Me Bad . <span>{songs?.length}</span> songs
+            Cover Me Bad . <span>{filteredSongs?.length}</span> songs
           </p>
         </PlaylistHeaderContent>
       </PlaylistHeader>

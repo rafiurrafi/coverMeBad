@@ -12,8 +12,6 @@ export var sliderSettings = {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
-        infinite: true,
-        dots: true,
       },
     },
     {
@@ -21,7 +19,6 @@ export var sliderSettings = {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
-        initialSlide: 1,
       },
     },
     {

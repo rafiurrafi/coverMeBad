@@ -27,6 +27,9 @@ export const PlaylistHeader = styled.div`
 export const PlaylistHeaderContent = styled.div`
   margin-left: 3rem;
   padding-top: 3rem;
+  @media ${device.tablet} {
+    margin-left: 0;
+  }
 `;
 export const PlaylistTitle = styled.h1`
   font-size: 6rem;
