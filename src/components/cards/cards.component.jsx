@@ -3,7 +3,9 @@ import { useWindowSize } from "../../utils/custom-hooks";
 import Card from "../card/card.component";
 import Title from "../title/title.component";
 import { CardsContainer, CardsHeader, CardsItem } from "./cards.style";
-
+import Slider from "react-slick";
+import { sliderSettings } from "../../utils/slider-settings";
+import "slick-carousel/slick/slick.css";
 const Cards = ({
   albums = [],
   min = 0,
@@ -19,13 +21,23 @@ const Cards = ({
         <Title>{title}</Title>
         {!page && <Link to={`section/section-${section}`}>See All</Link>}
       </CardsHeader>
-      <CardsItem width={width}>
-        {albums
-          .filter((_, idx) => idx >= min && idx <= max)
-          .map((album) => (
-            <Card key={album.id} content={album} />
-          ))}
-      </CardsItem>
+      {width > 991 ? (
+        <CardsItem width={width}>
+          {albums
+            .filter((_, idx) => idx >= min && idx <= max)
+            .map((album) => (
+              <Card key={album.id} content={album} />
+            ))}
+        </CardsItem>
+      ) : (
+        <Slider {...sliderSettings}>
+          {albums
+            .filter((_, idx) => idx >= min && idx <= max)
+            .map((album) => (
+              <Card key={album.id} content={album} />
+            ))}
+        </Slider>
+      )}
     </CardsContainer>
   );
 };

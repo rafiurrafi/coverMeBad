@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { PageContext } from "../../context/page.context";
 import { PlaylistContext } from "../../context/playlist.context";
 import { useWindowSize } from "../../utils/custom-hooks";
+
 const Home = () => {
   const { playlists } = useContext(PlaylistContext);
   const { setCurrentPage } = useContext(PageContext);
