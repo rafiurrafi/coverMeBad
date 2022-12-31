@@ -24,33 +24,30 @@ const Artists = () => {
   const { artists } = useContext(ArtistContext);
   const artist = artists.filter((item) => item.id === id)[0] || {};
 
-  const { avatar, name, desc, songs: songIds, color } = playlist;
+  const { avatar: cover, name, desc, songs: songIds, color } = artist;
 
   const { songs } = useContext(SongContext);
-  const { toggleLikedPlaylist, setActivePlaylist, activePlaylist } =
-    useContext(PlaylistContext);
+
   const { addCreatedPlaylist } = useContext(CreatedPlaylistContext);
-  const { currentSong, isPlaying, setCurrentSong, setIsPlaying } =
-    useContext(PlayerContext);
 
   function getSongs(songIds) {
     return songIds?.map((id) => {
       return songs?.filter((song) => song.id === id)[0];
     });
   }
-  function handleLikedList(item) {
-    toggleLikedPlaylist(item);
-    addCreatedPlaylist(item);
-  }
-  function toggleSongPlaying(currentSong) {
-    if (isPlaying) {
-      setIsPlaying(false);
-    } else {
-      setIsPlaying(true);
-      setCurrentSong(currentSong);
-      setActivePlaylist(id);
-    }
-  }
+  // function handleLikedList(item) {
+  //   toggleLikedPlaylist(item);
+  //   addCreatedPlaylist(item);
+  // }
+  // function toggleSongPlaying(currentSong) {
+  //   if (isPlaying) {
+  //     setIsPlaying(false);
+  //   } else {
+  //     setIsPlaying(true);
+  //     setCurrentSong(currentSong);
+  //     setActivePlaylist(id);
+  //   }
+  // }
   const filteredSongs = getSongs(songIds) || [];
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,7 +60,7 @@ const Artists = () => {
         </div>
         <PlaylistHeaderContent>
           <h4 className="playlist-header-subtitle">Playlist</h4>
-          <PlaylistTitle>{title}</PlaylistTitle>
+          <PlaylistTitle>{name}</PlaylistTitle>
           <p>{desc}</p>
           <p>
             Cover Me Bad . <span>{filteredSongs?.length}</span> songs
@@ -75,21 +72,22 @@ const Artists = () => {
         <PlaylistAction theme={theme}>
           <button
             className="card-btn"
-            onClick={() => toggleSongPlaying(filteredSongs[0])}
+            // onClick={() => toggleSongPlaying(filteredSongs[0])}
           >
-            {activePlaylist === id && isPlaying ? (
+            {/* {activePlaylist === id && isPlaying ? (
               <BsFillPauseFill />
             ) : (
               <BsFillPlayFill />
-            )}
+            )} */}
+            <BsFillPlayFill />
           </button>
 
           <button className="playlist-love-btn">
             <LikeBtn
-              name={playlist.title}
-              item={playlist}
-              onClick={() => handleLikedList(playlist)}
-              isLiked={playlist.liked}
+              name={artist.title}
+              item={artist}
+              // onClick={() => handleLikedList(playlist)}
+              isLiked={artist.liked}
             />
           </button>
           <button>

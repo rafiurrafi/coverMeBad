@@ -6,9 +6,16 @@ export const SongListTitle = styled.div`
   p {
     margin-bottom: 0;
     font-size: 90%;
-    opacity: 0.8;
+
     @media (max-width: 576px) {
       display: none;
+    }
+  }
+  a {
+    color: white;
+    opacity: 0.8;
+    &:hover {
+      color: var(--color-primary);
     }
   }
 `;

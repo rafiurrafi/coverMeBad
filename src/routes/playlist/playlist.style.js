@@ -14,6 +14,7 @@ export const PlaylistHeader = styled.div`
     height: 23rem;
     width: 23rem;
     border-radius: 50%;
+    object-fit: cover;
     box-shadow: 0.5rem 1rem 2rem rgba($color: #000000, $alpha: 0.6);
   }
   @media ${device.tablet} {
