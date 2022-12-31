@@ -1,12 +1,18 @@
 import styled from "styled-components";
-
+function getColumnNumber(width, page) {
+  ///width > 1200 5 repeat(5,1fr)
+  //width < 1200 repeat(4,1fr)
+  //  page
+  if (page) return "repeat(auto-fit, minmax(18rem, 1fr))";
+  else if (width > 1200) return "repeat(5,1fr)";
+  else return "repeat(4,1fr)";
+}
 export const CardsContainer = styled.div`
   margin-bottom: 3rem;
 `;
 export const CardsItem = styled.div`
   display: grid;
-  grid-template-columns: ${({ width }) =>
-    `repeat(${width > 1200 ? 5 : 4}, 1fr)`};
+  grid-template-columns: ${({ width, page }) => getColumnNumber(width, page)};
   grid-gap: 2rem;
 `;
 export const CardsHeader = styled.div`

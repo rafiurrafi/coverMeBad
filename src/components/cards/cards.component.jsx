@@ -15,6 +15,7 @@ const Cards = ({
   page = false,
 }) => {
   const width = useWindowSize();
+  console.log(width > 1200);
   return (
     <CardsContainer>
       <CardsHeader className="mb-m">
@@ -30,7 +31,7 @@ const Cards = ({
             ))}
         </Slider>
       ) : (
-        <CardsItem width={width}>
+        <CardsItem width={width} page={page}>
           {albums
             .filter((_, idx) => idx >= min && idx <= max)
             .map((album) => (
