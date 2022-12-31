@@ -7,7 +7,7 @@ const CardRound = ({ artist }) => {
   return (
     <CardRoundContainer theme={theme}>
       <img src={artist.avatar} alt="" />
-      <Link to={`/artist/${artist.id}`}>
+      <Link to={`/artists/${artist.id}`}>
         <h3 className="card-title">{artist.name}</h3>
       </Link>
       <p>Artist</p>

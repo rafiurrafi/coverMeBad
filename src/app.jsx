@@ -1,32 +1,44 @@
-import { useState } from "react";
+import { Suspense } from "react";
+import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./app.scss";
+
 import Template from "./components/template/template.component";
-import Auth from "./routes/auth/auth.component";
-import CollectionPlaylist from "./routes/collection-playlist/collection-playlist.component";
-import CollectionTrack from "./routes/collection-tracks/collection-track.component";
-import Genre from "./routes/genre/genre.component";
-import Home from "./routes/home/home.component";
-import Playlist from "./routes/playlist/playlist.component";
-import Search from "./routes/search/search.component";
-import Section from "./routes/section/section.component";
-import UserPlaylist from "./routes/user-playlist/user-playlist.component";
+const Artists = lazy(() => import("./routes/artists/artists.component"));
+const Auth = lazy(() => import("./routes/auth/auth.component"));
+const CollectionPlaylist = lazy(() =>
+  import("./routes/collection-playlist/collection-playlist.component")
+);
+const CollectionTrack = lazy(() =>
+  import("./routes/collection-tracks/collection-track.component")
+);
+const Genre = lazy(() => import("./routes/genre/genre.component"));
+const Home = lazy(() => import("./routes/home/home.component"));
+const Playlist = lazy(() => import("./routes/playlist/playlist.component"));
+const Search = lazy(() => import("./routes/search/search.component"));
+const Section = lazy(() => import("./routes/section/section.component"));
+const UserPlaylist = lazy(() =>
+  import("./routes/user-playlist/user-playlist.component")
+);
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Template />}>
-        <Route index element={<Home />} />
-        <Route path="search" element={<Search />} />
-        <Route path="genre/:id" element={<Genre />} />
-        <Route path="playlist/:id" element={<Playlist />} />
-        <Route path="user-playlist/:id" element={<UserPlaylist />} />
-        <Route path="collection/tracks" element={<CollectionTrack />} />
-        <Route path="collection/playlist" element={<CollectionPlaylist />} />
-        <Route path="section/:id" element={<Section />} />
-      </Route>
-      <Route path="/auth/:auth" element={<Auth />} />
-      <Route path="/*" element={<Navigate to="/" />} />
-    </Routes>
+    <Suspense fallback={<div>Loading</div>}>
+      <Routes>
+        <Route path="/" element={<Template />}>
+          <Route index element={<Home />} />
+          <Route path="search" element={<Search />} />
+          <Route path="genre/:id" element={<Genre />} />
+          <Route path="playlist/:id" element={<Playlist />} />
+          <Route path="user-playlist/:id" element={<UserPlaylist />} />
+          <Route path="collection/tracks" element={<CollectionTrack />} />
+          <Route path="collection/playlist" element={<CollectionPlaylist />} />
+          <Route path="section/:id" element={<Section />} />
+          <Route path="artists/:id" element={<Artists />} />
+        </Route>
+        <Route path="/auth/:auth" element={<Auth />} />
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
+    </Suspense>
   );
 };
 // music app stroke

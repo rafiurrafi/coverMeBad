@@ -38,7 +38,7 @@ const SongServer = [
   },
   {
     id: "song-5",
-    title: "",
+    title: "Every nights in",
     cover: "/assets/songs/5.jpg",
     audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
     artists: ["artist-2", "artist-4", "artist-6"],
@@ -165,7 +165,7 @@ const SongServer = [
   {
     id: "song-19",
     title: "The wonder morning",
-    cover: "/assets/songs/19.jpg",
+    cover: "/assets/songs/19.png",
     audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
     artists: ["artist-1", "artist-2", "artist-3"],
     categories: [""],
@@ -174,7 +174,7 @@ const SongServer = [
   {
     id: "song-20",
     title: "The night you came",
-    cover: "/assets/songs/20.jpg",
+    cover: "/assets/songs/song-3.jpeg",
     audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
     artists: ["artist-4", "artist-5", "artist-6"],
     categories: [""],

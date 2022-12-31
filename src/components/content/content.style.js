@@ -11,5 +11,6 @@ export const ContentContainer = styled.div`
   @media ${device.tablet} {
     margin-left: 0;
     width: 100%;
+    padding-bottom: 12rem;
   }
 `;
