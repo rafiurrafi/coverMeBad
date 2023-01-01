@@ -21,6 +21,7 @@ export const SongListTitle = styled.div`
 `;
 export const SongListIndex = styled.div`
   margin-right: 1.5rem;
+  width: 2rem;
 `;
 export const SongListImg = styled.div`
   height: 4rem;

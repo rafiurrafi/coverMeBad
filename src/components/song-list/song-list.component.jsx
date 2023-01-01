@@ -23,6 +23,7 @@ import LikeBtn from "../like-btn/like-btn.component.jsx";
 import { ArtistContext } from "../../context/artist.context.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { MusicLoaderSong } from "../music-loader/music-loader.component.jsx";
 const SongList = ({ song, idx = 0 }) => {
   const { currentSong, setCurrentSong, setIsPlaying, isPlaying } =
     useContext(PlayerContext);
@@ -56,7 +57,15 @@ const SongList = ({ song, idx = 0 }) => {
             {isActiveSong ? <BsFillPauseBtnFill /> : <BsFillPlayFill />}
           </div>
         ) : (
-          <div>{isActiveSong ? "Playing " : idx + 1}</div>
+          <div>
+            {isActiveSong ? (
+              <div className="music-loader-song">
+                <MusicLoaderSong />
+              </div>
+            ) : (
+              idx + 1
+            )}
+          </div>
         )}
       </SongListIndex>
       <SongListImg>
