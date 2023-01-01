@@ -10,8 +10,8 @@ export const NavbarContainer = styled.div`
 
   h1 {
     color: ${({ theme }) => (theme === "dark" ? "#fff" : "#000")};
-    margin-left: 2rem;
-    margin-top: 2rem;
+    margin-left: 0rem;
+    margin-top: 0.8rem;
   }
   a,
   button {
@@ -29,6 +29,16 @@ export const NavbarContainer = styled.div`
 
   @media ${device.tablet} {
     display: none;
+  }
+  .logo {
+    position: relative;
+    #me {
+      color: var(--color-primary);
+      font-weight: 400;
+    }
+    #bad {
+      text-transform: uppercase;
+    }
   }
 `;
 export const NavbarMenu = styled.div`

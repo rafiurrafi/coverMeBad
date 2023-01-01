@@ -33,7 +33,10 @@ const Navbar = () => {
   return (
     <NavbarContainer theme={theme}>
       <Link to="/" className="mb-xl">
-        <h1> CoverMeBad</h1>
+        <h1 className="logo">
+          Cover<span id="me">me</span>
+          <span id="bad">Bad</span>
+        </h1>
       </Link>
       <NavbarMenu theme={theme}>
         <NavLink

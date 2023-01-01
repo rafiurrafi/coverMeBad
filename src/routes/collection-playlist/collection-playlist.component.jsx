@@ -20,7 +20,7 @@ const CollectionPlaylist = () => {
       <div className="collection-playlist">
         <h3>Collection playlist</h3>
         <CollectionPlaylistItems>
-          <CollectionPlaylistItem>
+          <CollectionPlaylistItem id="first">
             <Link to="/collection/tracks">
               <h3>Liked Songs</h3>
             </Link>

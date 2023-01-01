@@ -22,6 +22,7 @@ const SongProvider = ({ children }) => {
   function toggleLikedSongs(song) {
     setSongs(toggleLiked(songs, song));
   }
+  // uptil unused
   function toggleActiveSong(song) {
     setSongs(handleToogleActiveSong(songs, song));
   }

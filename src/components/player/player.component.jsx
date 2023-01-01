@@ -37,8 +37,7 @@ const Player = () => {
         <PlayerLeft>
           <img src="" alt="" />
           <div className="player-title">
-            <h3>Song name</h3>
-            <p>Artist</p>
+            <h3>{currentSong.title}</h3>
           </div>
         </PlayerLeft>
         <PlayerMiddle>

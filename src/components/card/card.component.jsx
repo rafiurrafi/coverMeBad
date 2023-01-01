@@ -54,7 +54,16 @@ const Card = ({
       <Link to={created ? link : `/playlist/${id}`}>
         <h3>{title}</h3>
       </Link>
-      <p>{desc}</p>
+      <div>
+        {desc ? (
+          <p>{desc}</p>
+        ) : (
+          <div>
+            <p>Added by you</p>
+            <p>0. songs</p>
+          </div>
+        )}
+      </div>
       <CardBtn onClick={() => handlePlaySong(id)}>
         {activePlaylist === id ? <BsPauseFill /> : <BsFillPlayFill />}
       </CardBtn>

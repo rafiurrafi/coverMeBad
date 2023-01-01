@@ -1,12 +1,15 @@
 import styled from "styled-components";
 export const CollectionPlaylistItems = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  //   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 2rem;
   color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  #first {
+    flex: 0 0 35rem;
+  }
 `;
 export const CollectionPlaylistItem = styled.div`
+  flex: 0 0 20rem;
   &:first-of-type {
     background: linear-gradient(
       149.46deg,
