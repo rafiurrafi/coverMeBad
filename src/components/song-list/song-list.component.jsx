@@ -1,19 +1,12 @@
 import "./song-list.style.js";
-import LoveButton from "../../components/love-button/love-button.component";
-import {
-  BsFillPauseBtnFill,
-  BsFillPlayFill,
-  BsThreeDots,
-} from "react-icons/bs";
+import { BsPauseFill, BsFillPlayFill, BsThreeDots } from "react-icons/bs";
 import { useContext } from "react";
 import { PlayerContext } from "../../context/player.context";
-import { FaPause, FaPlay } from "react-icons/fa";
 import { SongContext } from "../../context/song.context";
 import { ThemeContext } from "../../context/theme.context";
 import {
   SongListContainer,
   SongListHidden,
-  SongListIcon,
   SongListImg,
   SongListIndex,
   SongListMore,
@@ -24,7 +17,8 @@ import { ArtistContext } from "../../context/artist.context.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { MusicLoaderSong } from "../music-loader/music-loader.component.jsx";
-const SongList = ({ song, idx = 0 }) => {
+import Button from "../button/button.component.jsx";
+const SongList = ({ song, idx = 0, type = "", onAddClick = () => {} }) => {
   const { currentSong, setCurrentSong, setIsPlaying, isPlaying } =
     useContext(PlayerContext);
   const { artists } = useContext(ArtistContext);
@@ -53,9 +47,7 @@ const SongList = ({ song, idx = 0 }) => {
     >
       <SongListIndex onClick={() => handleSongPlaying(song)}>
         {hover ? (
-          <div>
-            {isActiveSong ? <BsFillPauseBtnFill /> : <BsFillPlayFill />}
-          </div>
+          <div>{isActiveSong ? <BsPauseFill /> : <BsFillPlayFill />}</div>
         ) : (
           <div>
             {isActiveSong ? (
@@ -81,21 +73,27 @@ const SongList = ({ song, idx = 0 }) => {
           ))}
         </p>
       </SongListTitle>
-      <SongListMore>
-        <SongListHidden>
-          <LikeBtn
-            size={25}
-            name={song.title}
-            item={song}
-            onClick={() => toggleLikedSongs(song)}
-            isLiked={song.liked}
-          />
-        </SongListHidden>
-        <span className="song-length">03:45</span>
-        <SongListHidden>
-          <BsThreeDots />
-        </SongListHidden>
-      </SongListMore>
+      {type !== "fake" ? (
+        <SongListMore>
+          <SongListHidden>
+            <LikeBtn
+              size={25}
+              name={song.title}
+              item={song}
+              onClick={() => toggleLikedSongs(song)}
+              isLiked={song.liked}
+            />
+          </SongListHidden>
+          <span className="song-length">03:45</span>
+          <SongListHidden>
+            <BsThreeDots />
+          </SongListHidden>
+        </SongListMore>
+      ) : (
+        <Button style={{ marginRight: "2rem" }} onClick={onAddClick}>
+          Add
+        </Button>
+      )}
     </SongListContainer>
   );
 };

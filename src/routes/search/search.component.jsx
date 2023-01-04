@@ -26,7 +26,6 @@ import {
 } from "./search.style";
 import Title from "../../components/title/title.component";
 import { ThemeContext } from "../../context/theme.context";
-import { shuffleArray } from "../../utils/utils";
 const Search = () => {
   const { setCurrentPage } = useContext(PageContext);
   const { genres } = useContext(GenreContext);
