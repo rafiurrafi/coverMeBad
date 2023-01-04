@@ -53,6 +53,7 @@ export const SongListContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0rem 0.5rem 1rem;
+  border-radius: 0.5rem;
 
   color: ${({ theme }) => (theme === "dark" ? "#fff" : "#444")};
   &:hover {

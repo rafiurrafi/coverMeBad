@@ -18,7 +18,7 @@ const CreatedPlaylistProvider = ({ children }) => {
       setCreatedPlaylists(updatedPlaylist);
     }
   }
-  const value = { createdPlaylists, addCreatedPlaylist };
+  const value = { createdPlaylists, addCreatedPlaylist, setCreatedPlaylists };
   return (
     <CreatedPlaylistContext.Provider value={value}>
       {children}

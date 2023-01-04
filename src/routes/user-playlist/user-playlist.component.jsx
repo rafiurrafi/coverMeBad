@@ -21,7 +21,9 @@ import Button from "../../components/button/button.component";
 const UserPlaylist = () => {
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
-  const { createdPlaylists } = useContext(CreatedPlaylistContext);
+  const { createdPlaylists, setCreatedPlaylists } = useContext(
+    CreatedPlaylistContext
+  );
   const [searchSong, setSearchSong] = useState("");
   const { songs: allSongs } = useContext(SongContext);
   const navigate = useNavigate();
@@ -42,7 +44,13 @@ const UserPlaylist = () => {
     title.toLowerCase().includes(searchSong.toLocaleLowerCase())
   );
   function handleAddSong(song) {
-    console.log(song);
+    const foundPlaylist = createdPlaylists.find((list) => list.id == item.id);
+    const updatedList = createdPlaylists.map((list) =>
+      list.id === foundPlaylist.id
+        ? { ...list, songs: [...list.songs, song] }
+        : list
+    );
+    setCreatedPlaylists(updatedList);
   }
   return (
     <Content full style={{}}>
@@ -73,39 +81,37 @@ const UserPlaylist = () => {
           </button>
         </PlaylistAction>
         <div className="playlist-table">
-          {songs.length ? (
+          {songs.length &&
             songs.map((song, idx) => (
               <>{song && <SongList key={song.id} song={song} idx={idx} />}</>
-            ))
-          ) : (
-            <>
-              <EmptyCollection theme={theme}>
-                <h3>Let's find something for your playlist</h3>
-                <input
-                  placeholder="Search for songs"
-                  value={searchSong}
-                  onChange={(e) => setSearchSong(e.target.value)}
-                />
-              </EmptyCollection>
-              <div>
-                {searchSong.length ? (
-                  <div>
-                    {filteredSongs.map((song, idx) => (
-                      <SongList
-                        key={song.id}
-                        song={song}
-                        idx={idx}
-                        type="fake"
-                        onAddClick={() => handleAddSong(song)}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <div></div>
-                )}
-              </div>
-            </>
-          )}
+            ))}
+          <>
+            <EmptyCollection theme={theme}>
+              <h3>Let's find something for your playlist</h3>
+              <input
+                placeholder="Search for songs"
+                value={searchSong}
+                onChange={(e) => setSearchSong(e.target.value)}
+              />
+            </EmptyCollection>
+            <div>
+              {searchSong.length ? (
+                <div>
+                  {filteredSongs.map((song, idx) => (
+                    <SongList
+                      key={song.id}
+                      song={song}
+                      idx={idx}
+                      type="fake"
+                      onAddClick={() => handleAddSong(song)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </>
         </div>
       </PlaylistBottom>
     </Content>
