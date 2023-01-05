@@ -8,10 +8,14 @@ import {
   CollectionPlaylistItem,
   CollectionPlaylistItems,
 } from "./collection-playlist.style";
+import { PageContext } from "../../context/page.context";
 
 const CollectionPlaylist = () => {
   const { createdPlaylists } = useContext(CreatedPlaylistContext);
-  console.log(createdPlaylists);
+  const { setCurrentPage } = useContext(PageContext);
+  useEffect(() => {
+    setCurrentPage("home");
+  }, []);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

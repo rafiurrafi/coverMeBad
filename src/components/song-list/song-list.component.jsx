@@ -63,7 +63,7 @@ const SongList = ({ song, idx = 0, type = "", onAddClick = () => {} }) => {
       <SongListImg>
         <img src={song.cover} alt="" />
       </SongListImg>
-      <SongListTitle>
+      <SongListTitle theme={theme}>
         <h4>{song.title}</h4>
         <p>
           {artistsFromSong.map((artist) => (

@@ -26,7 +26,46 @@ export const PlayerMiddle = styled.div`
 `;
 export const PlayerProgressbar = styled.div`
   display: flex;
+  align-items: center;
   p {
     min-width: 5rem;
+  }
+  .track {
+    flex: 0 0 70%;
+    background-color: green;
+    width: 100%;
+    height: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  input {
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 1rem;
+      width: 1rem;
+      background-color: red;
+      z-index: 1;
+      position: relative;
+    }
+  }
+  .animate-track {
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: ${({ percent }) => `translateX(${percent}%)`};
+    pointer-events: none;
   }
 `;

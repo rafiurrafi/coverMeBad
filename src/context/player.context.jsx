@@ -13,12 +13,19 @@ const PlayerProvider = ({ children }) => {
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
+    animationPercentage: 0,
   });
   const audioRef = useRef(null);
 
   function timeUpdate() {
     const { currentTime, duration } = audioRef.current;
-    setSongInfo({ currentTime, duration });
+    //calculate percentage
+    const roundedCurrent = Math.round(currentTime);
+    const roundedDuration = Math.round(duration);
+    const animationPercentage = Math.round(
+      (roundedCurrent / roundedDuration) * 100
+    );
+    setSongInfo({ currentTime, duration, animationPercentage });
   }
 
   useEffect(() => {

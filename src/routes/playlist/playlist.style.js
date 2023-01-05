@@ -45,6 +45,7 @@ export const PlaylistBottom = styled.div`
     theme === "dark"
       ? `linear-gradient(to bottom, ${color}, #000, #000)`
       : "#fff"};
+  padding-bottom: 10rem;
   .playlist-table {
     padding: 0 3rem;
     @media (max-width: 576px) {

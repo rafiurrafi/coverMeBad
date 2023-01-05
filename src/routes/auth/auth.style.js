@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { InputGroup } from "../../components/input/input.style";
+import { device } from "../../utils/utils";
 
 export const AuthContainer = styled.div`
   min-height: 100vh;
@@ -23,6 +24,13 @@ export const AuthContent = styled.div`
   width: 40vw;
   backdrop-filter: blur(10px);
   padding: 3rem 5rem;
+  @media ${device.tablet} {
+    width: 70vw;
+  }
+  @media ${device.mobile} {
+    width: 80vw;
+  }
+
   ${InputGroup} {
     margin-bottom: 2rem;
     input {

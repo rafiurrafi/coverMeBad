@@ -20,7 +20,7 @@ const Player = () => {
     songInfo,
     setSongInfo,
   } = useContext(PlayerContext);
-  const { currentTime, duration } = songInfo;
+  const { currentTime, duration, animationPercentage } = songInfo;
 
   function dragHandler(e) {
     audioRef.current.currentTime = e.target.value;
@@ -52,22 +52,18 @@ const Player = () => {
               <CgPlayTrackNext />
             </button>
           </div>
-          <PlayerProgressbar>
+          <PlayerProgressbar percent={animationPercentage}>
             <p>{getTime(currentTime) || 0}</p>
-            {/* <RangeInput
-              type="range"
-              onChange={dragHandler}
-              value={currentTime}
-              min={0}
-              max={duration || 0}
-            /> */}
-            <input
-              type="range"
-              onChange={dragHandler}
-              value={currentTime}
-              min={0}
-              max={duration || 0}
-            />
+            <div className="track">
+              <input
+                type="range"
+                onChange={dragHandler}
+                value={currentTime}
+                min={0}
+                max={duration || 0}
+              />
+              <div className="animate-track"></div>
+            </div>
             <p>{getTime(duration) || 0}</p>
           </PlayerProgressbar>
         </PlayerMiddle>

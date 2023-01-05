@@ -9,6 +9,7 @@ import Input from "../input/input.component";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Button from "../button/button.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -106,7 +107,9 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <button type="submit">Sign Up</button>
+        <Button type="ghost" color="">
+          Sign up
+        </Button>
       </form>
       <ToastContainer />
     </div>

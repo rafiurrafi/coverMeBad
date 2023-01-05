@@ -17,12 +17,17 @@ export const CollectionPlaylistItem = styled.div`
       rgb(142, 142, 229) 99.16%
     );
     height: 27rem;
-    // grid-column: span 2 / auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 2rem;
     border-radius: 1rem;
+    a {
+      color: white;
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
     h3 {
       font-size: 3rem;
     }

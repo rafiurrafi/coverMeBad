@@ -12,7 +12,7 @@ export const SongListTitle = styled.div`
     }
   }
   a {
-    color: white;
+    color: ${({ theme }) => (theme === "dark" ? "white" : "#000")};
     opacity: 0.8;
     &:hover {
       color: var(--color-primary);
