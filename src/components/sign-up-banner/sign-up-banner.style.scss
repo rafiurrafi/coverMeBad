@@ -1,0 +1,15 @@
+.sign-up-banner {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, #ae2896, #519bf5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 0 2rem;
+  h4 {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+}

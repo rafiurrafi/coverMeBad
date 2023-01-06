@@ -4,6 +4,12 @@ export const PlayerContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #181818;
+  border-top: 1px solid #f1f1f1;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, #ae2896, #519bf5);
+  color: white;
 `;
 export const PlayerLeft = styled.div`
   display: flex;
