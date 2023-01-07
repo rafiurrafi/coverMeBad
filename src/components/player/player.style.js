@@ -21,6 +21,7 @@ export const PlayerContainer = styled.div`
     button {
       background-color: transparent;
       color: white;
+      border: none;
     }
   }
 `;

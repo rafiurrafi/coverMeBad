@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Content from "../../components/content/content.component";
 import { CreatedPlaylistContext } from "../../context/created-playlist.context";
 import { HiMusicNote } from "react-icons/hi";
-import { BsFillPlayFill, BsThreeDots } from "react-icons/bs";
+import { BsFillPlayFill, BsSearch, BsThreeDots } from "react-icons/bs";
 import {
   PlaylistAction,
   PlaylistBottom,
@@ -18,6 +18,8 @@ import LikeBtn from "../../components/like-btn/like-btn.component";
 import { useState } from "react";
 import { SongContext } from "../../context/song.context";
 import Button from "../../components/button/button.component";
+import { HeaderSearch } from "../../components/header/header.style";
+
 const UserPlaylist = () => {
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
@@ -88,11 +90,19 @@ const UserPlaylist = () => {
           <>
             <EmptyCollection theme={theme}>
               <h3>Let's find something for your playlist</h3>
-              <input
-                placeholder="Search for songs"
-                value={searchSong}
-                onChange={(e) => setSearchSong(e.target.value)}
-              />
+              <div className="clear-fix">
+                <HeaderSearch theme={theme}>
+                  <input
+                    placeholder="Search your music"
+                    className="header-search"
+                    value={searchSong}
+                    onChange={(e) => setSearchSong(e.target.value)}
+                  />
+                  <span>
+                    <BsSearch />
+                  </span>
+                </HeaderSearch>
+              </div>
             </EmptyCollection>
             <div>
               {searchSong.length ? (

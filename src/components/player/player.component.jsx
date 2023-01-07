@@ -48,7 +48,7 @@ const Player = () => {
   }
   return (
     <>
-      {width > 991 ? (
+      {width > 900 ? (
         <PlayerContainer>
           <PlayerLeft>
             <img src={currentSong.cover} alt="" />
