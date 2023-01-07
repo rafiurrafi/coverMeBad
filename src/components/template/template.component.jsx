@@ -8,8 +8,10 @@ import { useContext } from "react";
 import MobileFooter from "../mobile-footer/mobile-footer.component";
 import MobileMenu from "../mobile-menu/mobile-menu.component";
 import { PlayerContext } from "../../context/player.context";
+import { UserContext } from "../../context/user.context";
 const Template = () => {
   const { currentSong } = useContext(PlayerContext);
+  const { currentUser } = useContext(UserContext);
   return (
     <div>
       <Header />
@@ -18,6 +20,8 @@ const Template = () => {
       <HomeFooter>
         {currentSong ? (
           <Player />
+        ) : currentUser ? (
+          <SignUpbanner title="Get more exciting feature" btnText="Premius" />
         ) : (
           <SignUpbanner title="No credit cart needed" btnText="Sign up" />
         )}

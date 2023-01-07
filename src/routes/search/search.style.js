@@ -86,6 +86,6 @@ export const BlankResult = styled.div`
 `;
 export const SearchResultBoxs = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1rem));
   grid-gap: 2rem;
 `;
